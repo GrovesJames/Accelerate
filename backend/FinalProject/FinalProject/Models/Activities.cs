@@ -12,6 +12,7 @@ namespace FinalProject.Models
         public string Description { get; set; }
         public int Duration { get; set; }
         public int Score { get; set; }
+        
 
         public virtual int ScheduleId { get; set; }
         public virtual Schedule Schedule { get; set; }
