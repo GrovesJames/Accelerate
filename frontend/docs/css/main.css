@@ -65,3 +65,12 @@ html, body {
     margin: 20px auto;
   }
   /* End of calendar stuff */
+
+  /* custom calendar stuff */
+  td{
+    background-color: white;
+    border: 0.1rem;
+    border-style: solid;
+    width: 3rem;
+    height: 3rem;
+  }

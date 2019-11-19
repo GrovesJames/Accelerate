@@ -1,4 +1,8 @@
 export default function Schedule() {
+    var nextButton = document.getElementById("calendar-next");
+    
+    var prevButton = document.getElementById("calendar-prev");
+
     var today = new Date();
     var currentMonth = today.getMonth();
     var currentYear = today.getFullYear();
