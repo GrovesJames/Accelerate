@@ -1,48 +1,52 @@
+
+
 export default function Schedule() {
-    var nextButton = document.getElementById("calendar-next");
+    
+    let nextButton = document.getElementById("calendar-next");
+    let prevButton = document.getElementById("calendar-prev");
+    let today = new Date();
+    let currentMonth = today.getMonth();
+    let currentYear = today.getFullYear();
+    let selectYear = document.getElementById("year");
+    let selectMonth = document.getElementById("month");
+    let months = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+        ];
+
     nextButton.addEventListener("click", function(){
         next();
     });
 
-    var prevButton = document.getElementById("calendar-prev");
     prevButton.addEventListener("click", function(){
         previous()
     });
-    
-    var today = new Date();
-    var currentMonth = today.getMonth();
-    var currentYear = today.getFullYear();
-    var selectYear = document.getElementById("year");
-    var selectMonth = document.getElementById("month");
-    var months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
-    ];
-    var monthAndYear = document.getElementById("monthAndYear");
+
+    let monthAndYear = document.getElementById("monthAndYear");
     showCalendar(currentMonth, currentYear);
     function next() {
-    var currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
-    var currentMonth = (currentMonth + 1) % 12;
+    currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+    currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
     }
     function previous() {
-    var currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-    var currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+    currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+    currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
     showCalendar(currentMonth, currentYear);
     }
     function jump() {
-    var currentYear = parseInt(selectYear.value);
-    var currentMonth = parseInt(selectMonth.value);
+    currentYear = parseInt(selectYear.value);
+    currentMonth = parseInt(selectMonth.value);
     showCalendar(currentMonth, currentYear);
     }
     function showCalendar(month, year) {
