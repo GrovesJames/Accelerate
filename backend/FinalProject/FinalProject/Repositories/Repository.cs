@@ -42,7 +42,6 @@ namespace FinalProject.Repositories
         {
             return db.Set<T>().ToList();
         }
-
         public void Update(T entity)
         {
             db.Set<T>().Update(entity);
