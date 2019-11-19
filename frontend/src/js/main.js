@@ -16,6 +16,7 @@ import '@fullcalendar/resource-timegrid';
 import '@fullcalendar/resource-timeline';
 import '@fullcalendar/bootstrap';
 import '@fullcalendar/google-calendar';
+import Schedule from "./Components/Schedule"
 
 
 export default () => {
@@ -23,8 +24,8 @@ export default () => {
 }
 
 function pageBuild(){
-    calendar()
-    draggable()
+  Schedule.calendar();
+  Schedule.draggable();
 }
 
 function calendar(){
