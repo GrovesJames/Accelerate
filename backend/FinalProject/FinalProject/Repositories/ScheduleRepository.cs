@@ -16,5 +16,9 @@ namespace FinalProject.Repositories
         {
             this.db = context;
         }
+        public override Schedule GetById(int id)
+        {
+            return db.Set<Schedule>().Where(i => i.ScheduleId == id).Include("Activities").FirstOrDefault();
+        }
     }
 }

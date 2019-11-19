@@ -16,11 +16,6 @@ namespace FinalProject.Repositories
             this.db = db;
         }
 
-        //public int Count()
-        //{
-        //    return db.Set<T>().Count();
-        //}
-
         public void Create(T entity)
         {
             db.Set<T>().Add(entity);
