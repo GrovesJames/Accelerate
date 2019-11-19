@@ -26,7 +26,7 @@ namespace FinalProject.Data
                     new Activities(1, "3-5", "Description", "10", 100, 1),
                     new Activities(2, "3-5", "secondDescription", "33", 800, 1)
                 );
-            modelBuilder.Entity<Activities>().HasData(
+            modelBuilder.Entity<Schedule>().HasData(
                   new Schedule(1)
                 );
 

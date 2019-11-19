@@ -7,13 +7,13 @@ namespace FinalProject.Models
 {
     public class Schedule
     {
-        public int Id { get; set; }
+        public int ScheduleId { get; set; }
 
         public virtual ICollection<Activities> Activities { get; set; }
 
         public Schedule(int id)
         {
-            Id = id;
+            ScheduleId = id;
         }
         public Schedule()
         {
