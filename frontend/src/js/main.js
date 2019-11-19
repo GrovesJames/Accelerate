@@ -16,6 +16,10 @@ import '@fullcalendar/resource-timegrid';
 import '@fullcalendar/resource-timeline';
 import '@fullcalendar/bootstrap';
 import '@fullcalendar/google-calendar';
+import Home from './Components/Home'
+import Schedule from './Components/Schedule'
+
+const app = document.getElementById('app');
 
 
 export default () => {
@@ -23,65 +27,81 @@ export default () => {
 }
 
 function pageBuild(){
-    calendar()
-    draggable()
+    home()
+    scheduleNAV()
+    // calendar()
+    // draggable()
 }
 
+function home(){
+    app.innerHTML = Home();
+}
+function schedule(){
+    app.innerHTML = Schedule();
+}
+function scheduleNAV() {
+    const navSchedule = document.querySelector('#calendarbtn');
+    navSchedule.addEventListener('click', function() {
+        schedule()
+        calendar()
+        // draggable()
+    });
+  }
+  
+
+// Calendar functions
 function calendar(){
     document.addEventListener('DOMContentLoaded', function() {
-        let draggableEl = document.getElementById('mydraggable');
         var calendarEl = document.getElementById('calendar');
-      
-        let calendar = new Calendar(calendarEl, {
-            plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
-            droppable: true
-          });      
-        calendar.render();
-        new Draggable(draggableEl);
-      });
-}
-function draggable(){
-    document.addEventListener('DOMContentLoaded', function() {
-        var Calendar = FullCalendar.Calendar;
-        var Draggable = FullCalendarInteraction.Draggable;
-      
-        var containerEl = document.getElementById('external-events');
-        var calendarEl = document.getElementById('calendar');
-        var checkbox = document.getElementById('drop-remove');
-      
-        // initialize the external events
-        // -----------------------------------------------------------------
-      
-        new Draggable(containerEl, {
-          itemSelector: '.fc-event',
-          eventData: function(eventEl) {
-            return {
-              title: eventEl.innerText
-            };
-          }
-        });
-      
-        // initialize the calendar
-        // -----------------------------------------------------------------
       
         var calendar = new Calendar(calendarEl, {
-          plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
-          header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay'
-          },
-          editable: true,
-          droppable: true, // this allows things to be dropped onto the calendar
-          drop: function(info) {
-            // is the "remove after drop" checkbox checked?
-            if (checkbox.checked) {
-              // if so, remove the element from the "Draggable Events" list
-              info.draggedEl.parentNode.removeChild(info.draggedEl);
-            }
-          }
+          plugins: [ dayGridPlugin ]
         });
       
         calendar.render();
       });
-}
+    }
+// function draggable(){
+//     document.addEventListener('DOMContentLoaded', function() {
+//         var Calendar = FullCalendar.Calendar;
+//         var Draggable = FullCalendarInteraction.Draggable;
+      
+//         var containerEl = document.getElementById('external-events');
+//         var calendarEl = document.getElementById('calendar');
+//         var checkbox = document.getElementById('drop-remove');
+      
+//         // initialize the external events
+//         // -----------------------------------------------------------------
+      
+//         new Draggable(containerEl, {
+//           itemSelector: '.fc-event',
+//           eventData: function(eventEl) {
+//             return {
+//               title: eventEl.innerText
+//             };
+//           }
+//         });
+      
+//         // initialize the calendar
+//         // -----------------------------------------------------------------
+      
+//         var calendar = new Calendar(calendarEl, {
+//           plugins: [ 'interaction', 'dayGrid', 'timeGrid' ],
+//           header: {
+//             left: 'prev,next today',
+//             center: 'title',
+//             right: 'dayGridMonth,timeGridWeek,timeGridDay'
+//           },
+//           editable: true,
+//           droppable: true, // this allows things to be dropped onto the calendar
+//           drop: function(info) {
+//             // is the "remove after drop" checkbox checked?
+//             if (checkbox.checked) {
+//               // if so, remove the element from the "Draggable Events" list
+//               info.draggedEl.parentNode.removeChild(info.draggedEl);
+//             }
+//           }
+//         });
+      
+//         calendar.render();
+//       });
