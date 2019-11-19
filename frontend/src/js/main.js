@@ -1,6 +1,8 @@
 import apiActions from './apiActions/apiActions'
 import Home from './Components/Home'
 import Schedule from './Components/Schedule'
+import Header from './Components/Header'
+import Nav from './Components/Nav'
 
 const app = document.getElementById('app');
 
@@ -10,10 +12,18 @@ export default () => {
 }
 
 function pageBuild(){
-    home()
-    scheduleNAV()
+    nav()
+    header()
+    // home()
+    // scheduleNAV()
 }
-
+function nav(){
+    const nav = document.getElementById('nav')
+    nav.innerHTML = Nav();
+}
+function header(){
+    app.innerHTML = Header();
+}
 function home(){
     app.innerHTML = Home();
 }
