@@ -11,6 +11,10 @@ namespace FinalProject.Models
 
         public virtual ICollection<Activities> Activities { get; set; }
 
+        public Schedule(int id)
+        {
+            Id = id;
+        }
         public Schedule()
         {
 

@@ -16,15 +16,15 @@ namespace FinalProject.Models
         public virtual int ScheduleId { get; set; }
         public virtual Schedule Schedule { get; set; }
 
-        //public Activities(int id, string ageRange, string description, string duration, int score, int scheduleId)
-        //{
-        //    Id = id;
-        //    AgeRange = ageRange;
-        //    Description = description;
-        //    Duration = duration;
-        //    Score = score;
-        //    ScheduleId = scheduleId;
-        //}
+        public Activities(int id, string ageRange, string description, string duration, int score, int scheduleId)
+        {
+            Id = id;
+            AgeRange = ageRange;
+            Description = description;
+            Duration = duration;
+            Score = score;
+            ScheduleId = scheduleId;
+        }
         public Activities()
         {
 
