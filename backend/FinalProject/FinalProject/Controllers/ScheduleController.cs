@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.Controllers
 {
+
     [Route("api/schedules")]
+
     [ApiController]
     public class ScheduleController : ControllerBase
     {
