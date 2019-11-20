@@ -5,8 +5,7 @@ export default function Activities(activities){
     ${activities
     .map(activity => {
         return `        
-            <li class="activitiesgrid" >
-            <h3>${activity.title}</h3>
+            <li class="activitiesgrid" >            
             <h4>Age Range: ${activity.ageRange}</h4>
             <h4>Description: ${activity.description}</h4>
             <h4>Duration: ${activity.duration}</h4>
@@ -25,7 +24,6 @@ export default function Activities(activities){
     <section class="add_activity">              
         <h3>Add A New Activity!</h3>  
         <input class="schedule_id" type='hidden' value="1">           
-        <input class="add_activity_title" type="text" placeholder="Title">
         <input class="add_activity_ageRange" type="text" placeholder="Age Range">
         <input class="add_activity_description" type="text" placeholder="Description">
         <input class="add_activity_duration" type="text" placeholder="Duration">

@@ -137,16 +137,7 @@ app.addEventListener('click', function() {
         })
     }
 })
-
-
 }
-
-  
-  
-
-  }
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
-
-

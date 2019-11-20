@@ -7,15 +7,15 @@ namespace FinalProject.Models
 {
     public class Milestones
     {
-        public int MilestoneId { get; set; }
+        public int Id { get; set; }
         public string Milestone { get; set; }
         public string AgeId { get; set; }
         public string SkillAssoc { get; set; }
         
 
-        public Milestones(int milestoneId, string milestone, string ageId, string skillAssoc)
+        public Milestones(int id, string milestone, string ageId, string skillAssoc)
         {
-            MilestoneId = milestoneId;
+            Id = id;
             Milestone = milestone;
             AgeId = ageId;
             SkillAssoc = skillAssoc;
