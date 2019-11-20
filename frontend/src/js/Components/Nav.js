@@ -10,6 +10,7 @@ export default function Nav() {
             <li><a id="homenav"><strong>Home</strong></a></li>
             <li><a id="calendarnav"><strong>Calendar</strong></a></li>
             <li><a id="skillsnav"><strong>Skills</strong></a></li>
+            <li><a id="activitiesnav"><strong>Activities</strong></a></li>
             </ul>
         </div>
       </div> 
