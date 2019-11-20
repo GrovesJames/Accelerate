@@ -175,7 +175,7 @@ body {
 #header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 125px;
 }
@@ -233,7 +233,10 @@ body {
     background-color: white;
     border: 0.1rem;
     border-style: solid;
-    width: 3rem;
-    height: 3rem;
+    width: 6rem;
+    height: 6rem;
+  }
+  #calendar-body{
+      color: black;
   }
 /* End Calendar stuff */

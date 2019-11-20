@@ -21,8 +21,6 @@ export default function Home() {
         <div id="community">
             <h3>Community events..</h3>
         </div>
-
-        <button id="calendarbtn">Calendar</button>
     </div>
 
 `

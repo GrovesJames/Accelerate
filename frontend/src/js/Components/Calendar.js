@@ -5,8 +5,8 @@ export default function Activities() {
         <div id="monthAndYear"></div>
         <div id="calendar-body">Body</div>
         <div>
-            <button id="calendar-next">Next</button>
-            <button id="calendar-prev">Previous</button>
+        <button id="calendar-prev">Previous</button>
+        <button id="calendar-next">Next</button>
         </div>
     `
 }
