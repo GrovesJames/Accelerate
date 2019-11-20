@@ -8,10 +8,21 @@ import Day from './Components/Day'
 
 
 const app = document.getElementById('app');
-const calendardiv = document.getElementById('calendar');
 
 export default () => {
     pageBuild()
+}
+
+const testSchedule = {
+    activities: [{
+        title: "Test Activity",
+        month: 1,
+        day: 3
+    },
+    { title: "Test Activity 2",
+    month: 1,
+    day: 5
+    }]
 }
 
 function pageBuild(){
@@ -36,7 +47,7 @@ function home(){
 }
 function calendar(){
     app.innerHTML = Calendar();
-    Schedule();
+    Schedule(testSchedule);
 }
 function day(){
     app.innerHTML = Day();
