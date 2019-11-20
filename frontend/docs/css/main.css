@@ -156,6 +156,15 @@ body {
 .menu-wrap .menu > div > div > ul > li > a {
   cursor: pointer;
 }
+#home:hover{
+    color: blue;
+}
+#calendar:hover{
+    color:green;
+}
+#skills:hover{
+    color: purple;
+}
 /* end nav */
 /* Header */
 #header span {
@@ -166,23 +175,26 @@ body {
 #header {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 125px;
 }
+#header h1{
+    font-size: 50px;
+}
 #header img {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   margin-top: auto;
   margin-bottom: auto;
 }
 /* End of Header */
 /* Home Page */
 #app {
-  margin-top: 40%;
+  margin-top: 30%;
 }
 #MissionStatement {
-  font-size: 40px;
+  font-size: 35px;
   margin-top: 0px;
   margin-bottom: 50%;
 }

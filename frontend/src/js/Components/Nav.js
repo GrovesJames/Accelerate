@@ -8,8 +8,8 @@ export default function Nav() {
         <div>
           <ul>
             <li><a id="home"><strong>Home</strong></a></li>
-            <li><a id="champions"><strong>Calendar</strong></a></li>
-            <li><a id="position"><strong>Skills</strong></a></li>
+            <li><a id="calendar"><strong>Calendar</strong></a></li>
+            <li><a id="skills"><strong>Skills</strong></a></li>
             </ul>
         </div>
       </div> 

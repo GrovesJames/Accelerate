@@ -3,7 +3,7 @@ export default function Home() {
     <div id="home">
 
         <div id="MissionStatement">
-        <h3>Provide professionally developed tools and resources in an easily accessible web environment, assisting families facing early childhood developmental challenges</h3>
+        <h3>"Provide professionally developed tools and resources in an easily accessible web environment, assisting families facing early childhood developmental challenges"</h3>
         </div>
 
         
