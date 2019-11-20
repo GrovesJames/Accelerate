@@ -39,12 +39,25 @@ export default function Schedule(schedule) {
             let activityMonth = activity.month;
             let activityDay = activity.day;
             if(activityMonth == currentMonth){
-                let daySlot = document.getElementById("day-" + activityDay);
+                let dayCell = document.getElementById("day-" + activityDay);
                 let calendarActivity = document.createElement("div");
                 calendarActivity.innerHTML = CalendarActivity(activity);
-                daySlot.appendChild(calendarActivity);
+                dayCell.appendChild(calendarActivity);
             }
         })
+    }
+
+    const dayCells = document.getElementsByClassName("indday");
+    for (var i = 0; i < dayCells.length; i++) {
+        dayCells[i].addEventListener('click', function(){
+            let dayNum = dayCell.innerText;
+            let dayActivities = [];
+            schedule.activities.map( activity => function(){
+                let activityDay = activity.day;
+                if(dayNum == activityDay) dayActivities.push(activity);
+            })
+            return COMPONENTNAME(dayActivities);
+        });
     }
 
     let monthAndYear = document.getElementById("monthAndYear");
