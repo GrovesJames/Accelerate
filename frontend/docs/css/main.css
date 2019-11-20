@@ -153,6 +153,9 @@ body {
   text-decoration: none;
   transition: color 0.4s ease;
 }
+.menu-wrap .menu > div > div > ul > li > a {
+  cursor: pointer;
+}
 /* end nav */
 
 /* Header */
