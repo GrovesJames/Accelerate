@@ -5,6 +5,7 @@
   --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   --prim: rgba(0, 141, 186, 0.75);
   --overlay: rgba(27, 46, 61, 0.835);
+  --menu-speed: 0.01s;
 }
 html,
 body {
@@ -125,7 +126,8 @@ body {
   width: 200vw;
   height: 200vw;
   transform: scale(0);
-  transition: all 0.4s ease;
+  transition: opacity 0.4s ease;
+  /* transition: all 0.4s ease; */
 }
 .menu-wrap .menu > div > div {
   text-align: center;
@@ -176,8 +178,8 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   position: absolute;
-  top: 20px;
-  left: 125px;
+  top: 10px;
+  left: 75px;
 }
 #header h1{
     font-size: 50px;
@@ -191,12 +193,11 @@ body {
 /* End of Header */
 /* Home Page */
 #app {
-  margin-top: 30%;
+  margin-top: 25%;
 }
 #MissionStatement {
   font-size: 35px;
-  margin-top: 0px;
-  margin-bottom: 50%;
+  margin-top: 0px;;
 }
 #home h3 {
   text-align: center;
@@ -204,8 +205,34 @@ body {
 #home h3 {
   margin: 0 auto 5% auto;
 }
+/* Button Grid */
+#btngrid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+#btn1, #btn2{
+    border: 2px solid white;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+}
+#btngrid h6{
+    margin: 15% auto;
+}
+#btn1:hover, #btn2:hover{
+    cursor: pointer;
+    transform: scale(1.25);
+}
+#btn1{
+    margin-left: 75%;
+}
+#btn2{
+    margin-left: 5%;
+}
+/* End Button Gird */
 /* Skills grid */
-#grid {
+/* #grid {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(3, 1fr);
@@ -225,7 +252,7 @@ body {
 }
 #skill3 {
   border: 2px solid purple;
-}
+} */
 /* End of Skills grid */
 /* End of Home Page */
   /* custom calendar stuff */
@@ -238,5 +265,13 @@ body {
   }
   #calendar-body{
       color: black;
+  }
+  .indday:hover{
+      color: blue;
+      transform: scale(1.25);
+  }
+  #calwrap{
+    margin-left: 8%;
+
   }
 /* End Calendar stuff */

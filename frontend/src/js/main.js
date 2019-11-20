@@ -18,7 +18,7 @@ function pageBuild(){
     header()
     home()
     scheduleNAV()
-    // calendar()
+    homeNAV()
 }
 
 function nav(){
@@ -36,11 +36,21 @@ function calendar(){
     app.innerHTML = Calendar();
     Schedule();
 }
+function homeNAV() {
+    const navHome = document.querySelector('#homenav');
+    navHome.addEventListener('click', function() {
+        home()
+        closeNAV()
+    });
+  }
 function scheduleNAV() {
     const navSchedule = document.querySelector('#calendarnav');
     navSchedule.addEventListener('click', function() {
         calendar()
+        closeNAV()
     });
   }
-  
+function closeNAV(){
+    document.getElementById('closeNAV').checked = false;
+}
 
