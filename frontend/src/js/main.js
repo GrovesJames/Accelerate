@@ -90,9 +90,7 @@ function displayActivities() {
     const app = document.querySelector('#app');
     app.addEventListener('click', function() {
         if(event.target.classList.contains('add_activity_submit')) {
-            const addActivity = event.target.parentElement.querySelector(
-                ".add_activity_title",
-            ).value;
+           
             const activityAgeRange = event.target.parentElement.querySelector(
                 ".add_activity_ageRange",
             ).value;
@@ -108,7 +106,7 @@ function displayActivities() {
             const scheduleId = event.target.parentElement.querySelector(".schedule_id") 
             .value; 
             const activity = {
-                title: addActivity,
+                
           ageRange: activityAgeRange,
           description: activityDescription,
           duration: activityDuration,
