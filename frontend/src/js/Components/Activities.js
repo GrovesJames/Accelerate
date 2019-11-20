@@ -1,10 +1,10 @@
 export default function Activities(activities){
     return `
-    <section id="activitieswrapper'>
+    <section id="activitieswrapper">
+    <ul>
     ${activities
     .map(activity => {
-        return `
-        <ul>
+        return `        
             <li class="activitiesgrid" >
             <h3>${activity.title}</h3>
             <h4>Age Range: ${activity.ageRange}</h4>
@@ -15,15 +15,16 @@ export default function Activities(activities){
             <button class="edit_activity_submit">Edit</button>
             <button class="delete_activity_submit">Delete</button>
             </li>
-            </ul>
+            
         `;    
     })
     .join("")}
-    </section>
-    
+    </ul>
+    </section>   
 
-    <section class="add_activity">
-        <h3>Add A New Activity!</h3>        
+    <section class="add_activity">              
+        <h3>Add A New Activity!</h3>  
+        <input class="schedule_id" type='hidden' value="1">           
         <input class="add_activity_title" type="text" placeholder="Title">
         <input class="add_activity_ageRange" type="text" placeholder="Age Range">
         <input class="add_activity_description" type="text" placeholder="Description">
