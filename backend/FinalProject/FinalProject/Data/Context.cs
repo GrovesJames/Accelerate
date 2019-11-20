@@ -527,7 +527,431 @@ namespace FinalProject.Data
                         AgeId = "5",
                         SkillAssoc = "Fine/Gross Motor Skills"
 
+                    },
+
+                    //Speech Milestones Age 6
+                    new Milestones()
+                    {
+                        Id = 52,
+                        Milestone = "Start to see that some words have more than one meaning",
+                        AgeId = "6",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 53,
+                        Milestone = "Speak in simple but complete sentences with five to seven words",
+                        AgeId = "6",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 54,
+                        Milestone = "Follow a series of three commands in a row",
+                        AgeId = "6",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 55,
+                        Milestone = "Speak with correct grammar most of the time",
+                        AgeId = "6",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 56,
+                        Milestone = "Can spell their first name and can write some letters and numbers",
+                        AgeId = "6",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 57,
+                        Milestone = "Read simple words",
+                        AgeId = "6",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    //Speech Milestones Age 7
+                    new Milestones()
+                    {
+                        Id = 58,
+                        Milestone = "Tend to talk a lot in situations where they are comfortable",
+                        AgeId = "7",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 59,
+                        Milestone = "Pronounce words correctly",
+                        AgeId = "7",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 60,
+                        Milestone = "Are becoming better readers",
+                        AgeId = "7",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 61,
+                        Milestone = "Still having some difficulty with basic spelling",
+                        AgeId = "7",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    //Speech Milestones Age 8
+                    new Milestones()
+                    {
+                        Id = 62,
+                        Milestone = "Have well-developed speech patterns and correct grammar most of the time",
+                        AgeId = "8",
+                        SkillAssoc = "Speech"
+
+                    },
+                    
+                    new Milestones()
+                    {
+                        Id = 63,
+                        Milestone = "Become intrested in reading books aloud",
+                        AgeId = "8",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 64,
+                        Milestone = "Are still working on spelling and grammar in their written work",
+                        AgeId = "8",
+                        SkillAssoc = "Speech"
+
+                    },
+
+                    //Cognitive Milestones 6 years
+
+
+                    new Milestones()
+                    {
+                        Id = 65,
+                        Milestone = "Start to show fast growth in mental ability",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+                    
+                    new Milestones()
+                    {
+                        Id = 66,
+                        Milestone = "Can tell you their age",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 67,
+                        Milestone = "Are learning to express themselves through words",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 68,
+                        Milestone = "Can tell you their age",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 69,
+                        Milestone = "Are learning to express themselves through words",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 70,
+                        Milestone = "Focus on a task in school for 15 minutes or more",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 71,
+                        Milestone = "Starting to grasp the concept of time",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 72,
+                        Milestone = "Be able to repeat three numbers backwards",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 73,
+                        Milestone = "Begin to read books that are right for his or her age",
+                        AgeId = "6",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    //Cognitive Milestones 7 Years
+
+                    new Milestones()
+                    {
+                        Id = 74,
+                        Milestone = "Have a solid sense of time.",
+                        AgeId = "7",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 75,
+                        Milestone = "Begin to show preference for a learning style",
+                        AgeId = "7",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 76,
+                        Milestone = "Can solve simple math problems using objects",
+                        AgeId = "7",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 77,
+                        Milestone = "Consider issues and problems using only one factor at a time",
+                        AgeId = "7",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    //Cognitive Milestones 8 Years
+
+                    new Milestones()
+                    {
+                        Id = 78,
+                        Milestone = "Can tell you their age",
+                        AgeId = "8",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 79,
+                        Milestone = "Know how to count by 2's and 5's",
+                        AgeId = "8",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 80,
+                        Milestone = "Know what day of the week it is",
+                        AgeId = "8",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 81,
+                        Milestone = "Can read simple sentences",
+                        AgeId = "8",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 82,
+                        Milestone = "COmplete simple addition and subtraction problems",
+                        AgeId = "8",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 83,
+                        Milestone = "Can tell the difference between right and left",
+                        AgeId = "8",
+                        SkillAssoc = "Cognitive Functionality"
+
+                    },
+
+                    //Fine and Gross Motorskills Age 6
+
+                    new Milestones()
+                    {
+                        Id = 84,
+                        Milestone = "Can read simple sentences",
+                        AgeId = "6",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 85,
+                        Milestone = "Can catch a ball",
+                        AgeId = "6",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 86,
+                        Milestone = "Skip with ease",
+                        AgeId = "6",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 87,
+                        Milestone = "Dress themselves",
+                        AgeId = "6",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 88,
+                        Milestone = "Major muscle activities: Running, Jumping, Skipping, and other forms of physical play",
+                        AgeId = "6",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    //Fine and Gross Motor Skills Age 7
+
+                    new Milestones()
+                    {
+                        Id = 89,
+                        Milestone = "Increased coordination in activities such as swimming and climbing",
+                        AgeId = "7",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 90,
+                        Milestone = "",
+                        AgeId = "7",
+                        SkillAssoc = "Draw a person with 12 parts"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 91,
+                        Milestone = "Use a pencil to write their name",
+                        AgeId = "7",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 92,
+                        Milestone = "Use safety scissors easily",
+                        AgeId = "7",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    //Fine and Gross Motor Skills Milestones Age 8
+
+                    new Milestones()
+                    {
+                        Id = 93,
+                        Milestone = "Tie their shoelaces",
+                        AgeId = "8",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 94,
+                        Milestone = "Draw a diamond shape",
+                        AgeId = "8",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 95,
+                        Milestone = "Draw a person with 16 features",
+                        AgeId = "8",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
+                    },
+
+                    new Milestones()
+                    {
+                        Id = 96,
+                        Milestone = "Become increasingly skilled in hobbies, sports and active play",
+                        AgeId = "8",
+                        SkillAssoc = "Fine/Gross Motor Skills"
+
                     }
+
+
+
 
                 );
 
