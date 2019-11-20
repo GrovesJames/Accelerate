@@ -10,5 +10,6 @@ export default function Activities() {
                 <button id="calendar-next">Next</button>
             </div>
         </div>
+        <button id="calendar-day">Day</button>
     `
 }
