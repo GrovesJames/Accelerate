@@ -1,7 +1,7 @@
 export default function Nav() {
     return `
     <div class="menu-wrap">
-    <input type="checkbox" class="toggler">
+    <input type="checkbox" id="closeNAV" class="toggler">
     <div class="hamburger"><div></div></div>
     <div class="menu">
       <div>

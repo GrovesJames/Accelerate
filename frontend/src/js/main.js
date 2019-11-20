@@ -6,6 +6,8 @@ import Header from './Components/Header'
 import Nav from './Components/Nav'
 import Activities from './Components/Activities'
 import Schedules from './Components/Schedules'
+import Day from './Components/Day'
+
 
 
 const app = document.getElementById('app');
@@ -20,8 +22,9 @@ function pageBuild(){
     header()
     home()
     scheduleNAV()
-    // calendar()
     displayActivities()
+    homeNAV()
+    dayNAV()
 }
 
 function nav(){
@@ -39,10 +42,29 @@ function calendar(){
     app.innerHTML = Calendar();
     Schedule();
 }
+function day(){
+    app.innerHTML = Day();
+}
+
+// Navigation functions
+function dayNAV() {
+    const navDay = document.querySelector('#calendar-day');
+    navDay.addEventListener('click', function() {
+        day()
+    });
+  }
+function homeNAV() {
+    const navHome = document.querySelector('#homenav');
+    navHome.addEventListener('click', function() {
+        home()
+        closeNAV()
+    });
+  }
 function scheduleNAV() {
     const navSchedule = document.querySelector('#calendarnav');
     navSchedule.addEventListener('click', function() {
         calendar()
+        closeNAV()
     });
 }
 function displayActivities() {
@@ -110,4 +132,10 @@ app.addEventListener('click', function() {
 
   
   
+
+  }
+function closeNAV(){
+    document.getElementById('closeNAV').checked = false;
+}
+
 
