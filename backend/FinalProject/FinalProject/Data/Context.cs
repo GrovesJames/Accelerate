@@ -24,6 +24,7 @@ namespace FinalProject.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Activities>().HasData(
+
                 //3 y/o Activities
                 new Activities(1, "3", "Play Groups", "60", 150, 1),
                 new Activities(2, "3", "Read to Your Child", "20", 100, 1),
@@ -47,6 +48,7 @@ namespace FinalProject.Data
                 new Activities(18, "5", "Ride A Bicycle", "20", 100, 1),
                 new Activities(19, "5", "Visit the Library", "60", 100, 1),
                 new Activities(19, "5", "Educate: Days of the Week", "5", 100, 1)
+
                 );
             modelBuilder.Entity<Schedule>().HasData(
                   new Schedule(1)
