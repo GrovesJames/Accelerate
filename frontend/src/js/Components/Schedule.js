@@ -1,4 +1,4 @@
-
+import CalendarActivity from "./CalendarActivity";
 
 export default function Schedule() {
     
@@ -31,6 +31,19 @@ export default function Schedule() {
     prevButton.addEventListener("click", function(){
         previous()
     });
+
+    function showSchedule(schedule){
+        schedule.activities.map( activity => {
+            let activityMonth;
+            let activityDay;
+            if(activityMonth == currentMonth){
+                let daySlot = document.getElementById("day-" + activityDay);
+                let calendarActivity = document.createElement("div");
+                calendarActivity.innerHTML = CalendarActivity(activity);
+                daySlot.appendChild(calendarActivity);
+            }
+        }).join("");
+    }
 
     let monthAndYear = document.getElementById("monthAndYear");
     showCalendar(currentMonth, currentYear);
@@ -82,7 +95,7 @@ export default function Schedule() {
             ) {
             cell.classList.add("bg-info");
             } // color today's date
-            cell.id = date;
+            cell.id = "day-" + date;
             cell.appendChild(cellText);
             row.appendChild(cell);
             date++;
