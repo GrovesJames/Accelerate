@@ -167,6 +167,9 @@ body {
 #skillsnav:hover{
     color: purple;
 }
+#activitiesnav:hover{
+  color: magenta;
+}
 /* end nav */
 /* Header */
 #header span {
@@ -275,3 +278,17 @@ body {
 
   }
 /* End Calendar stuff */
+
+#activitieswrapper ul{
+  display: grid;
+  grid-gap: 20px;  
+  padding: 0.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  list-style:none;
+  align-items:center;
+}
+
+#activitieswrapper li{
+  border: 2px solid white;
+  padding: 0.5rem;
+}
