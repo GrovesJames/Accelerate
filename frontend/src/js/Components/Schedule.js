@@ -1,6 +1,6 @@
 import CalendarActivity from "./CalendarActivity";
 
-export default function Schedule() {
+export default function Schedule(schedule) {
     
     let nextButton = document.getElementById("calendar-next");
     let prevButton = document.getElementById("calendar-prev");
@@ -26,27 +26,30 @@ export default function Schedule() {
 
     nextButton.addEventListener("click", function(){
         next();
+        showSchedule(schedule);
     });
 
     prevButton.addEventListener("click", function(){
-        previous()
+        previous();
+        showSchedule(schedule);
     });
 
     function showSchedule(schedule){
         schedule.activities.map( activity => {
-            let activityMonth;
-            let activityDay;
+            let activityMonth = activity.month;
+            let activityDay = activity.day;
             if(activityMonth == currentMonth){
                 let daySlot = document.getElementById("day-" + activityDay);
                 let calendarActivity = document.createElement("div");
                 calendarActivity.innerHTML = CalendarActivity(activity);
                 daySlot.appendChild(calendarActivity);
             }
-        }).join("");
+        })
     }
 
     let monthAndYear = document.getElementById("monthAndYear");
     showCalendar(currentMonth, currentYear);
+    showSchedule(schedule);
     function next() {
     currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
