@@ -82,6 +82,7 @@ export default function Schedule() {
             ) {
             cell.classList.add("bg-info");
             } // color today's date
+            cell.id = date;
             cell.appendChild(cellText);
             row.appendChild(cell);
             date++;
