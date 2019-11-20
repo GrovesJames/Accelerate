@@ -1,13 +1,11 @@
 export default function Home() {
     return `
     <div id="home">
-        <h1>Accelerate</h1>
 
-        <div id="homepic">
-            <img src=""></img>
+        <div id="MissionStatement">
+        <h3>Provide professionally developed tools and resources in an easily accessible web environment, assisting families facing early childhood developmental challenges</h3>
         </div>
 
-        <h3>Provide professionally developed tools and resources in an easily accessible web environment, assisting families facing early childhood developmental challenges</h3>
         
         <section id="grid">
         <div id="skill1" class="skills">

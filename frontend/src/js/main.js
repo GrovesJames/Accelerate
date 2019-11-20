@@ -14,7 +14,7 @@ export default () => {
 function pageBuild(){
     nav()
     header()
-    // home()
+    home()
     // scheduleNAV()
 }
 function nav(){
@@ -22,7 +22,8 @@ function nav(){
     nav.innerHTML = Nav();
 }
 function header(){
-    app.innerHTML = Header();
+    const header = document.getElementById('header')
+    header.innerHTML = Header();
 }
 function home(){
     app.innerHTML = Home();
