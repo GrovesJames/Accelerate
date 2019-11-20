@@ -23,8 +23,8 @@ namespace FinalProject.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Activities>().HasData(
-                    new Activities(1, "3-5", "Description", "10", 100, 1),
-                    new Activities(2, "3-5", "secondDescription", "33", 800, 1)
+                    new Activities(1, "title 1", "3-5", "Description", "10", 100, 1),
+                    new Activities(2, "title 2", "3-5", "secondDescription", "33", 800, 1)
                 );
             modelBuilder.Entity<Schedule>().HasData(
                   new Schedule(1)
