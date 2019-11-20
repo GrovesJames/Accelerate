@@ -8,13 +8,13 @@ export default function Home() {
 
         
         <section id="grid">
-        <div id="skill1" class="skills">
+        <div id="skill1" class="skillz">
             <h5>Speech/Language</h5>
         </div>
-        <div id="skill2" class="skills">
+        <div id="skill2" class="skillz">
             <h5>Cognitive </h5>
         </div>
-        <div id="skill3" class="skills">
+        <div id="skill3" class="skillz">
             <h5>Motor Skills</h5>
         </section>
         

@@ -7,9 +7,9 @@ export default function Nav() {
       <div>
         <div>
           <ul>
-            <li><a id="home"><strong>Home</strong></a></li>
-            <li><a id="calendar"><strong>Calendar</strong></a></li>
-            <li><a id="skills"><strong>Skills</strong></a></li>
+            <li><a id="homenav"><strong>Home</strong></a></li>
+            <li><a id="calendarnav"><strong>Calendar</strong></a></li>
+            <li><a id="skillsnav"><strong>Skills</strong></a></li>
             </ul>
         </div>
       </div> 

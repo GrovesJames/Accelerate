@@ -156,13 +156,13 @@ body {
 .menu-wrap .menu > div > div > ul > li > a {
   cursor: pointer;
 }
-#home:hover{
+#homenav:hover{
     color: blue;
 }
-#calendar:hover{
+#calendarnav:hover{
     color:green;
 }
-#skills:hover{
+#skillsnav:hover{
     color: purple;
 }
 /* end nav */
