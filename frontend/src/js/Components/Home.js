@@ -24,5 +24,6 @@ export default function Home() {
 
         <button id="calendarbtn">Calendar</button>
     </div>
+
 `
 }
