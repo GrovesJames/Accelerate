@@ -111,7 +111,8 @@ export default function Schedule(schedule) {
             ) {
             cell.classList.add("bg-info");
             } // color today's date
-            cell.id = "day-" + date;
+            cell.className = "indday";
+            cell.id = date;
             cell.appendChild(cellText);
             row.appendChild(cell);
             date++;
