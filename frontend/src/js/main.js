@@ -6,7 +6,6 @@ import Header from './Components/Header'
 import Nav from './Components/Nav'
 import Activities from './Components/Activities'
 import Schedules from './Components/Schedules'
-import Day from './Components/Day'
 
 
 
@@ -35,7 +34,6 @@ function pageBuild(){
     scheduleNAV()
     displayActivities()
     homeNAV()
-    dayNAV()
 }
 
 function nav(){
@@ -51,19 +49,12 @@ function home(){
 }
 function calendar(){
     app.innerHTML = Calendar();
-    Schedule(testSchedule);
-}
-function day(){
-    app.innerHTML = Day();
+    apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
+        Schedule(schedule);
+    })
 }
 
 // Navigation functions
-function dayNAV() {
-    const navDay = document.querySelector('#calendar-day');
-    navDay.addEventListener('click', function() {
-        day()
-    });
-  }
 function homeNAV() {
     const navHome = document.querySelector('#homenav');
     navHome.addEventListener('click', function() {
