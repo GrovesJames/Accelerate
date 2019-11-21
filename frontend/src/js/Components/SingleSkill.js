@@ -17,7 +17,7 @@ export default function SingleSkill(skill){
                 input class="activities_id" type="hidden" value="${activities.id}">
                 <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
 
-                <h3>${activities.name}</h3>
+                <h3>${activities.description}</h3>
             </div>    
             `;
           })
@@ -28,7 +28,7 @@ export default function SingleSkill(skill){
                 <div class="milestonesDetails" id="milestonesDetail">
                     input class="milestones_id" type="hidden" value="${milestones.id}">
                     <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
-                    <h3>${milestones.name}</h3>
+                    <h3>${milestones.milestone}</h3>
                 </div>    
                 `;
               })
