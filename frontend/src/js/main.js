@@ -6,7 +6,9 @@ import Header from './Components/Header'
 import Nav from './Components/Nav'
 import Activities from './Components/Activities'
 import Schedules from './Components/Schedules'
-import Day from './Components/Day'
+import Skills from './Components/Skills'
+import About from './Components/About'
+import Login from './Components/Login'
 
 
 
@@ -15,6 +17,19 @@ const app = document.getElementById('app');
 export default () => {
     pageBuild()
 }
+
+function pageBuild(){
+    nav()
+    header()
+    home()
+    homeNAV()
+    calendarNAV()
+    skillsNAV()
+    aboutNAV()
+    loginNAV()
+    activitiesNAV()
+}
+
 
 const testSchedule = {
     activities: [{
@@ -27,17 +42,6 @@ const testSchedule = {
     day: 5
     }]
 }
-
-function pageBuild(){
-    nav()
-    header()
-    home()
-    scheduleNAV()
-    displayActivities()
-    homeNAV()
-    dayNAV()
-}
-
 function nav(){
     const nav = document.getElementById('nav')
     nav.innerHTML = Nav();
@@ -53,37 +57,43 @@ function calendar(){
     app.innerHTML = Calendar();
     Schedule(testSchedule);
 }
-function day(){
-    app.innerHTML = Day();
+function skills(){
+    app.innerHTML = Skills();
 }
-
+function about(){
+    app.innerHTML = About();
+}
+function login(){
+    app.innerHTML = Login();
+}
 // Navigation functions
-function dayNAV() {
-    const navDay = document.querySelector('#calendar-day');
-    navDay.addEventListener('click', function() {
-        day()
-    });
-  }
 function homeNAV() {
     const navHome = document.querySelector('#homenav');
     navHome.addEventListener('click', function() {
-        home()
-        closeNAV()
+        window.location.reload()
     });
   }
-function scheduleNAV() {
+function calendarNAV() {
     const navSchedule = document.querySelector('#calendarnav');
     navSchedule.addEventListener('click', function() {
         calendar()
         closeNAV()
     });
 }
-function displayActivities() {
+function skillsNAV() {
+    const navSkills = document.querySelector('#skillsnav');
+    navSkills.addEventListener('click', function() {
+        skills()
+        closeNAV()
+    });
+}
+function activitiesNAV() {
     const navActivities = document.querySelector('#activitiesnav');    
     navActivities.addEventListener('click', function() {
         apiActions.getRequest("https://localhost:44355/api/activities", activities => {
             document.querySelector('#app').innerHTML = Activities(activities);
             console.log(activities);
+            closeNAV()
         });
     });
 
@@ -137,6 +147,21 @@ app.addEventListener('click', function() {
         })
     }
 })
+}
+function aboutNAV() {
+    const navAbout = document.querySelector('#btn1');
+    navAbout.addEventListener('click', function() {
+        about()
+        closeNAV()
+        document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher2.jpg")';
+    });
+}
+function loginNAV() {
+    const navLogin = document.querySelector('#btn2');
+    navLogin.addEventListener('click', function() {
+        login()
+        closeNAV()
+    });
 }
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
