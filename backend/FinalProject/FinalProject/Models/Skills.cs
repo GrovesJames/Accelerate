@@ -7,17 +7,17 @@ namespace FinalProject.Models
 {
     public class Skills
     {
-        public int SkillsId { get; set; }
-        public string SkillName { get; set; }
-        public string DescriptionId { get; set; }
-        public string AgeId { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string AgeRange { get; set; }
 
-        public Skills(int id, string skillName, string descriptionId, string ageId)
+        public Skills(int id, string name, string description, string ageRange)
         {
-            SkillsId = id;
-            SkillName = skillName;
-            DescriptionId = descriptionId;
-            AgeId = ageId;
+            Id = id;
+            Name = name;
+            Description = description;
+            AgeRange = ageRange;
         }
         public Skills()
         {
