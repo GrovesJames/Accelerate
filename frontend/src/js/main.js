@@ -58,12 +58,6 @@ function day(){
 }
 
 // Navigation functions
-function dayNAV() {
-    const navDay = document.querySelector('#calendar-day');
-    navDay.addEventListener('click', function() {
-        day()
-    });
-  }
 function homeNAV() {
     const navHome = document.querySelector('#homenav');
     navHome.addEventListener('click', function() {

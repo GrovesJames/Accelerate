@@ -23,6 +23,13 @@ export default function Schedule(schedule) {
         "Nov",
         "Dec"
         ];
+        
+    const navDay = document.getElementById('calendar-day');
+    function dayNAV() {
+        navDay.addEventListener('click', function() {
+            app.innerHTML = "Day();";
+        });
+    }
 
     nextButton.addEventListener("click", function(){
         next();
@@ -47,22 +54,11 @@ export default function Schedule(schedule) {
         })
     }
 
-    const dayCells = document.getElementsByClassName("indday");
-    for (var i = 0; i < dayCells.length; i++) {
-        dayCells[i].addEventListener('click', function(){
-            let dayNum = dayCell.innerText;
-            let dayActivities = [];
-            schedule.activities.map( activity => function(){
-                let activityDay = activity.day;
-                if(dayNum == activityDay) dayActivities.push(activity);
-            })
-            return COMPONENTNAME(dayActivities);
-        });
-    }
-
     let monthAndYear = document.getElementById("monthAndYear");
     showCalendar(currentMonth, currentYear);
     showSchedule(schedule);
+    dayNAV();
+
     function next() {
     currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
     currentMonth = (currentMonth + 1) % 12;
@@ -124,5 +120,19 @@ export default function Schedule(schedule) {
     // check how many days in a month code from https://dzone.com/articles/determining-number-days-month
     function daysInMonth(iMonth, iYear) {
     return 32 - new Date(iYear, iMonth, 32).getDate();
+    }
+
+    const dayCells = document.getElementsByClassName("indday");
+    for (var i = 0; i < dayCells.length; i++) {
+        dayCells[i].addEventListener('click', function(){
+            let dayCell = event.target;
+            let dayNum = dayCell.id
+            let dayActivities = [];
+            schedule.activities.map( activity => function(){
+                let activityDay = activity.day;
+                if(dayNum == activityDay) dayActivities.push(activity);
+            })
+            return dayActivities;
+        });
     }
 }
