@@ -12,7 +12,7 @@ namespace FinalProject.Models
         public string AgeRange { get; set; }
         public string Description { get; set; }
 
-        public virtual int SkillId { get; set; }
+        public virtual int SkillsId { get; set; }
         public virtual Skills Skills { get; set; }
         
 

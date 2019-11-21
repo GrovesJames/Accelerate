@@ -12,6 +12,8 @@ namespace FinalProject.Models
         public string Description { get; set; }
         public string AgeRange { get; set; }
 
+        public virtual ICollection<Milestones> Milestones { get; set; }
+
         public Skills(int id, string name, string description, string ageRange)
         {
             Id = id;
