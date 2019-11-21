@@ -11,6 +11,6 @@ export default function Activities() {
             <div id="calendar-body">Body</div>
             <div id="calendar-day"></div>
         </div>
-        <button id="calendar-day">Day</button>
+        <button id="calendar-daySchedule">Day</button>
     `
 }

@@ -1,9 +1,12 @@
 import CalendarActivity from "./CalendarActivity";
+import Day from './Day';
 
 export default function Schedule(schedule) {
     
     let nextButton = document.getElementById("calendar-next");
     let prevButton = document.getElementById("calendar-prev");
+    let daySchedule = document.getElementById("calendar-daySchedule");
+
     let today = new Date();
     let currentMonth = today.getMonth();
     let currentYear = today.getFullYear();
@@ -132,7 +135,7 @@ export default function Schedule(schedule) {
                 let activityDay = activity.day;
                 if(dayNum == activityDay) dayActivities.push(activity);
             })
-            return dayActivities;
+            daySchedule.innerHTML = Day(dayActivities);
         });
     }
 }

@@ -1,4 +1,4 @@
-export default function Day() {
+export default function Day(activities) {
     return `
     <h1>hi</h1>
     `
