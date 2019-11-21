@@ -34,6 +34,7 @@ namespace FinalProject
             services.AddDbContext<Context>();
             services.AddScoped<IRepository<Activities>, ActivitiesRepository>();
             services.AddScoped<IRepository<Schedule>, ScheduleRepository>();
+            services.AddScoped<IRepository<ActivityPlan>, ActivityPlanRepository>();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
