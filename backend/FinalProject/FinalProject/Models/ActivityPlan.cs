@@ -13,6 +13,8 @@ namespace FinalProject.Models
         public int Score { get; set; }
         public int Duration { get; set; }
 
+        public virtual IList<SkillsActivityPlan> SkilsActivityPlans { get; set; }
+
         public ActivityPlan( int id, string title, string description, int score, int duration)
         {
             Id = id;

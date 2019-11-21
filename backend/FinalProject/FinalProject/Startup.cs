@@ -32,9 +32,12 @@ namespace FinalProject
             .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
 
             services.AddDbContext<Context>();
+            services.AddScoped<IRepository<Milestones>, MilestoneRepository>();
             services.AddScoped<IRepository<Activities>, ActivitiesRepository>();
             services.AddScoped<IRepository<Schedule>, ScheduleRepository>();
             services.AddScoped<IRepository<ActivityPlan>, ActivityPlanRepository>();
+            services.AddScoped<IRepository<SkillsActivityPlan>, SkillsActivityPlanRepository>();
+            services.AddScoped<IRepository<Skills>, SkillsRepository>();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
