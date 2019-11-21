@@ -36,12 +36,10 @@ export default function Schedule(schedule) {
 
     nextButton.addEventListener("click", function(){
         next();
-        showSchedule(schedule);
     });
 
     prevButton.addEventListener("click", function(){
         previous();
-        showSchedule(schedule);
     });
 
     function showSchedule(schedule){
@@ -49,7 +47,7 @@ export default function Schedule(schedule) {
             let activityMonth = activity.month;
             let activityDay = activity.day;
             if(activityMonth == currentMonth){
-                let dayCell = document.getElementById("day-" + activityDay);
+                let dayCell = document.getElementById(activityDay);
                 let calendarActivity = document.createElement("div");
                 calendarActivity.innerHTML = CalendarActivity(activity);
                 dayCell.appendChild(calendarActivity);
@@ -59,8 +57,6 @@ export default function Schedule(schedule) {
 
     let monthAndYear = document.getElementById("monthAndYear");
     showCalendar(currentMonth, currentYear);
-    showSchedule(schedule);
-    dayNAV();
 
     function next() {
     currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
@@ -119,23 +115,28 @@ export default function Schedule(schedule) {
         }
         tbl.appendChild(row); // appending each row into calendar body.
     }
+    showSchedule(schedule);
+    addDayButtons();
     }
     // check how many days in a month code from https://dzone.com/articles/determining-number-days-month
     function daysInMonth(iMonth, iYear) {
     return 32 - new Date(iYear, iMonth, 32).getDate();
     }
 
-    const dayCells = document.getElementsByClassName("indday");
-    for (var i = 0; i < dayCells.length; i++) {
-        dayCells[i].addEventListener('click', function(){
-            let dayCell = event.target;
-            let dayNum = dayCell.id
-            let dayActivities = [];
-            schedule.activities.map( activity => function(){
-                let activityDay = activity.day;
-                if(dayNum == activityDay) dayActivities.push(activity);
-            })
-            daySchedule.innerHTML = Day(dayActivities);
-        });
+    function addDayButtons(){
+        const dayCells = document.getElementsByClassName("indday");
+        for (var i = 0; i < dayCells.length; i++) {
+            dayCells[i].addEventListener('click', function(){
+                let dayCell = event.target;
+                let dayNum = dayCell.id
+                let dayActivities = [];
+                schedule.activities.map( activity => {
+                    let activityDay = activity.day;
+                    if(dayNum == activityDay) dayActivities.push(activity);
+                })
+                daySchedule.innerHTML = Day(dayActivities);
+            });
+        }
     }
+
 }
