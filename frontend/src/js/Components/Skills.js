@@ -4,15 +4,9 @@ export default function Skills(skills) {
     ${skills
       .map(skills => {
         return `
-        <div class="skillDetails" id="skillDetail">
+        <div class="skillDetails" id="skillDetail">        
+            <h3>${skills.name}</h3>
             <input class="skill_id" type="hidden" value="${skills.id}">
-        
-            <article>
-              <li>
-                  <h3>${skills.name}</h3>
-              </li>
-            <input class="skill_id" type="hidden" value="${skills.id}">
-            </article>
         </div>    
         `;
       })
