@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20191121191818_ReworkDatabase")]
-    partial class ReworkDatabase
+    [Migration("20191121211246_firstMigration")]
+    partial class firstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,8 @@ namespace FinalProject.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<DateTime>("ActivityTime");
+
                     b.Property<string>("AgeRange");
 
                     b.Property<string>("Description");
@@ -34,8 +36,6 @@ namespace FinalProject.Migrations
                     b.Property<int>("Duration");
 
                     b.Property<int>("ScheduleId");
-
-                    b.Property<DateTime>("ScheduleTime");
 
                     b.Property<int>("Score");
 
@@ -46,7 +46,7 @@ namespace FinalProject.Migrations
                     b.ToTable("Activities");
 
                     b.HasData(
-                        new { ActivitiesId = 1, AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, ScheduleTime = new DateTime(2019, 11, 21, 8, 18, 17, 937, DateTimeKind.Local), Score = 200 }
+                        new { ActivitiesId = 1, ActivityTime = new DateTime(2019, 11, 21, 10, 12, 46, 557, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
                     );
                 });
 
@@ -92,7 +92,7 @@ namespace FinalProject.Migrations
                     b.ToTable("Milestones");
 
                     b.HasData(
-                        new { Id = 1, AgeRange = "3-6", Milestone = "Test Milestone", SkillsId = 0 }
+                        new { Id = 1, AgeRange = "3-6", Milestone = "Test Milestone", SkillsId = 1 }
                     );
                 });
 

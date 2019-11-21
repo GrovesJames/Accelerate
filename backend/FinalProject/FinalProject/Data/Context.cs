@@ -66,7 +66,7 @@ namespace FinalProject.Data
 
             modelBuilder.Entity<Milestones>().HasData(
 
-                new Milestones(1, "Test Milestone", "3-6")
+                new Milestones(1, "Test Milestone", "3-6", 1)
                     ////Speech Milestones Age 3
                     //new Milestones()
                     //{
