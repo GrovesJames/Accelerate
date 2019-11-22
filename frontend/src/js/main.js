@@ -10,8 +10,7 @@ import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
 import Profile from './Components/Profile'
-
-
+import SingleActivityPlan from './Components/SingleActivityPlan'
 
 const app = document.getElementById('app');
 
@@ -88,6 +87,20 @@ function skillsNAV() {
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
 
+    });
+    app.addEventListener('click', function(){
+        if(event.target.classList.contains("acitvityDetails")){
+            const activityPlanID = event.target.parentElement.querySelector(".activities_id")
+            .value;
+            apiActions.getRequest(`https://localhost:44355/api/activityplans/${activityPlanID}`,
+            activityPlanID => {
+                console.log(activites.name)
+                
+               document.querySelector("#app").innerHTML = SingleActivityPlan(activityPlan);
+
+               
+             })
+        }
     });
 }
 function activitiesNAV() {
