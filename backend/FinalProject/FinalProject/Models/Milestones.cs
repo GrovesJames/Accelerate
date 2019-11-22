@@ -9,16 +9,20 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         public string Milestone { get; set; }
-        public string AgeId { get; set; }
-        public string SkillAssoc { get; set; }
+        public string AgeRange { get; set; }
+
+        public int SkillsId { get; set; }
+        public virtual Skills Skills { get; set; }
         
 
-        public Milestones(int id, string milestone, string ageId, string skillAssoc)
+        public Milestones(int id, string milestone, string ageRange, int skillsid)
         {
             Id = id;
             Milestone = milestone;
-            AgeId = ageId;
-            SkillAssoc = skillAssoc;
+            AgeRange = ageRange;
+            SkillsId = skillsid;
+
+
         }
         public Milestones()
         {

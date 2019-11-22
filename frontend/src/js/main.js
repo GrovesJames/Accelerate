@@ -12,6 +12,7 @@ import Login from './Components/Login'
 
 
 
+
 const app = document.getElementById('app');
 
 export default () => {
@@ -42,6 +43,7 @@ const testSchedule = {
     day: 5
     }]
 }
+
 function nav(){
     const nav = document.getElementById('nav')
     nav.innerHTML = Nav();
@@ -55,6 +57,7 @@ function home(){
 }
 function calendar(){
     app.innerHTML = Calendar();
+
     Schedule(testSchedule);
 }
 function skills(){
@@ -67,9 +70,11 @@ function login(){
     app.innerHTML = Login();
 }
 
+
     // apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
     //     Schedule(schedule);
     // })
+
 // Navigation functions
 function homeNAV() {
     const navHome = document.querySelector('#homenav');
@@ -106,9 +111,7 @@ function activitiesNAV() {
     const app = document.querySelector('#app');
     app.addEventListener('click', function() {
         if(event.target.classList.contains('add_activity_submit')) {
-            const addActivity = event.target.parentElement.querySelector(
-                ".add_activity_title",
-            ).value;
+           
             const activityAgeRange = event.target.parentElement.querySelector(
                 ".add_activity_ageRange",
             ).value;
@@ -124,7 +127,7 @@ function activitiesNAV() {
             const scheduleId = event.target.parentElement.querySelector(".schedule_id") 
             .value; 
             const activity = {
-                title: addActivity,
+                
           ageRange: activityAgeRange,
           description: activityDescription,
           duration: activityDuration,

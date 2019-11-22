@@ -1,5 +1,6 @@
-export default function Skills() {
+export default function Skills(skills) {
     return `
+
     <div id="skillspage">
         <div id="skillsopener">
             <h2>Skills (3-5)</h2>
@@ -41,3 +42,18 @@ export default function Skills() {
     </div>
     `
 }
+
+    <ul> 
+    ${skills
+      .map(skills => {
+        return `
+        <div class="skillDetails" id="skillDetail">        
+            <h3>${skills.name}</h3>
+            <input class="skill_id" type="hidden" value="${skills.id}">
+        </div>    
+        `;
+      })
+      .join("")}
+  `;
+}
+
