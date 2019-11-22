@@ -1,4 +1,20 @@
-export default function Skills(skills) {
+import apiActions from '../apiActions/apiActions'
+
+export default function Skills() {
+    apiActions.getRequest("https://localhost:44355/api/skills", skills => {
+        document.getElementById("profile-skills").innerHTML=`
+        ${skills
+            .map(skills => {
+              return `
+              <div class="skillDetails" id="skillDetail">        
+                  <h3>${skills.name}</h3>
+                  <input class="skill_id" type="hidden" value="${skills.id}">
+              </div>    
+              `;
+            })
+            .join("")}
+        `
+    })    
     return `
 
     <div id="skillspage">
@@ -41,16 +57,18 @@ export default function Skills(skills) {
             </div>
     </div>
     <ul> 
-    ${skills
-      .map(skills => {
-        return `
-        <div class="skillDetails" id="skillDetail">        
-            <h3>${skills.name}</h3>
-            <input class="skill_id" type="hidden" value="${skills.id}">
-        </div>    
-        `;
-      })
-      .join("")}
+
   `;
 }
 
+
+    // ${skills
+    //   .map(skills => {
+    //     return `
+    //     <div class="skillDetails" id="skillDetail">        
+    //         <h3>${skills.name}</h3>
+    //         <input class="skill_id" type="hidden" value="${skills.id}">
+    //     </div>    
+    //     `;
+    //   })
+    //   .join("")}

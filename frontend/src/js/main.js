@@ -9,6 +9,7 @@ import Schedules from './Components/Schedules'
 import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
+import Profile from './Components/Profile'
 
 
 
@@ -28,6 +29,7 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     activitiesNAV()
+    profile()
 }
 
 function nav(){
@@ -55,6 +57,9 @@ function about(){
 }
 function login(){
     app.innerHTML = Login();
+}
+function profile(){
+    app.innerHTML = Profile();
 }
 
 
