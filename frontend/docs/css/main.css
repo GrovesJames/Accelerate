@@ -238,7 +238,24 @@ body {
 /* End Button Grid */
 /* End of Home Page */
 /* Skills grid */
-
+#skillspage{
+    margin-top: -4%;
+}
+#skill1grid, #skill2grid, #skill3grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.skillbtns{
+    margin: auto;
+    width: 100px;
+    height: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.skillbtns h6{
+    text-align: center;
+    margin: 15% auto auto auto;
+}
 /* End of Skills grid */
   /* custom calendar stuff */
   td{
