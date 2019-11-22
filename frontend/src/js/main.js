@@ -9,6 +9,7 @@ import Schedules from './Components/Schedules'
 import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
+import SingleActivityPlan from './Components/SingleActivityPlan'
 
 
 
@@ -91,6 +92,20 @@ function skillsNAV() {
     navSkills.addEventListener('click', function() {
         skills()
         closeNAV()
+    });
+    app.addEventListener('click', function(){
+        if(event.target.classList.contains("acitvityDetails")){
+            const activityPlanID = event.target.parentElement.querySelector(".activities_id")
+            .value;
+            apiActions.getRequest(`https://localhost:44355/api/activityplans/${activityPlanID}`,
+            activityPlanID => {
+                console.log(activites.name)
+                
+               document.querySelector("#app").innerHTML = SingleActivityPlan(activityPlan);
+
+               
+             })
+        }
     });
 }
 function activitiesNAV() {
