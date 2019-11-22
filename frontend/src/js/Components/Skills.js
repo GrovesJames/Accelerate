@@ -14,7 +14,7 @@ export default function Skills() {
             })
             .join("")}
         `
-    })    
+    })
     return `
 
     <div id="skillspage">
