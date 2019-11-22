@@ -1,5 +1,11 @@
+import apiActions from '../apiActions/apiActions'
+
 export default function SingleSkill(skill){
-    return`
+    const activityPlans;
+    apiActions.getRequest("https://localhost:44355/api/skillsactivityplans/" + skill.id, activityplans => {
+      activityPlans = activityplans;
+    })
+    return `
     <div id="detail">
       <article>
         <ul>
