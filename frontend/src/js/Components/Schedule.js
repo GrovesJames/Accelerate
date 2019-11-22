@@ -1,5 +1,5 @@
 import CalendarActivity from "./CalendarActivity";
-import Day from './Day';
+// import Day from './Day';
 
 export default function Schedule(schedule) {
     
