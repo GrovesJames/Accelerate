@@ -38,6 +38,7 @@ namespace FinalProject
             services.AddScoped<IRepository<ActivityPlan>, ActivityPlanRepository>();
             services.AddScoped<IRepository<SkillsActivityPlan>, SkillsActivityPlanRepository>();
             services.AddScoped<IRepository<Skills>, SkillsRepository>();
+            services.AddScoped<IRepository<Profile>, ProfileRepository>();
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {

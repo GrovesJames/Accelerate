@@ -16,6 +16,7 @@ namespace FinalProject.Data
         public DbSet<ActivityPlan> ActivityPlans { get; set; }
         public DbSet<Milestones> Milestones { get; set; }
         public DbSet<SkillsActivityPlan> SkillsActivityPlans { get; set; }
+        public DbSet<Profile> Profile { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -55,7 +56,7 @@ namespace FinalProject.Data
 
                 );
             modelBuilder.Entity<Schedule>().HasData(
-                  new Schedule(1)
+                  new Schedule(1,1)
                 );
             modelBuilder.Entity<Skills>().HasData(
                 new Skills(1, "Speech", "Children are born ready to learn a language, but they need to learn the language or languages that their family and environment use. Learning a language takes time, and children vary in how quickly they master milestones in language and speech development. Typically developing children may have trouble with some sounds, words, and sentences while they are learning. However, most children can use language easily around 5 years of age.", "3-5"),
@@ -132,6 +133,11 @@ namespace FinalProject.Data
             );
             modelBuilder.Entity<SkillsActivityPlan>().HasData(
                 new SkillsActivityPlan(1, 1, 1)
+            );
+
+            modelBuilder.Entity<Profile>().HasData(
+                new Profile(1, "User1")
+
             );
 
             base.OnModelCreating(modelBuilder);
