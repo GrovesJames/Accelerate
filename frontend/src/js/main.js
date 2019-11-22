@@ -69,9 +69,12 @@ function about(){
 function login(){
     app.innerHTML = Login();
 }
-    apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
-        Schedule(schedule);
-    })
+
+
+    // apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
+    //     Schedule(schedule);
+    // })
+
 // Navigation functions
 function homeNAV() {
     const navHome = document.querySelector('#homenav');
@@ -91,6 +94,8 @@ function skillsNAV() {
     navSkills.addEventListener('click', function() {
         skills()
         closeNAV()
+        document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
+
     });
 }
 function activitiesNAV() {

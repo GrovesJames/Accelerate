@@ -3,9 +3,10 @@ export default function About() {
     <div id="aboutwrap">
     <div id="aboutpage">
         <h1>About Us</h1>
-        <p>Many families are affected by their children deveopment and do not know what to do. Our goal is to make an easy way for parents and caregivers to guide their children to a better future. With easy access to resources, parents can learn more about their child, connect with them, and guide them on their life long journey.</p>
-        <p>Our app provides ideas and activities parents can do with their child to improve their motor, speech and cognitive skills. Each activity have milestones for your child to reach and for you to track their progess to see what works and doesn't work for your child.</p>
-        <p>We feel that no child should be left behind regardless of their impairment. It just takes courage and a litle bit of help; nothing will be out of reach for you and your child.</p>
+        <p>A child afflicted by a developmental disease has impacts that are felt by all of their loved ones. While these conditions are not always permanent, the child will undoubtedbly fall behind in meeting normal milestones that a child of their same age will have already completed. We believe, that with access to better resources, a parent can learn more about their child while creating an everlasting bond, to guide them on this lifelong journey.
+        The purpose of our app, Accelerate, is to provide a resource that easily categorizes the milestones a child should be at for the following skills; Speech, Cognitive Funcitonality, and Fine/Gross Motor Skills. After a parent identifies what skill needs improved by checking the milestones for their child, a list of activities is displayed, which focus on increasing proficiency.
+        Our profile feature, gives you access to a calendar that allows parents to build out a custome schedule of pre-set activities as well as add their own activities.
+        No child should ever be left behind, regardless of a disability. Start Accelerate today!<p>
     </div>
     </div>
     `
