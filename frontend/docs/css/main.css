@@ -7,6 +7,15 @@
   --overlay: rgba(27, 46, 61, 0.835);
   --menu-speed: 0.01s;
 }
+html{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)),
+    url(/images/teacher.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  
+}
 html,
 body {
   margin: 0;
@@ -15,14 +24,7 @@ body {
   font-size: 20px;
   color: white;
 }
-body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)),
-    url(/images/teacher.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
+
 #wrapper {
   margin: 5% auto;
   max-width: 1000px;
@@ -233,31 +235,28 @@ body {
 #btn2{
     margin-left: 5%;
 }
-/* End Button Gird */
-/* Skills grid */
-/* #grid {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(3, 1fr);
-}
-#grid h5 {
-  text-align: center;
-}
-.skills {
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-#skill1 {
-  border: 2px solid blue;
-}
-#skill2 {
-  border: 2px solid green;
-}
-#skill3 {
-  border: 2px solid purple;
-} */
-/* End of Skills grid */
+/* End Button Grid */
 /* End of Home Page */
+/* Skills grid */
+#skillspage{
+    margin-top: -4%;
+}
+#skill1grid, #skill2grid, #skill3grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.skillbtns{
+    margin: auto;
+    width: 100px;
+    height: 50px;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.skillbtns h6{
+    text-align: center;
+    margin: 15% auto auto auto;
+}
+/* End of Skills grid */
   /* custom calendar stuff */
   td{
     background-color: white;
@@ -278,7 +277,7 @@ body {
 
   }
 /* End Calendar stuff */
-
+/* Activities stuff */
 #activitieswrapper ul{
   display: grid;
   grid-gap: 20px;  
@@ -292,3 +291,17 @@ body {
   border: 2px solid white;
   padding: 0.5rem;
 }
+/* End of Activities stuff */
+/* About page */
+#aboutpage{
+    text-align: center;
+}
+#aboutwrap{
+    /* background-color: green; */
+}
+/* End of About page */
+/* Login Page */
+#loginpage{
+    text-align: center;
+}
+/* End of Login Page */

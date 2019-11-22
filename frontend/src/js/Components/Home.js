@@ -8,7 +8,7 @@ export default function Home() {
 
         <div id="btngrid">
             <div id="btn1">
-                <h6>Get Started</h6>
+                <h6>Learn More</h6>
             </div>
             <div id="btn2">
                 <h6>Login</h6>

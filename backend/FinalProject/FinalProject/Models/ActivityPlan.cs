@@ -5,25 +5,25 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Models
 {
-    public class Skills
+    public class ActivityPlan
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
-        public string AgeRange { get; set; }
+        public int Score { get; set; }
+        public int Duration { get; set; }
 
-        public virtual ICollection<Milestones> Milestones { get; set; }
         public virtual IList<SkillsActivityPlan> SkilsActivityPlans { get; set; }
 
-
-        public Skills(int id, string name, string description, string ageRange)
+        public ActivityPlan( int id, string title, string description, int score, int duration)
         {
             Id = id;
-            Name = name;
+            Title = title;
             Description = description;
-            AgeRange = ageRange;
+            Score = score;
+            Duration = duration;
         }
-        public Skills()
+        public ActivityPlan()
         {
 
         }

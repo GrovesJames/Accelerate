@@ -4,14 +4,16 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20191121211246_firstMigration")]
+    partial class firstMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,7 +23,7 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.Activities", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ActivitiesId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -37,14 +39,14 @@ namespace FinalProject.Migrations
 
                     b.Property<int>("Score");
 
-                    b.HasKey("Id");
+                    b.HasKey("ActivitiesId");
 
                     b.HasIndex("ScheduleId");
 
                     b.ToTable("Activities");
 
                     b.HasData(
-                        new { Id = 1, ActivityTime = new DateTime(2019, 11, 21, 10, 15, 11, 638, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
+                        new { ActivitiesId = 1, ActivityTime = new DateTime(2019, 11, 21, 10, 12, 46, 557, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
                     );
                 });
 

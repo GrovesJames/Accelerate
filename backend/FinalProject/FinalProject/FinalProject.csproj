@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191121194442_ReworkDatabase.cs" />
+    <Compile Remove="Migrations\20191121194442_ReworkDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20191121195327_ReworkDatabaseAgain.cs" />
+    <Compile Remove="Migrations\20191121195327_ReworkDatabaseAgain.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
