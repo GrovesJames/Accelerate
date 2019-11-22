@@ -40,9 +40,6 @@ export default function Skills(skills) {
                 <h6>Activities</h6>
             </div>
     </div>
-    `
-}
-
     <ul> 
     ${skills
       .map(skills => {

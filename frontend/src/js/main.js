@@ -6,13 +6,9 @@ import Header from './Components/Header'
 import Nav from './Components/Nav'
 import Activities from './Components/Activities'
 import Schedules from './Components/Schedules'
-<<<<<<< HEAD
-=======
 import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
-
->>>>>>> 85cce8d146956d00ec3e12322c2a8b1f59c909c8
 
 
 
@@ -20,20 +16,6 @@ const app = document.getElementById('app');
 
 export default () => {
     pageBuild()
-}
-
-testApiActions(){
-    apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
-        Schedule(schedule);
-    })
-
-    apiActions.postRequest("https://localhost:44355/api/schedules", {
-
-    })
-
-    apiActions.putRequest("https://localhost:44355/api/schedules/1")
-
-    apiActions.deleteRequest("https://localhost:44355/api/schedules/1")
 }
 
 function pageBuild(){
@@ -46,18 +28,6 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     activitiesNAV()
-}
-
-const testSchedule = {
-    activities: [{
-        title: "Test Activity",
-        month: 1,
-        day: 3
-    },
-    { title: "Test Activity 2",
-    month: 1,
-    day: 5
-    }]
 }
 
 function nav(){
