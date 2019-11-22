@@ -136,8 +136,8 @@ app.addEventListener('click', function() {
     if(event.target.classList.contains("delete_activity_submit")) {
         const activityId = event.target.parentElement.querySelector(".activity_id")
             .value;
-        console.log("delete " + scientistId);
-        apiActions.deleteRequest(`https://localhost:44330/api/scientist/${scientistId}`,
+        console.log("delete " + activityId);
+        apiActions.deleteRequest(`https://localhost:44330/api/activities/${activityId}`,
         activities =>{
            document.querySelector("#app").innerHTML = Activities(activities)
         })
