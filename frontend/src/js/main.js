@@ -9,9 +9,8 @@ import Schedules from './Components/Schedules'
 import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
+import Profile from './Components/Profile'
 import SingleActivityPlan from './Components/SingleActivityPlan'
-
-
 
 const app = document.getElementById('app');
 
@@ -29,6 +28,7 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     activitiesNAV()
+    profile()
 }
 
 function nav(){
@@ -56,6 +56,9 @@ function about(){
 }
 function login(){
     app.innerHTML = Login();
+}
+function profile(){
+    app.innerHTML = Profile();
 }
 
 
@@ -151,8 +154,8 @@ app.addEventListener('click', function() {
     if(event.target.classList.contains("delete_activity_submit")) {
         const activityId = event.target.parentElement.querySelector(".activity_id")
             .value;
-        console.log("delete " + scientistId);
-        apiActions.deleteRequest(`https://localhost:44330/api/scientist/${scientistId}`,
+        console.log("delete " + activityId);
+        apiActions.deleteRequest(`https://localhost:44330/api/activities/${activityId}`,
         activities =>{
            document.querySelector("#app").innerHTML = Activities(activities)
         })
