@@ -1,24 +1,15 @@
-export default function Skills() {
+export default function Skills(skills) {
     return `
-    <div id="skillspage">
-        <div id="skill1">
-            <h5>Skill</h5>
-        </div>
-        <div id="skill1desc">
-            <p>lorem dfhwsf safasf asfasf</p>
-        </div>
-        <div id="skill2">
-            <h5>Skill</h5>
-        </div>
-        <div id="skill2desc">
-            <p>lorem dfhwsf safasf asfasf</p>
-        </div>
-        <div id="skill3">
-            <h5>Skill</h5>
-        </div>
-        <div id="skill3desc">
-            <p>lorem dfhwsf safasf asfasf</p>
-        </div>
-    </div>
-    `
+    <ul> 
+    ${skills
+      .map(skills => {
+        return `
+        <div class="skillDetails" id="skillDetail">        
+            <h3>${skills.name}</h3>
+            <input class="skill_id" type="hidden" value="${skills.id}">
+        </div>    
+        `;
+      })
+      .join("")}
+  `;
 }
