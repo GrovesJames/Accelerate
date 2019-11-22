@@ -12,7 +12,6 @@ import Login from './Components/Login'
 
 
 
-
 const app = document.getElementById('app');
 
 export default () => {
@@ -31,19 +30,6 @@ function pageBuild(){
     activitiesNAV()
 }
 
-
-const testSchedule = {
-    activities: [{
-        title: "Test Activity",
-        month: 1,
-        day: 3
-    },
-    { title: "Test Activity 2",
-    month: 1,
-    day: 5
-    }]
-}
-
 function nav(){
     const nav = document.getElementById('nav')
     nav.innerHTML = Nav();
@@ -57,8 +43,9 @@ function home(){
 }
 function calendar(){
     app.innerHTML = Calendar();
-
-    Schedule(testSchedule);
+    apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
+        Schedule(schedule);
+    })
 }
 function skills(){
     app.innerHTML = Skills();
