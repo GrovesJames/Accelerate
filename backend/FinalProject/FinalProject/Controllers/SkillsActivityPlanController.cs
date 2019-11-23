@@ -1,21 +1,22 @@
-﻿using FinalProject.Models;
-using FinalProject.Repositories;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FinalProject.Models;
+using FinalProject.Repositories;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace FinalProject.Controllers
 {
-    [Route("api/skillsactivityplan")]
+    [Route("api/skillsactivityplans")]
     [ApiController]
-    public class SkillsActivityPlan : ControllerBase
+    public class SkillsActivityPlanController : ControllerBase
     {
 
         private IRepository<SkillsActivityPlan> SkillsActivityPlanRepo;
 
-        public SkillsActivityPlan(IRepository<SkillsActivityPlan> SkillsActivityPlanRepo)
+        public SkillsActivityPlanController(IRepository<SkillsActivityPlan> SkillsActivityPlanRepo)
         {
             this.SkillsActivityPlanRepo = SkillsActivityPlanRepo;
         }
