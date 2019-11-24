@@ -1,10 +1,6 @@
 import apiActions from '../apiActions/apiActions'
 
 export default function SingleSkill(skill){
-    const activityPlans;
-    apiActions.getRequest("https://localhost:44355/api/skillsactivityplans/" + skill.id, activityplans => {
-      activityPlans = activityplans;
-    })
     return `
     <div id="detail">
       <article>
@@ -16,16 +12,17 @@ export default function SingleSkill(skill){
         </ul>
         </article>
         <ul> 
-        ${skill.activities
-          .map(activities => {
-            return `
+        ${skill.skilsActivityPlans
+          .map(skillsActivityPlan => {
+            apiActions.getRequest("https://localhost:44355/api/activityplans/" + skillsActivityPlan.activityPlanId, activityplan => {
+              return `
             <div class="activityDetails" id="activityDetail">
-                input class="activities_id" type="hidden" value="${activities.id}">
+                input class="activities_id" type="hidden" value="${activityplan.id}">
                 <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
-
-                <h3>${activities.description}</h3>
+                <h3>${activityplan.description}</h3>
             </div>    
             `;
+            })
           })
           .join("")}
         ${skill.milestones
