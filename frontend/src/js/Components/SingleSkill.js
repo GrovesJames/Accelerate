@@ -1,6 +1,19 @@
 import apiActions from '../apiActions/apiActions'
 
 export default function SingleSkill(skill){
+    async function DisplayActivityPlan(skillsActivityPlan){
+      let activityPlan = await fetch("https://localhost:44355/api/activityplans/" + skillsActivityPlan.activityPlanId)
+      .then(activityplan => activityplan.json())
+      .then(activityplan => {return activityplan})
+
+      return `
+      <div class="activityDetails" id="activityDetail">
+          <input class="activities_id" type="hidden" value="${activityPlan.id}">
+          <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+          <h3>${activityPlan.description}</h3>
+      </div>    
+      `;
+    }
     return `
     <div id="detail">
       <article>
@@ -14,18 +27,7 @@ export default function SingleSkill(skill){
         <ul> 
         ${skill.skilsActivityPlans
           .map(skillsActivityPlan => {
-            let activityPlan;
-
-            apiActions.getRequest("https://localhost:44355/api/activityplans/" + skillsActivityPlan.activityPlanId, activityplan => {
-              this.activityPlan = activityplan
-            })
-            return `
-            <div class="activityDetails" id="activityDetail">
-                <input class="activities_id" type="hidden" value="${activityPlan.id}">
-                <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
-                <h3>${activityPlan.description}</h3>
-            </div>    
-            `;
+            DisplayActivityPlan(skillsActivityPlan);
           })
           .join("")}
         ${skill.milestones
