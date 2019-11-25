@@ -113,18 +113,18 @@ namespace FinalProject.Data
                 new Milestones(38, "Knows about things used everyday, like money and food", "5", 2),
                 //Fine-Gross Motor Skill Milestones Age 3
                 new Milestones(39, "Runs Easily", "3", 3),
-                new Milestones(41, "Pedals a Tricycle (3-Wheel Bike)", "3", 3),
-                new Milestones(42, "Walks up and down stairs, one foot on each step", "3", 3),
+                new Milestones(40, "Pedals a Tricycle (3-Wheel Bike)", "3", 3),
+                new Milestones(41, "Walks up and down stairs, one foot on each step", "3", 3),
                 //Fine-Gross Motor Skill Milestones Age 4
-                new Milestones(43, "Hops and stands on one foot up to 2 seconds", "4", 3),
-                new Milestones(44, "Catches a bounced ball most of the time", "4", 3),
-                new Milestones(45, "Pours, cuts with supervision and mashes own food", "4", 3),
+                new Milestones(42, "Hops and stands on one foot up to 2 seconds", "4", 3),
+                new Milestones(43, "Catches a bounced ball most of the time", "4", 3),
+                new Milestones(44, "Pours, cuts with supervision and mashes own food", "4", 3),
                 //Fine-Gross Motor Skill Milestones Age 5
-                new Milestones(46, "Stands on one foot for 10 seconds or longer", "5", 3),
-                new Milestones(47, "Hops, may be able to skip", "5", 3),
-                new Milestones(48, "Can do a somersault", "5", 3),
-                new Milestones(49, "Uses a fork or spoon and sometimes a table knife", "5", 3),
-                new Milestones(50, "Can use the toilet on his or her own", "5", 3)
+                new Milestones(45, "Stands on one foot for 10 seconds or longer", "5", 3),
+                new Milestones(46, "Hops, may be able to skip", "5", 3),
+                new Milestones(47, "Can do a somersault", "5", 3),
+                new Milestones(48, "Uses a fork or spoon and sometimes a table knife", "5", 3),
+                new Milestones(49, "Can use the toilet on his or her own", "5", 3)
             );
 
                 
@@ -137,7 +137,7 @@ namespace FinalProject.Data
 
             );
 
-            modelBuilder.Entity<Milestones>().HasData(
+            modelBuilder.Entity<Login>().HasData(
                 new Login(1, "Username", "Password")
             );
 
