@@ -36,7 +36,6 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     activitiesNAV()
-    profile(Testprofile)
 }
 
 function nav(){
@@ -105,7 +104,6 @@ function skillsNAV() {
         skills()
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
-
     });
     app.addEventListener('click', function(){
         if(event.target.classList.contains("acitvityDetails")){

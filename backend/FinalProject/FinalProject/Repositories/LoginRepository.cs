@@ -8,17 +8,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Repositories
 {
-    public class ScheduleRepository : Repository<Schedule>, IRepository<Schedule>
+    public class LoginRepository : Repository<Login>, IRepository<Login>
     {
         private DbContext db;
 
-        public ScheduleRepository(Context context) : base(context)
+        public LoginRepository(Context context) : base(context)
         {
             this.db = context;
-        }
-        public override Schedule GetById(int id)
-        {
-            return db.Set<Schedule>().Where(i => i.Id == id).Include("Activities").FirstOrDefault();
         }
     }
 }

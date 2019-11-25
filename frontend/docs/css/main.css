@@ -65,8 +65,8 @@ body {
 .menu-wrap .hamburger > div {
   position: relative;
   width: 100%;
-  height: 2px;
-  background-color: white;
+  height: 3px;
+  background-color: green;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,8 +80,13 @@ body {
   z-index: 1;
   top: -10px;
   width: 100%;
-  height: 2px;
-  background: inherit;
+  height: 3px;
+}
+.menu-wrap .hamburger > div:before{
+  background: blue;
+}
+.menu-wrap .hamburger > div:after {
+  background: purple;
 }
 /* Moves 2nd top line down to bottom */
 .menu-wrap .hamburger > div:after {
@@ -239,23 +244,82 @@ body {
 /* End of Home Page */
 /* Skills grid */
 #skillspage{
-    margin-top: -4%;
+    margin-top: -10.5%;
 }
 #skill1grid, #skill2grid, #skill3grid{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
-.skillbtns{
+.skill1btns, .skill2btns, .skill3btns{
     margin: auto;
     width: 100px;
     height: 50px;
     border: 2px solid white;
     cursor: pointer;
 }
-.skillbtns h6{
+
+.skill1btns:hover{
+  background: rgb(29,38,147);
+  border: 2px solid blue;
+  background: linear-gradient(90deg, rgba(29,38,147,0.7906443909828708) 0%, rgba(50,65,245,0.48319097483380236) 100%);
+}
+.skill2btns:hover{
+  background: rgb(29,147,36);
+  border: 2px solid rgb(0, 74, 0);
+  background: linear-gradient(90deg, rgba(29,147,36,0.880706502784113) 0%, rgba(45,191,45,0.7657996704859763) 100%);
+}
+.skill3btns:hover{
+  background: rgb(84,29,147);
+  border: 2px solid rgb(83, 0, 128);
+  background: linear-gradient(90deg, rgba(84,29,147,0.7906443909828708) 0%, rgba(162,50,245,0.48319097483380236) 100%);
+
+}
+.skill1btns h6, .skill2btns h6, .skill3btns h6{
     text-align: center;
     margin: 15% auto auto auto;
 }
+#skill1name{
+  text-align: center;
+  width: 200px;
+  height: 75px;
+  margin-bottom: 4%;
+  border: 3px solid rgba(0, 0, 0, 0);
+  /* border: 3px solid white; */
+}
+#skill1name:hover{
+  border: 3px solid blue;
+  cursor: pointer;
+  /* background: rgb(29,38,147);
+  background: linear-gradient(90deg, rgba(29,38,147,0.7906443909828708) 0%, rgba(50,65,245,0.48319097483380236) 100%); */
+}
+  #skill2name{
+  text-align: center;
+  width: 200px;
+  margin-bottom: 4%;
+  border: 3px solid rgba(0, 74, 0, 0);
+  /* border: 3px solid white; */
+}
+#skill2name:hover{
+  cursor: pointer;
+  border: 3px solid rgb(0, 74, 0);
+  /* background: rgb(29,147,36);
+  background: linear-gradient(90deg, rgba(29,147,36,0.880706502784113) 0%, rgba(45,191,45,0.7657996704859763) 100%); */
+}
+#skill3name{
+  text-align: center;
+  width: 200px;
+  color: white;
+  /* border: 3px solid white; */
+  border: 3px solid rgba(83, 0, 128, 0);
+}
+#skill3name:hover{
+  cursor: pointer;
+  border: 3px solid rgb(83, 0, 128);
+}
+#skill1name:hover, #skill2name:hover, #skill3name:hover{
+  transform: scale(1.15);
+}
+
 /* End of Skills grid */
   /* custom calendar stuff */
   td{
@@ -294,9 +358,10 @@ body {
 /* End of Activities stuff */
 /* About page */
 #aboutpage{
-    text-align: center;
+    text-align: left;
 }
 #aboutwrap{
+  margin-top: -10%;
     /* background-color: green; */
 }
 /* End of About page */

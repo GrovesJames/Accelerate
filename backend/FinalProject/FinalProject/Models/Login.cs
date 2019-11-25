@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Models
 {
-    public class Username
+    public class Login
     {
-        public int ID { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string UserName { get; set; }
         public string Password { get; set; }
 
-        public Username( int id, string name, string password)
+        public Login( int id, string userName, string password)
         {
-            ID = id;
-            Name = name;
+            Id = id;
+            UserName = userName;
             Password = password;
         }
     }
