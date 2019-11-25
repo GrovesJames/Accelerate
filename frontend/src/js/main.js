@@ -12,6 +12,7 @@ import Login from './Components/Login'
 import Profile from './Components/Profile'
 import SingleActivityPlan from './Components/SingleActivityPlan'
 import SingleSkill from './Components/SingleSkill'
+import SingleSkillActivityPlans from './Components/SingleSkillActivityPlans'
 
 const app = document.getElementById('app');
 const Testprofile = {
@@ -72,7 +73,6 @@ function addSkillSelectButtons(){
     const skillButtons = document.getElementsByClassName("button-profile-skill");
     for (var i = 0; i < skillButtons.length; i++) {
         skillButtons[i].addEventListener('click', function(){
-            const skillId = event.target.value;
             apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
                 app.innerHTML = SingleSkill(skill)
             })
