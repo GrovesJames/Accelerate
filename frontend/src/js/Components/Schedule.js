@@ -44,8 +44,9 @@ export default function Schedule(schedule) {
 
     function showSchedule(schedule){
         schedule.activities.map( activity => {
-            let activityMonth = activity.month;
-            let activityDay = activity.day;
+            let activityDate = new Date(activity.activityTime);
+            let activityMonth = activityDate.getMonth();
+            let activityDay = activityDate.getDay();
             if(activityMonth == currentMonth){
                 let dayCell = document.getElementById(activityDay);
                 let calendarActivity = document.createElement("div");
