@@ -5,8 +5,8 @@ export default function Login() {
             <form class="login-form">
             <input name="username" type="text" placeholder="username" />
             <input name="password" type="text" placeholder="password" />
-            <button>Login</button>
-            <p class"message"> Not Registered? <button>Register</button><p>
+            <button id="logbtn">Login</button>
+            <p class"message"> Not Registered? <button id="registerbtn">Register</button><p>
         </div>
     </div>
 

@@ -13,6 +13,7 @@ import Profile from './Components/Profile'
 import SingleActivityPlan from './Components/SingleActivityPlan'
 import SingleSkill from './Components/SingleSkill'
 import SingleSkillActivityPlans from './Components/SingleSkillActivityPlans'
+import Register from './Components/Register'
 
 const app = document.getElementById('app');
 const Testprofile = {

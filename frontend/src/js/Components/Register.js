@@ -5,8 +5,8 @@ export default function Register() {
             <form class="register-form">
             <input type="text" placeholder="username" />
             <input type="text" placeholder="password" />
-            <button>Create</button>
-            <p class"message">Already Registered? <button>Login</button></p>
+            <button id="createbtn">Create</button>
+            <p class"message">Already Registered? <button id="btn2">Login</button></p>
             </form>
         </div>
     </div>
