@@ -36,6 +36,7 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     activitiesNAV()
+    profileNAV()
 }
 
 function nav(){
@@ -67,6 +68,7 @@ function login(){
 function profile(profile){
     app.innerHTML = Profile(profile);
     addSkillSelectButtons();
+    calendar()
 }
 function addSkillSelectButtons(){
     const skillButtons = document.getElementsByClassName("button-profile-skill");
@@ -78,12 +80,6 @@ function addSkillSelectButtons(){
         });
     }
 }
-
-
-    // apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
-    //     Schedule(schedule);
-    // })
-
 // Navigation functions
 function homeNAV() {
     const navHome = document.querySelector('#homenav');
@@ -191,6 +187,15 @@ function loginNAV() {
     const navLogin = document.querySelector('#btn2');
     navLogin.addEventListener('click', function() {
         login()
+        closeNAV()
+    });
+}
+function profileNAV(){
+    const navProfile = document.querySelector('#profilenav');
+    navProfile.addEventListener('click', function() {
+        apiActions.getRequest("https://localhost:44355/api/profile/1", profile => {
+            profile(profile)
+        });
         closeNAV()
     });
 }
