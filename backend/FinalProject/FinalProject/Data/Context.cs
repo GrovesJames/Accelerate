@@ -15,7 +15,6 @@ namespace FinalProject.Data
         public DbSet<Skills> Skills { get; set; }
         public DbSet<ActivityPlan> ActivityPlans { get; set; }
         public DbSet<Milestones> Milestones { get; set; }
-        public DbSet<SkillsActivityPlan> SkillsActivityPlans { get; set; }
         public DbSet<Profile> Profile { get; set; }
         public DbSet<Login> Login { get; set; }
 
@@ -131,9 +130,6 @@ namespace FinalProject.Data
                 
             modelBuilder.Entity<ActivityPlan>().HasData(
                 new ActivityPlan(1, "Test Activity", "do the stuff", 200, 20)
-            );
-            modelBuilder.Entity<SkillsActivityPlan>().HasData(
-                new SkillsActivityPlan(1, 1, 1)
             );
 
             modelBuilder.Entity<Profile>().HasData(

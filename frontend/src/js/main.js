@@ -11,8 +11,16 @@ import About from './Components/About'
 import Login from './Components/Login'
 import Profile from './Components/Profile'
 import SingleActivityPlan from './Components/SingleActivityPlan'
+import SingleSkill from './Components/SingleSkill'
+import SingleSkillActivityPlans from './Components/SingleSkillActivityPlans'
 
 const app = document.getElementById('app');
+const Testprofile = {
+    userName : "TestUser"
+};
+apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
+    Testprofile.schedule = schedule;
+})
 
 export default () => {
     pageBuild()
@@ -28,7 +36,6 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     activitiesNAV()
-
 }
 
 function nav(){
@@ -57,8 +64,19 @@ function about(){
 function login(){
     app.innerHTML = Login();
 }
-function profile(){
-    app.innerHTML = Profile();
+function profile(profile){
+    app.innerHTML = Profile(profile);
+    addSkillSelectButtons();
+}
+function addSkillSelectButtons(){
+    const skillButtons = document.getElementsByClassName("button-profile-skill");
+    for (var i = 0; i < skillButtons.length; i++) {
+        skillButtons[i].addEventListener('click', function(){
+            apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
+                app.innerHTML = SingleSkill(skill)
+            })
+        });
+    }
 }
 
 
