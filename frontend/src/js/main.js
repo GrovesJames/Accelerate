@@ -50,8 +50,8 @@ function header(){
 function home(){
     app.innerHTML = Home();
 }
-function calendar(){
-    app.innerHTML = Calendar();
+function calendar(divPopulate){
+    divPopulate.innerHTML = Calendar();
     apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
         Schedule(schedule);
     })
@@ -64,11 +64,6 @@ function about(){
 }
 function login(){
     app.innerHTML = Login();
-}
-function profile(profile){
-    app.innerHTML = Profile(profile);
-    addSkillSelectButtons();
-    calendar()
 }
 function addSkillSelectButtons(){
     const skillButtons = document.getElementsByClassName("button-profile-skill");
@@ -90,7 +85,7 @@ function homeNAV() {
 function calendarNAV() {
     const navSchedule = document.querySelector('#calendarnav');
     navSchedule.addEventListener('click', function() {
-        calendar()
+        calendar(app)
         closeNAV()
     });
 }
@@ -194,7 +189,9 @@ function profileNAV(){
     const navProfile = document.querySelector('#profilenav');
     navProfile.addEventListener('click', function() {
         apiActions.getRequest("https://localhost:44355/api/profile/1", profile => {
-            profile(profile)
+            app.innerHTML = Profile(profile);
+            addSkillSelectButtons();
+            calendar(document.getElementById("profile-calendar"));
         });
         closeNAV()
     });
