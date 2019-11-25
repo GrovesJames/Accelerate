@@ -68,10 +68,10 @@ namespace FinalProject.Data
             modelBuilder.Entity<Milestones>().HasData(
 
                 //Speech Milestones Age 3
-                new Milestones(1, "Follows Instructions with 2 or 3 steps", "3-6", 1),
-                new Milestones(2, "Can name most familiar things", "3-6", 1),
-                new Milestones(3, "Says first name, age, sex", "3-6", 1),
-                new Milestones(4, "Names a Friend", "3-6", 1),
+                new Milestones(1, "Follows Instructions with 2 or 3 steps", "3", 1),
+                new Milestones(2, "Can name most familiar things", "3", 1),
+                new Milestones(3, "Says first name, age, sex", "3", 1),
+                new Milestones(4, "Names a Friend", "3", 1),
                 new Milestones(5, "Understands words like 'in,' 'on,' and 'under'", "3", 1),
                 new Milestones(6, "Says words like 'I,' 'me,' 'we,' and 'you' and some plurals (cars, dogs, cats)", "3", 1),
                 new Milestones(7, "Talks well enough for strangers to understand most of the time", "3", 1),
