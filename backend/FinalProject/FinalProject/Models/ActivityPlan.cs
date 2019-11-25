@@ -13,16 +13,17 @@ namespace FinalProject.Models
         public int Score { get; set; }
         public int Duration { get; set; }
 
-        int SkillId { get; set; }
+        int SkillsId { get; set; }
         public virtual Skills Skill { get; set; }
 
-        public ActivityPlan( int id, string title, string description, int score, int duration)
+        public ActivityPlan( int id, string title, string description, int score, int duration, int skillsId)
         {
             Id = id;
             Title = title;
             Description = description;
             Score = score;
             Duration = duration;
+            SkillsId = skillsId;
         }
         public ActivityPlan()
         {

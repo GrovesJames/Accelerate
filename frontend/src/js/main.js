@@ -69,8 +69,9 @@ function addSkillSelectButtons(){
     const skillButtons = document.getElementsByClassName("button-profile-skill");
     for (var i = 0; i < skillButtons.length; i++) {
         skillButtons[i].addEventListener('click', function(){
+            const skillId = event.target.value;
             apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
-                app.innerHTML = SingleSkill(skill)
+                app.innerHTML = SingleSkill(skill);
             })
         });
     }
