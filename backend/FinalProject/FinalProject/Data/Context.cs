@@ -957,9 +957,6 @@ namespace FinalProject.Data
             modelBuilder.Entity<ActivityPlan>().HasData(
                 new ActivityPlan(1, "Test Activity", "do the stuff", 200, 20)
             );
-            modelBuilder.Entity<SkillsActivityPlan>().HasData(
-                new SkillsActivityPlan(1, 1, 1)
-            );
 
             base.OnModelCreating(modelBuilder);
         }
