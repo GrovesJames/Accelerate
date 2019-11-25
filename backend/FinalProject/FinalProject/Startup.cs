@@ -36,7 +36,6 @@ namespace FinalProject
             services.AddScoped<IRepository<Activities>, ActivitiesRepository>();
             services.AddScoped<IRepository<Schedule>, ScheduleRepository>();
             services.AddScoped<IRepository<ActivityPlan>, ActivityPlanRepository>();
-            services.AddScoped<IRepository<SkillsActivityPlan>, SkillsActivityPlanRepository>();
             services.AddScoped<IRepository<Skills>, SkillsRepository>();
             services.AddScoped<IRepository<Profile>, ProfileRepository>();
 

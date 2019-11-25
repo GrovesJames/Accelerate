@@ -11,8 +11,16 @@ import About from './Components/About'
 import Login from './Components/Login'
 import Profile from './Components/Profile'
 import SingleActivityPlan from './Components/SingleActivityPlan'
+import SingleSkill from './Components/SingleSkill'
+import SingleSkillActivityPlans from './Components/SingleSkillActivityPlans'
 
 const app = document.getElementById('app');
+const Testprofile = {
+    userName : "TestUser"
+};
+apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
+    Testprofile.schedule = schedule;
+})
 
 export default () => {
     pageBuild()
@@ -28,8 +36,8 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     activitiesNAV()
-    profile()
     stampDate()
+    profileNAV()
 }
 
 function nav(){
@@ -43,8 +51,8 @@ function header(){
 function home(){
     app.innerHTML = Home();
 }
-function calendar(){
-    app.innerHTML = Calendar();
+function calendar(divPopulate){
+    divPopulate.innerHTML = Calendar();
     apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
         Schedule(schedule);
     })
@@ -58,15 +66,17 @@ function about(){
 function login(){
     app.innerHTML = Login();
 }
-function profile(){
-    app.innerHTML = Profile();
+function addSkillSelectButtons(){
+    const skillButtons = document.getElementsByClassName("button-profile-skill");
+    for (var i = 0; i < skillButtons.length; i++) {
+        skillButtons[i].addEventListener('click', function(){
+            const skillId = event.target.value;
+            apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
+                app.innerHTML = SingleSkill(skill);
+            })
+        });
+    }
 }
-
-
-    // apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
-    //     Schedule(schedule);
-    // })
-
 // Navigation functions
 function homeNAV() {
     const navHome = document.querySelector('#homenav');
@@ -77,7 +87,7 @@ function homeNAV() {
 function calendarNAV() {
     const navSchedule = document.querySelector('#calendarnav');
     navSchedule.addEventListener('click', function() {
-        calendar()
+        calendar(app)
         closeNAV()
     });
 }
@@ -87,7 +97,6 @@ function skillsNAV() {
         skills()
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
-
     });
     app.addEventListener('click', function(){
         if(event.target.classList.contains("acitvityDetails")){
@@ -175,6 +184,17 @@ function loginNAV() {
     const navLogin = document.querySelector('#btn2');
     navLogin.addEventListener('click', function() {
         login()
+        closeNAV()
+    });
+}
+function profileNAV(){
+    const navProfile = document.querySelector('#profilenav');
+    navProfile.addEventListener('click', function() {
+        apiActions.getRequest("https://localhost:44355/api/profile/1", profile => {
+            app.innerHTML = Profile(profile);
+            addSkillSelectButtons();
+            calendar(document.getElementById("profile-calendar"));
+        });
         closeNAV()
     });
 }

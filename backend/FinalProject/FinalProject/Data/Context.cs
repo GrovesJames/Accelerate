@@ -15,8 +15,8 @@ namespace FinalProject.Data
         public DbSet<Skills> Skills { get; set; }
         public DbSet<ActivityPlan> ActivityPlans { get; set; }
         public DbSet<Milestones> Milestones { get; set; }
-        public DbSet<SkillsActivityPlan> SkillsActivityPlans { get; set; }
         public DbSet<Profile> Profile { get; set; }
+        public DbSet<Login> Login { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -68,10 +68,10 @@ namespace FinalProject.Data
             modelBuilder.Entity<Milestones>().HasData(
 
                 //Speech Milestones Age 3
-                new Milestones(1, "Follows Instructions with 2 or 3 steps", "3-6", 1),
-                new Milestones(2, "Can name most familiar things", "3-6", 1),
-                new Milestones(3, "Says first name, age, sex", "3-6", 1),
-                new Milestones(4, "Names a Friend", "3-6", 1),
+                new Milestones(1, "Follows Instructions with 2 or 3 steps", "3", 1),
+                new Milestones(2, "Can name most familiar things", "3", 1),
+                new Milestones(3, "Says first name, age, sex", "3", 1),
+                new Milestones(4, "Names a Friend", "3", 1),
                 new Milestones(5, "Understands words like 'in,' 'on,' and 'under'", "3", 1),
                 new Milestones(6, "Says words like 'I,' 'me,' 'we,' and 'you' and some plurals (cars, dogs, cats)", "3", 1),
                 new Milestones(7, "Talks well enough for strangers to understand most of the time", "3", 1),
@@ -113,31 +113,32 @@ namespace FinalProject.Data
                 new Milestones(38, "Knows about things used everyday, like money and food", "5", 2),
                 //Fine-Gross Motor Skill Milestones Age 3
                 new Milestones(39, "Runs Easily", "3", 3),
-                new Milestones(41, "Pedals a Tricycle (3-Wheel Bike)", "3", 3),
-                new Milestones(42, "Walks up and down stairs, one foot on each step", "3", 3),
+                new Milestones(40, "Pedals a Tricycle (3-Wheel Bike)", "3", 3),
+                new Milestones(41, "Walks up and down stairs, one foot on each step", "3", 3),
                 //Fine-Gross Motor Skill Milestones Age 4
-                new Milestones(43, "Hops and stands on one foot up to 2 seconds", "4", 3),
-                new Milestones(44, "Catches a bounced ball most of the time", "4", 3),
-                new Milestones(45, "Pours, cuts with supervision and mashes own food", "4", 3),
+                new Milestones(42, "Hops and stands on one foot up to 2 seconds", "4", 3),
+                new Milestones(43, "Catches a bounced ball most of the time", "4", 3),
+                new Milestones(44, "Pours, cuts with supervision and mashes own food", "4", 3),
                 //Fine-Gross Motor Skill Milestones Age 5
-                new Milestones(46, "Stands on one foot for 10 seconds or longer", "5", 3),
-                new Milestones(47, "Hops, may be able to skip", "5", 3),
-                new Milestones(48, "Can do a somersault", "5", 3),
-                new Milestones(49, "Uses a fork or spoon and sometimes a table knife", "5", 3),
-                new Milestones(50, "Can use the toilet on his or her own", "5", 3)
+                new Milestones(45, "Stands on one foot for 10 seconds or longer", "5", 3),
+                new Milestones(46, "Hops, may be able to skip", "5", 3),
+                new Milestones(47, "Can do a somersault", "5", 3),
+                new Milestones(48, "Uses a fork or spoon and sometimes a table knife", "5", 3),
+                new Milestones(49, "Can use the toilet on his or her own", "5", 3)
             );
 
                 
             modelBuilder.Entity<ActivityPlan>().HasData(
-                new ActivityPlan(1, "Test Activity", "do the stuff", 200, 20)
-            );
-            modelBuilder.Entity<SkillsActivityPlan>().HasData(
-                new SkillsActivityPlan(1, 1, 1)
+                new ActivityPlan(1, "Test Activity", "do the stuff", 200, 20,1)
             );
 
             modelBuilder.Entity<Profile>().HasData(
                 new Profile(1, "User1")
 
+            );
+
+            modelBuilder.Entity<Login>().HasData(
+                new Login(1, "Username", "Password")
             );
 
             base.OnModelCreating(modelBuilder);

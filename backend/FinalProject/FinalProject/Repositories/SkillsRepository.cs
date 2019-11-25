@@ -17,6 +17,10 @@ namespace FinalProject.Repositories
             {
                 this.db = context;
             }
+            public override Skills GetById(int id)
+            {
+                return db.Set<Skills>().Where(i => i.Id == id).Include("ActivityPlans").Include("Milestones").FirstOrDefault();
+            }
         }
     
 }
