@@ -185,9 +185,7 @@ function closeNAV(){
 function stampDate(){
     const addActionPlan = new Date(document.querySelector('.add-activity_plan').value).toISOString()
     app.addEventListener("click", function(){
-        if(event.target.classList.contains("activity-plan_submit")){            
-            const addActivityPlanTitle = event.target.parentElement.querySelector(
-                "activity-plan_title").value;
+        if(event.target.classList.contains("activity-plan_submit")){      
             const addActivityPlanDescription = event.target.parentElement.querySelector(
                 "activity-plan_description").value;
             const addActivityPlanScore = event.target.parentElement.querySelector(
