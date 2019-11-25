@@ -44,7 +44,7 @@ namespace FinalProject.Migrations
                     b.ToTable("Activities");
 
                     b.HasData(
-                        new { Id = 1, ActivityTime = new DateTime(2019, 11, 25, 7, 51, 38, 774, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
+                        new { Id = 1, ActivityTime = new DateTime(2019, 11, 25, 10, 29, 27, 828, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
                     );
                 });
 
@@ -60,18 +60,18 @@ namespace FinalProject.Migrations
 
                     b.Property<int>("Score");
 
-                    b.Property<int?>("SkillId");
+                    b.Property<int>("SkillsId");
 
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SkillId");
+                    b.HasIndex("SkillsId");
 
                     b.ToTable("ActivityPlans");
 
                     b.HasData(
-                        new { Id = 1, Description = "do the stuff", Duration = 20, Score = 200, Title = "Test Activity" }
+                        new { Id = 1, Description = "do the stuff", Duration = 20, Score = 200, SkillsId = 1, Title = "Test Activity" }
                     );
                 });
 
@@ -235,9 +235,10 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.ActivityPlan", b =>
                 {
-                    b.HasOne("FinalProject.Models.Skills", "Skill")
+                    b.HasOne("FinalProject.Models.Skills", "Skills")
                         .WithMany("ActivityPlans")
-                        .HasForeignKey("SkillId");
+                        .HasForeignKey("SkillsId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("FinalProject.Models.Milestones", b =>
