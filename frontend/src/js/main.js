@@ -36,6 +36,7 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     activitiesNAV()
+    stampDate()
     profileNAV()
 }
 
@@ -200,3 +201,34 @@ function profileNAV(){
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
+
+function stampDate(){
+    const addActionPlan = new Date(document.querySelector('.add-activity_plan').value).toISOString()
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("activity-plan_submit")){      
+            const addActivityPlanDescription = event.target.parentElement.querySelector(
+                "activity-plan_description").value;
+            const addActivityPlanScore = event.target.parentElement.querySelector(
+                "activity-plan_score").value;
+            const addActitvityPlanDuration = event.target.parentElement.querySelector(
+                "activity-plan_duration").value;
+                
+            console.log(addActivityPlan);
+            apiActions.postRequest("https://localhost:44355/api/activities",
+             {                
+                description: addActivityPlanDescription,
+                score: addActivityPlanScore,
+                duration: addActitvityPlanDuration,
+                activityTime: addActionPlan
+            },
+            activityPlan =>{
+                console.log(activityPlan);
+                document.querySelector("#app").innerHTML = ActivityPlan(activityPlan);
+            } 
+            )        
+        }
+    });
+}
+        
+   
+
