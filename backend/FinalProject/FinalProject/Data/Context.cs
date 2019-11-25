@@ -129,7 +129,7 @@ namespace FinalProject.Data
 
                 
             modelBuilder.Entity<ActivityPlan>().HasData(
-                new ActivityPlan(1, "Test Activity", "do the stuff", 200, 20)
+                new ActivityPlan(1, "Test Activity", "do the stuff", 200, 20,1)
             );
 
             modelBuilder.Entity<Profile>().HasData(
