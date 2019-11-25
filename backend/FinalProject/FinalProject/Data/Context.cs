@@ -15,7 +15,6 @@ namespace FinalProject.Data
         public DbSet<Skills> Skills { get; set; }
         public DbSet<ActivityPlan> ActivityPlans { get; set; }
         public DbSet<Milestones> Milestones { get; set; }
-        public DbSet<SkillsActivityPlan> SkillsActivityPlans { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
