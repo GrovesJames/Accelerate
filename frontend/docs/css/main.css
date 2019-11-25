@@ -147,9 +147,9 @@ body {
   display: grid;
   position: absolute;
   margin-top: 38px;
-  margin-left: 750px;
-  grid-template-columns: repeat(4, 1fr);
-  width: 200px;
+  margin-left: 650px;
+  grid-template-columns: repeat(5, 1fr);
+  width: 175px;
 }
 .menu-wrap .menu > div > div > ul > li {
   list-style: none;
@@ -176,6 +176,9 @@ body {
 }
 #activitiesnav:hover{
   color: blue;
+}
+#profilenav:hover{
+  color: green;
 }
 /* end nav */
 /* Header */
@@ -248,9 +251,17 @@ body {
 }
 #skill1grid, #skill2grid, #skill3grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+.button-skill{
+  z-index: 0;
+  margin: auto;
+  width: 200px;
+  height: 50px;
+  opacity: 0;
 }
 .skill1btns, .skill2btns, .skill3btns{
+    /* z-index: 1; */
     margin: auto;
     width: 100px;
     height: 50px;
@@ -278,11 +289,15 @@ body {
     text-align: center;
     margin: 15% auto auto auto;
 }
+#skill1name h3, #skill2name h3, #skill3name h3{
+  z-index: 1;
+  margin-top: -15%;
+}
 #skill1name{
   text-align: center;
   width: 200px;
   height: 75px;
-  margin-bottom: 4%;
+  margin: auto auto 4% auto;
   border: 3px solid rgba(0, 0, 0, 0);
   /* border: 3px solid white; */
 }
@@ -295,7 +310,7 @@ body {
   #skill2name{
   text-align: center;
   width: 200px;
-  margin-bottom: 4%;
+  margin: auto auto 4% auto;
   border: 3px solid rgba(0, 74, 0, 0);
   /* border: 3px solid white; */
 }
@@ -310,6 +325,7 @@ body {
   width: 200px;
   color: white;
   /* border: 3px solid white; */
+  margin: auto auto auto auto;
   border: 3px solid rgba(83, 0, 128, 0);
 }
 #skill3name:hover{
