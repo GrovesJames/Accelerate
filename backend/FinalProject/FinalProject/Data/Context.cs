@@ -17,6 +17,7 @@ namespace FinalProject.Data
         public DbSet<Milestones> Milestones { get; set; }
         public DbSet<SkillsActivityPlan> SkillsActivityPlans { get; set; }
         public DbSet<Profile> Profile { get; set; }
+        public DbSet<Login> Login { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -138,6 +139,10 @@ namespace FinalProject.Data
             modelBuilder.Entity<Profile>().HasData(
                 new Profile(1, "User1")
 
+            );
+
+            modelBuilder.Entity<Milestones>().HasData(
+                new Login(1, "Username", "Password")
             );
 
             base.OnModelCreating(modelBuilder);
