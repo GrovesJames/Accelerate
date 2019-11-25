@@ -7,9 +7,15 @@ export default function SingleSkill(skill){
       <article>
         <ul>
           <h3>${skill.name}</h3>
-          <h4>${skill.description}</h4>
-          <h4>${skill.ageRange}</h4>
-        <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+          <div id=indskillgrid">
+            <div id="skilldesc">
+              <h4>${skill.description}</h4>
+            </div>
+            <div id="skillpic">
+              <img src=${skill.picture}/>
+            </div>
+            <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+          </div>
         </ul>
       </article>
         <ul> 
