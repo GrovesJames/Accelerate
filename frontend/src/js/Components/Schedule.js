@@ -1,5 +1,5 @@
 import CalendarActivity from "./CalendarActivity";
-// import Day from './Day';
+import Day from './Day';
 
 export default function Schedule(schedule) {
     
@@ -132,10 +132,12 @@ export default function Schedule(schedule) {
                 let dayNum = dayCell.id
                 let dayActivities = [];
                 schedule.activities.map( activity => {
-                    let activityDay = activity.day;
-                    if(dayNum == activityDay) dayActivities.push(activity);
+                    let activityDate = new Date(activity.activityTime);
+                    let activityDay = activityDate.getDate();
+                    let activityMonth = activityDate.getMonth();
+                    if(dayNum == activityDay && currentMonth == activityMonth) dayActivities.push(activity);
                 })
-                daySchedule.innerHTML = Day(dayActivities);
+                document.getElementById("app").innerHTML = Day(dayActivities);
             });
         }
     }
