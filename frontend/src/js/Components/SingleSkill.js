@@ -12,12 +12,14 @@ export default function SingleSkill(skill){
         <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
         </ul>
       </article>
-        <ul> 
+        <ul>
         ${skill.activityPlans.map( activityPlan => {
-            return `
-              ${ActivityPlan(activityPlan)}
-            `
+          return `
+            ${ActivityPlan(activityPlan)}
+          `
         }).join("")}
+        </ul>
+        <ul> 
         ${skill.milestones.map(milestones => {
             return `
             <div class="milestonesDetails" id="milestonesDetail">
