@@ -9,7 +9,7 @@ export default function Activities() {
                 <button id="calendar-next">Next</button>
             </div>
             <div id="calendar-body">Body</div>
-            <div id="calendar-day"></div>
+            <div id="calendar-daySchedule"></div>
         </div>
     `
 }
