@@ -10,7 +10,7 @@ import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
 import Profile from './Components/Profile'
-import SingleActivityPlan from './Components/SingleActivityPlan'
+import SkillActivities from './Components/SkillActivities'
 import SingleSkill from './Components/SingleSkill'
 
 const app = document.getElementById('app');
@@ -77,6 +77,17 @@ function addSkillSelectButtons(){
         });
     }
 }
+function addActivitySelectButtons(){
+    const skillButtons = document.getElementsByClassName("button-activities");
+    for (var i = 0; i < skillButtons.length; i++) {
+        skillButtons[i].addEventListener('click', function(){
+            const skillId = event.target.value;
+            apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
+                app.innerHTML = SkillActivities(skill);
+            })
+        });
+    }
+}
 // Navigation functions
 function homeNAV() {
     const navHome = document.querySelector('#homenav');
@@ -96,23 +107,11 @@ function skillsNAV() {
     navSkills.addEventListener('click', function() {
         skills()
         addSkillSelectButtons()
+        addActivitySelectButtons()
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
     });
-    app.addEventListener('click', function(){
-        if(event.target.classList.contains("activityDetails")){
-            const activityPlanID = event.target.parentElement.querySelector(".activities_id")
-            .value;
-            apiActions.getRequest(`https://localhost:44355/api/activityplans/${activityPlanID}`,
-            activityPlanID => {
-                console.log(activites.name)
-                
-               document.querySelector("#app").innerHTML = SingleActivityPlan(activityPlan);
-
-               
-             })
-        }
-    });
+  
 }
 function activitiesNAV() {
     const navActivities = document.querySelector('#activitiesnav');    
