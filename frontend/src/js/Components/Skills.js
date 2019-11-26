@@ -9,10 +9,8 @@ export default function Skills() {
 
         <div id="skill1grid">
             <div id="skill1name">
+                <button class="button-skill" value="1"></button>
                 <h3>Speech</h3>
-            </div>
-            <div id="skill1mile" class="skill1btns">
-                <h6>Milestones</h6>
             </div>
             <div id="skill1act" class="skill1btns">
                 <h6>Activities</h6>
@@ -20,10 +18,8 @@ export default function Skills() {
         </div>
         <div id="skill2grid">
             <div id="skill2name">
+                <button class="button-skill" value="2"></button>
                 <h3>Cognitive Functionality</h3>
-            </div>
-            <div id="skill2mile" class="skill2btns">
-                <h6>Milestones</h6>
             </div>
             <div id="skill2act" class="skill2btns">
                 <h6>Activities</h6>
@@ -31,10 +27,8 @@ export default function Skills() {
         </div>
         <div id="skill3grid">
             <div id="skill3name">
+                <button class="button-skill" value="3"></button>
                 <h3>Fine/Gross Motor Skills</h3>
-            </div>
-            <div id="skill3mile" class="skill3btns">
-                <h6>Milestones</h6>
             </div>
             <div id="skill3act" class="skill3btns">
                 <h6>Activities</h6>

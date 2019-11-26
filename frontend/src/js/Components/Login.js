@@ -6,7 +6,8 @@ export default function Login() {
             <input name="username" type="text" placeholder="username" />
             <input name="password" type="text" placeholder="password" />
             <button>Login</button>
-            <p class"message"> Not Registered? <button>Register</button><p>
+            <p class"message"> Not Registered?</p> 
+            <button>Register</button>
         </div>
     </div>
 

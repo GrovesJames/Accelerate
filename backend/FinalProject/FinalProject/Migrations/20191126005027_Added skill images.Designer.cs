@@ -4,14 +4,16 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20191126005027_Added skill images")]
+    partial class Addedskillimages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,9 +46,7 @@ namespace FinalProject.Migrations
                     b.ToTable("Activities");
 
                     b.HasData(
-
                         new { Id = 1, ActivityTime = new DateTime(2019, 11, 25, 19, 50, 26, 777, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
-
                     );
                 });
 
@@ -62,18 +62,18 @@ namespace FinalProject.Migrations
 
                     b.Property<int>("Score");
 
-                    b.Property<int>("SkillsId");
+                    b.Property<int?>("SkillId");
 
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SkillsId");
+                    b.HasIndex("SkillId");
 
                     b.ToTable("ActivityPlans");
 
                     b.HasData(
-                        new { Id = 1, Description = "do the stuff", Duration = 20, Score = 200, SkillsId = 1, Title = "Test Activity" }
+                        new { Id = 1, Description = "do the stuff", Duration = 20, Score = 200, Title = "Test Activity" }
                     );
                 });
 
@@ -239,10 +239,9 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.ActivityPlan", b =>
                 {
-                    b.HasOne("FinalProject.Models.Skills", "Skills")
+                    b.HasOne("FinalProject.Models.Skills", "Skill")
                         .WithMany("ActivityPlans")
-                        .HasForeignKey("SkillsId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SkillId");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Milestones", b =>

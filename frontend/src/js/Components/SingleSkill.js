@@ -3,16 +3,24 @@ import ActivityPlan from './ActivityPlan'
 
 export default function SingleSkill(skill){
     return `
-    <div id="detail">
-      <article>
-        <ul>
-          <h3>${skill.name}</h3>
-          <h4>${skill.description}</h4>
-          <h4>${skill.ageRange}</h4>
-        <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+    <div id="skilldetail">
+      <article id="skillsheader">
+        <ul id="skill-detail-list">
+          <li>
+          <div id="skilldesc">
+            <h3>${skill.name}</h3>
+              <h4>${skill.description}</h4>
+            </div>
+            <div id="skillpic">
+              <img src="${skill.image}"></img>
+            </div>
+            <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+          </li>
         </ul>
       </article>
-        <ul>
+      <h5>Milestones</h5>
+        <ul id="skillmile"> 
+
         ${skill.activityPlans.map( activityPlan => {
           return `
             ${ActivityPlan(activityPlan)}
@@ -22,11 +30,13 @@ export default function SingleSkill(skill){
         <ul> 
         ${skill.milestones.map(milestones => {
             return `
-            <div class="milestonesDetails" id="milestonesDetail">
-                <input class="milestones_id" type="hidden" value="${milestones.id}">
-                <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
-                <h3>${milestones.milestone}</h3>
-            </div>    
+              <li>
+                <div class="milestonesDetails" id="milestonesDetail">
+                    <input class="milestones_id" type="hidden" value="${milestones.id}">
+                    <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+                    <h4>${milestones.milestone}</h4>
+                </div>    
+              </li>
             `;
         }).join("")}
         </ul>
