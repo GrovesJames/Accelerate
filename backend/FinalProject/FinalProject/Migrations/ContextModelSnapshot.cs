@@ -45,7 +45,7 @@ namespace FinalProject.Migrations
 
                     b.HasData(
 
-                        new { Id = 1, ActivityTime = new DateTime(2019, 11, 25, 7, 51, 38, 774, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
+                        new { Id = 1, ActivityTime = new DateTime(2019, 11, 26, 10, 27, 2, 582, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
 
                     );
                 });
@@ -228,7 +228,6 @@ namespace FinalProject.Migrations
                         new { Id = 1, AgeRange = "3-5", Description = "Children are born ready to learn a language, but they need to learn the language or languages that their family and environment use. Learning a language takes time, and children vary in how quickly they master milestones in language and speech development. Typically developing children may have trouble with some sounds, words, and sentences while they are learning. However, most children can use language easily around 5 years of age.", Image = "/images/speech.jpg", Name = "Speech" },
                         new { Id = 2, AgeRange = "3-5", Description = "Children are born ready to learn, and have many skills to learn over many years. They depend on parents, family members, and other caregivers as their first teachers to develop the right skills to become independent and lead healthy and successful lives. How the brain grows is strongly affected by the child’s experiences with other people and the world. Nurturing care for the mind is critical for brain growth. Children grow and learn best in a safe environment where they are protected from neglect and from extreme or chronic stress. External with plenty of opportunities to play and explore.", Image = "/images/cognitive.jpg", Name = "Cognitive Functionality" },
                         new { Id = 3, AgeRange = "3-5", Description = "This is the ability to use small muscles (fine motor), particularly in the hands, and large muscles (gross motor) in the body. Babies use fine motor skills to grasp objects. Toddlers and preschoolers use them to do things like hold utensils, work with objects, and draw. Babies use gross motor skills to sit up, roll over, and begin to walk. Older kids use them to do things like jump, run, and climb stairs.", Image = "/images/motor.jpg", Name = "Fine/Gross Motor Skills" }
-
 
                     );
                 });
