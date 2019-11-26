@@ -203,26 +203,29 @@ function closeNAV(){
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
-            const addActionPlan = new Date(document.querySelector('.add-activity_plan').value).toISOString()
+            const addDate = new Date(document.querySelector('.add-activity_plan').value).toISOString()
 
+            const addActivityPlanTitle = event.target.parentElement.querySelector(
+                ".activity-plan_title").value;
             const addActivityPlanDescription = event.target.parentElement.querySelector(
-                "activity-plan_description").value;
+                ".activity-plan_description").value;
             const addActivityPlanScore = event.target.parentElement.querySelector(
-                "activity-plan_score").value;
+                ".activity-plan_score").value;
             const addActitvityPlanDuration = event.target.parentElement.querySelector(
-                "activity-plan_duration").value;
+                ".activity-plan_duration").value;
+            const scheduleId = 1;
                 
-            console.log(addActivityPlan);
+            console.log(addDate);
             apiActions.postRequest("https://localhost:44355/api/activities",
              {                
+                title: addActivityPlanTitle,
                 description: addActivityPlanDescription,
                 score: addActivityPlanScore,
                 duration: addActitvityPlanDuration,
-                activityTime: addActionPlan
+                activityTime: addDate,
+                scheduleId: scheduleId
             },
             activityPlan =>{
-                console.log(activityPlan);
-                document.querySelector("#app").innerHTML = ActivityPlan(activityPlan);
             } 
             )        
         }
