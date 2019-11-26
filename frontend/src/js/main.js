@@ -10,9 +10,8 @@ import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
 import Profile from './Components/Profile'
-import SingleActivityPlan from './Components/SingleActivityPlan'
+import SkillActivities from './Components/SkillActivities'
 import SingleSkill from './Components/SingleSkill'
-import SingleSkillActivityPlans from './Components/SingleSkillActivityPlans'
 
 const app = document.getElementById('app');
 const Testprofile = {
@@ -67,12 +66,24 @@ function login(){
     app.innerHTML = Login();
 }
 function addSkillSelectButtons(){
-    const skillButtons = document.getElementsByClassName("button-profile-skill");
+    const skillButtons = document.getElementsByClassName("button-skill");
     for (var i = 0; i < skillButtons.length; i++) {
         skillButtons[i].addEventListener('click', function(){
             const skillId = event.target.value;
             apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
                 app.innerHTML = SingleSkill(skill);
+            })
+            document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/kids.jpg")';
+        });
+    }
+}
+function addActivitySelectButtons(){
+    const skillButtons = document.getElementsByClassName("button-activities");
+    for (var i = 0; i < skillButtons.length; i++) {
+        skillButtons[i].addEventListener('click', function(){
+            const skillId = event.target.value;
+            apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
+                app.innerHTML = SkillActivities(skill);
             })
         });
     }
@@ -95,23 +106,12 @@ function skillsNAV() {
     const navSkills = document.querySelector('#skillsnav');
     navSkills.addEventListener('click', function() {
         skills()
+        addSkillSelectButtons()
+        addActivitySelectButtons()
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
     });
-    app.addEventListener('click', function(){
-        if(event.target.classList.contains("acitvityDetails")){
-            const activityPlanID = event.target.parentElement.querySelector(".activities_id")
-            .value;
-            apiActions.getRequest(`https://localhost:44355/api/activityplans/${activityPlanID}`,
-            activityPlanID => {
-                console.log(activites.name)
-                
-               document.querySelector("#app").innerHTML = SingleActivityPlan(activityPlan);
-
-               
-             })
-        }
-    });
+  
 }
 function activitiesNAV() {
     const navActivities = document.querySelector('#activitiesnav');    
@@ -192,8 +192,6 @@ function profileNAV(){
     navProfile.addEventListener('click', function() {
         apiActions.getRequest("https://localhost:44355/api/profile/1", profile => {
             app.innerHTML = Profile(profile);
-            addSkillSelectButtons();
-            calendar(document.getElementById("profile-calendar"));
         });
         closeNAV()
     });
@@ -203,9 +201,10 @@ function closeNAV(){
 }
 
 function stampDate(){
-    const addActionPlan = new Date(document.querySelector('.add-activity_plan').value).toISOString()
     app.addEventListener("click", function(){
-        if(event.target.classList.contains("activity-plan_submit")){      
+        if(event.target.classList.contains("activity-plan_submit")){   
+            const addActionPlan = new Date(document.querySelector('.add-activity_plan').value).toISOString()
+
             const addActivityPlanDescription = event.target.parentElement.querySelector(
                 "activity-plan_description").value;
             const addActivityPlanScore = event.target.parentElement.querySelector(

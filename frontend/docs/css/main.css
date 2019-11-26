@@ -147,9 +147,9 @@ body {
   display: grid;
   position: absolute;
   margin-top: 38px;
-  margin-left: 750px;
-  grid-template-columns: repeat(4, 1fr);
-  width: 200px;
+  margin-left: 650px;
+  grid-template-columns: repeat(5, 1fr);
+  width: 175px;
 }
 .menu-wrap .menu > div > div > ul > li {
   list-style: none;
@@ -176,6 +176,9 @@ body {
 }
 #activitiesnav:hover{
   color: blue;
+}
+#profilenav:hover{
+  color: green;
 }
 /* end nav */
 /* Header */
@@ -248,9 +251,17 @@ body {
 }
 #skill1grid, #skill2grid, #skill3grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+}
+.button-skill{
+  z-index: 0;
+  margin: auto;
+  width: 200px;
+  height: 50px;
+  opacity: 0;
 }
 .skill1btns, .skill2btns, .skill3btns{
+    /* z-index: 1; */
     margin: auto;
     width: 100px;
     height: 50px;
@@ -278,49 +289,104 @@ body {
     text-align: center;
     margin: 15% auto auto auto;
 }
+#skill1name h3, #skill2name h3, #skill3name h3{
+  z-index: 1;
+  margin-top: -15%;
+}
 #skill1name{
   text-align: center;
   width: 200px;
   height: 75px;
-  margin-bottom: 4%;
-  border: 3px solid rgba(0, 0, 0, 0);
-  /* border: 3px solid white; */
+  margin: auto auto 4% auto;
+  border: 3px solid blue;
 }
 #skill1name:hover{
-  border: 3px solid blue;
   cursor: pointer;
-  /* background: rgb(29,38,147);
-  background: linear-gradient(90deg, rgba(29,38,147,0.7906443909828708) 0%, rgba(50,65,245,0.48319097483380236) 100%); */
 }
   #skill2name{
   text-align: center;
   width: 200px;
-  margin-bottom: 4%;
-  border: 3px solid rgba(0, 74, 0, 0);
-  /* border: 3px solid white; */
+  margin: auto auto 4% auto;
+  border: 3px solid rgb(0, 74, 0);
 }
 #skill2name:hover{
   cursor: pointer;
-  border: 3px solid rgb(0, 74, 0);
-  /* background: rgb(29,147,36);
-  background: linear-gradient(90deg, rgba(29,147,36,0.880706502784113) 0%, rgba(45,191,45,0.7657996704859763) 100%); */
 }
 #skill3name{
   text-align: center;
   width: 200px;
   color: white;
-  /* border: 3px solid white; */
-  border: 3px solid rgba(83, 0, 128, 0);
+  margin: auto auto auto auto;
+  border: 3px solid rgb(83, 0, 128);
 }
 #skill3name:hover{
   cursor: pointer;
-  border: 3px solid rgb(83, 0, 128);
 }
 #skill1name:hover, #skill2name:hover, #skill3name:hover{
   transform: scale(1.15);
 }
 
 /* End of Skills grid */
+
+
+/* Individual skill page */
+#indskillgrid{
+  /* display: grid;
+  grid-template-columns: repeat(2, 1fr); */
+  height: 700px;
+}
+#skill-detail-list li{
+  height: 500px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+}
+#skilldesc{
+  width: 300px;
+  font-size: 1rem;
+}
+#skillpic{
+  border: 11px inset blue;
+  margin: 18% auto auto auto;
+  /* border: 14px dotted purple; */
+  /* transform: scale(.3); */
+}
+#skilldetail h3{
+  font-size: 1.5rem;
+}
+#skilldetail h5{
+  text-align: center;
+  font-size: 1.5rem;
+}
+#skillmile{
+  margin-top: 10%;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+#skillmile li{
+  text-align: center;
+  vertical-align: middle;
+}
+/* #skillmile li{
+  margin: auto;
+} */
+#skillmile li:nth-child(1), #skillmile li:nth-child(4), #skillmile li:nth-child(7), #skillmile li:nth-child(10), #skillmile li:nth-child(13), #skillmile li:nth-child(16), #skillmile li:nth-child(19){
+  border: 2px solid blue;
+}
+#skillmile li:nth-child(2), #skillmile li:nth-child(5), #skillmile li:nth-child(8), #skillmile li:nth-child(11), #skillmile li:nth-child(14), #skillmile li:nth-child(17), #skillmile li:nth-child(20){
+  border: 2px solid green;
+}
+#skillmile li:nth-child(3), #skillmile li:nth-child(6), #skillmile li:nth-child(9), #skillmile li:nth-child(12), #skillmile li:nth-child(15), #skillmile li:nth-child(18), #skillmile li:nth-child(21){
+  border: 2px solid purple;
+}
+/* End of Individual skill page */
+
+
   /* custom calendar stuff */
   td{
     background-color: white;
@@ -338,7 +404,11 @@ body {
   }
   #calwrap{
     margin-left: 8%;
-
+    border: 20px double #ffffff;
+  }
+  #calendar-prev, #calendar-next{
+    background-color: rgba(0, 0, 0, 0.00);
+    color: white;
   }
 /* End Calendar stuff */
 /* Activities stuff */
@@ -375,17 +445,18 @@ body {
 .form{
   position: relative;
   z-index: 1;
-  background: rgba(7, 40, 195, 0.8);
-  max-width: 360px;
-  margin: 0 auto 100px;
+  /* background: rgba(7, 40, 195, 0.0); */
+  border: 21px groove #FFFFFF;
+  max-width: 60%;
+  margin: -30% auto auto auto;
   padding: 45px;
   text-align: center;
 }
 
 .form input{
-  font-family: "Roboto", sans-serif;
+  font-family: "Quicksand", "Roboto", sans-serif;
   outline: 1;
-  background: #f2f2f2;
+  /* background: #f2f2f2; */
   width: 100%;
   border: 0;
   margin: 0 0 15px;
@@ -398,17 +469,18 @@ body {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  /* background: blue; */
   width: 100%;
-  border: 0;
+  border: 2px solid rgb(255, 255, 255);
   padding: 15px;
-  color: #FFFFFF;
+  color: black;
   font-size: 14px;
   cursor: pointer;
 }
 
 .form button:hover, .form button:active{
   background: #43A047;
+  color: white;
 }
 
 .form .message{
