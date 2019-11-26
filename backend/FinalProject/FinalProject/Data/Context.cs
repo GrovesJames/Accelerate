@@ -29,30 +29,7 @@ namespace FinalProject.Data
         {
             modelBuilder.Entity<Activities>().HasData(
 
-                new Activities(1, "do stuff", "3-6", "do stuff", 20, 200, 1, DateTime.Now)
-                ////3 y/o Activities
-                //new Activities(1, "3", "Play Groups", "60", 150, 1),
-                //new Activities(2, "3", "Read to Your Child", "20", 100, 1),
-                //new Activities(3, "3", "Matching Games", "20", 100, 1),
-                //new Activities(4, "3", "Ascend and Descend Stairs", "20", 100, 1),
-                //new Activities(5, "3", "Play Outside", "20", 100, 1),
-                //new Activities(6, "3", "Go to the Park or a Hiking Trail", "20", 100, 1),
-                ////4 y/o Activities
-                //new Activities(7, "4", "Play Make Believe", "20", 100, 1),
-                //new Activities(8, "4", "Childs Choice Snack Time", "20", 100, 1),
-                //new Activities(9, "4", "Read with your child", "20", 100, 1),
-                //new Activities(10, "4", "Outdoor Games (Tag, Duck Duck Goose)", "20", 100, 1),
-                //new Activities(11, "4", "Dance with your child", "15", 100, 1),
-                ////5 y/o Activities
-                //new Activities(12, "5", "Dance with your child", "15", 100, 1),
-                //new Activities(13, "5", "Educate: Address and Phone Number", "5", 100, 1),
-                //new Activities(14, "5", "Encourage your child to read to you through pictures", "25", 100, 1),
-                //new Activities(15, "5", "Petting Zoo", "60", 100, 1),
-                //new Activities(16, "5", "Art Projects", "20", 100, 1),
-                //new Activities(17, "5", "Scavenger Hunt", "20", 100, 1),
-                //new Activities(18, "5", "Ride A Bicycle", "20", 100, 1),
-                //new Activities(19, "5", "Visit the Library", "60", 100, 1),
-                //new Activities(20, "5", "Educate: Days of the Week", "5", 100, 1)
+                //new Activities(1, "do stuff", "3-6", "do stuff", 20, 200, 1, DateTime.Now)
 
                 );
             modelBuilder.Entity<Schedule>().HasData(
@@ -86,7 +63,6 @@ namespace FinalProject.Data
                 new Milestones(14, "Tells a simple story using full sentences", "5", 1),
                 new Milestones(15, "Uses future tense; for example, 'Grandma will be here'", "5", 1),
                 new Milestones(16, "Says full name and address", "5", 1),
-                new Milestones(17, "Understands words like 'in,' 'on,' and 'under'", "5", 1),
                 //Cognitive Functionality Milestones Age 3
                 new Milestones(18, "Can work toys with buttons, levers and moving parts", "3", 2),
                 new Milestones(19, "Turns book pages one at a time", "3", 2),
@@ -129,8 +105,29 @@ namespace FinalProject.Data
 
                 
             modelBuilder.Entity<ActivityPlan>().HasData(
-                new ActivityPlan(1, "Test Activity", "3-5", "do the stuff", 200, 20,1)
-
+                 //3 y/o Activities
+                new ActivityPlan(1, "Play Groups", "3", "Play Groups", 60, 45, 3),
+                new ActivityPlan(2, "Read to Your Child", "3", "Reading", 20, 50, 1),
+                new ActivityPlan(3, "Matching Games", "3", "Games", 15, 20, 2),
+                new ActivityPlan(4, "Ascend and Descend Stairs", "3", "Stairs", 5, 20, 3),
+                new ActivityPlan(5, "Play Outside", "3", "Outdoor Time", 45, 55, 3),
+                new ActivityPlan(6, "Go to the Park or a Hiking Trail", "3", "Trail Time", 60, 100, 3),
+                //4 y/o Activities
+                new ActivityPlan(7, "Play Make Believe", "4", "Make Believe", 25, 35, 2),
+                new ActivityPlan(8, "Childs Choice Snack Time", "4", "Snacks", 15, 5, 2),
+                new ActivityPlan(9, "Read with your child", "4", "Reading", 20, 50, 1),
+                new ActivityPlan(10, "Outdoor Games (Tag, Duck Duck Goose)", "4", "Games", 30, 100, 3),
+                new ActivityPlan(11, "Dance with your child", "4", "Dance", 20, 100, 3),
+                //5 y/o Activities
+                new ActivityPlan(12, "Educate: Address and Phone Number", "5", "Educate Address", 20, 100, 1),
+                new ActivityPlan(13, "Encourage your child to read to you through pictures", "5", "Child Reads", 25, 90, 1),
+                new ActivityPlan(14, "Petting Zoo", "5", "Zoo", 90, 90, 2),
+                new ActivityPlan(15, "Art Projects", "5", "Art Projects", 45, 65, 2),
+                new ActivityPlan(16, "Scavenger Hunt", "5", "Scavenger Hunt", 30, 45, 2),
+                new ActivityPlan(17, "Ride A Bicycle", "5", "Bike Ride", 35, 75, 3),
+                new ActivityPlan(18, "Visit the Library", "5", "Library", 60, 100, 1),
+                new ActivityPlan(19, "Educate: Days of the Week", "5", "Educate", 20, 60, 2)
+     
             );
 
             modelBuilder.Entity<Profile>().HasData(

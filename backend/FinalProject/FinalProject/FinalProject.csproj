@@ -5,19 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20191121194442_ReworkDatabase.cs" />
-    <Compile Remove="Migrations\20191121194442_ReworkDatabase.Designer.cs" />
-    <Compile Remove="Migrations\20191121195327_ReworkDatabaseAgain.cs" />
-    <Compile Remove="Migrations\20191121195327_ReworkDatabaseAgain.Designer.cs" />
-    <Compile Remove="Migrations\20191122185216_ProfileModel.cs" />
-    <Compile Remove="Migrations\20191122185216_ProfileModel.Designer.cs" />
-    <Compile Remove="Migrations\20191122191927_ProfileUpdate.cs" />
-    <Compile Remove="Migrations\20191122191927_ProfileUpdate.Designer.cs" />
-    <Compile Remove="Migrations\20191125212715_FirstMigration.cs" />
-    <Compile Remove="Migrations\20191125212715_FirstMigration.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
@@ -31,7 +18,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
   </ItemGroup>
 
 </Project>

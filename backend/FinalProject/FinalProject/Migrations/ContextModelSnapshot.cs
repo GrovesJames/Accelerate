@@ -15,7 +15,7 @@ namespace FinalProject.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -37,17 +37,13 @@ namespace FinalProject.Migrations
 
                     b.Property<int>("Score");
 
+                    b.Property<string>("Title");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ScheduleId");
 
                     b.ToTable("Activities");
-
-                    b.HasData(
-
-                        new { Id = 1, ActivityTime = new DateTime(2019, 11, 26, 10, 27, 2, 582, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
-
-                    );
                 });
 
             modelBuilder.Entity("FinalProject.Models.ActivityPlan", b =>
@@ -55,6 +51,8 @@ namespace FinalProject.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AgeRange");
 
                     b.Property<string>("Description");
 
@@ -73,7 +71,25 @@ namespace FinalProject.Migrations
                     b.ToTable("ActivityPlans");
 
                     b.HasData(
-                        new { Id = 1, Description = "do the stuff", Duration = 20, Score = 200, SkillsId = 1, Title = "Test Activity" }
+                        new { Id = 1, AgeRange = "3", Description = "Play Groups", Duration = 45, Score = 60, SkillsId = 3, Title = "Play Groups" },
+                        new { Id = 2, AgeRange = "3", Description = "Reading", Duration = 50, Score = 20, SkillsId = 1, Title = "Read to Your Child" },
+                        new { Id = 3, AgeRange = "3", Description = "Games", Duration = 20, Score = 15, SkillsId = 2, Title = "Matching Games" },
+                        new { Id = 4, AgeRange = "3", Description = "Stairs", Duration = 20, Score = 5, SkillsId = 3, Title = "Ascend and Descend Stairs" },
+                        new { Id = 5, AgeRange = "3", Description = "Outdoor Time", Duration = 55, Score = 45, SkillsId = 3, Title = "Play Outside" },
+                        new { Id = 6, AgeRange = "3", Description = "Trail Time", Duration = 100, Score = 60, SkillsId = 3, Title = "Go to the Park or a Hiking Trail" },
+                        new { Id = 7, AgeRange = "4", Description = "Make Believe", Duration = 35, Score = 25, SkillsId = 2, Title = "Play Make Believe" },
+                        new { Id = 8, AgeRange = "4", Description = "Snacks", Duration = 5, Score = 15, SkillsId = 2, Title = "Childs Choice Snack Time" },
+                        new { Id = 9, AgeRange = "4", Description = "Reading", Duration = 50, Score = 20, SkillsId = 1, Title = "Read with your child" },
+                        new { Id = 10, AgeRange = "4", Description = "Games", Duration = 100, Score = 30, SkillsId = 3, Title = "Outdoor Games (Tag, Duck Duck Goose)" },
+                        new { Id = 11, AgeRange = "4", Description = "Dance", Duration = 100, Score = 20, SkillsId = 3, Title = "Dance with your child" },
+                        new { Id = 12, AgeRange = "5", Description = "Educate Address", Duration = 100, Score = 20, SkillsId = 1, Title = "Educate: Address and Phone Number" },
+                        new { Id = 13, AgeRange = "5", Description = "Child Reads", Duration = 90, Score = 25, SkillsId = 1, Title = "Encourage your child to read to you through pictures" },
+                        new { Id = 14, AgeRange = "5", Description = "Zoo", Duration = 90, Score = 90, SkillsId = 2, Title = "Petting Zoo" },
+                        new { Id = 15, AgeRange = "5", Description = "Art Projects", Duration = 65, Score = 45, SkillsId = 2, Title = "Art Projects" },
+                        new { Id = 16, AgeRange = "5", Description = "Scavenger Hunt", Duration = 45, Score = 30, SkillsId = 2, Title = "Scavenger Hunt" },
+                        new { Id = 17, AgeRange = "5", Description = "Bike Ride", Duration = 75, Score = 35, SkillsId = 3, Title = "Ride A Bicycle" },
+                        new { Id = 18, AgeRange = "5", Description = "Library", Duration = 100, Score = 60, SkillsId = 1, Title = "Visit the Library" },
+                        new { Id = 19, AgeRange = "5", Description = "Educate", Duration = 60, Score = 20, SkillsId = 2, Title = "Educate: Days of the Week" }
                     );
                 });
 
@@ -131,7 +147,6 @@ namespace FinalProject.Migrations
                         new { Id = 14, AgeRange = "5", Milestone = "Tells a simple story using full sentences", SkillsId = 1 },
                         new { Id = 15, AgeRange = "5", Milestone = "Uses future tense; for example, 'Grandma will be here'", SkillsId = 1 },
                         new { Id = 16, AgeRange = "5", Milestone = "Says full name and address", SkillsId = 1 },
-                        new { Id = 17, AgeRange = "5", Milestone = "Understands words like 'in,' 'on,' and 'under'", SkillsId = 1 },
                         new { Id = 18, AgeRange = "3", Milestone = "Can work toys with buttons, levers and moving parts", SkillsId = 2 },
                         new { Id = 19, AgeRange = "3", Milestone = "Turns book pages one at a time", SkillsId = 2 },
                         new { Id = 20, AgeRange = "3", Milestone = "Screws and unscrews jar lids or turns door handles", SkillsId = 2 },
@@ -227,12 +242,9 @@ namespace FinalProject.Migrations
                     b.ToTable("Skills");
 
                     b.HasData(
-
-
                         new { Id = 1, AgeRange = "3-5", Description = "Children are born ready to learn a language, but they need to learn the language or languages that their family and environment use. Learning a language takes time, and children vary in how quickly they master milestones in language and speech development. Typically developing children may have trouble with some sounds, words, and sentences while they are learning. However, most children can use language easily around 5 years of age.", Image = "/images/speech.jpg", Name = "Speech" },
                         new { Id = 2, AgeRange = "3-5", Description = "Children are born ready to learn, and have many skills to learn over many years. They depend on parents, family members, and other caregivers as their first teachers to develop the right skills to become independent and lead healthy and successful lives. How the brain grows is strongly affected by the child’s experiences with other people and the world. Nurturing care for the mind is critical for brain growth. Children grow and learn best in a safe environment where they are protected from neglect and from extreme or chronic stress. External with plenty of opportunities to play and explore.", Image = "/images/cognitive.jpg", Name = "Cognitive Functionality" },
                         new { Id = 3, AgeRange = "3-5", Description = "This is the ability to use small muscles (fine motor), particularly in the hands, and large muscles (gross motor) in the body. Babies use fine motor skills to grasp objects. Toddlers and preschoolers use them to do things like hold utensils, work with objects, and draw. Babies use gross motor skills to sit up, roll over, and begin to walk. Older kids use them to do things like jump, run, and climb stairs.", Image = "/images/motor.jpg", Name = "Fine/Gross Motor Skills" }
-
                     );
                 });
 
