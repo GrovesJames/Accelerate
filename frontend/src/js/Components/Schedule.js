@@ -137,7 +137,7 @@ export default function Schedule(schedule) {
                     let activityMonth = activityDate.getMonth();
                     if(dayNum == activityDay && currentMonth == activityMonth) dayActivities.push(activity);
                 })
-                daySchedule.innerHTML = Day(dayActivities);
+                document.getElementById("app").innerHTML = Day(dayActivities);
             });
         }
     }
