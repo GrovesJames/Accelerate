@@ -4,18 +4,18 @@ import ActivityPlan from './ActivityPlan'
 export default function SingleSkill(skill){
     return `
     <div id="skilldetail">
-      <article>
-        <ul>
-          <h3>${skill.name}</h3>
-          <div id="indskillgrid">
-            <div id="skilldesc">
+      <article id="skillsheader">
+        <ul id="skill-detail-list">
+          <li>
+          <div id="skilldesc">
+            <h3>${skill.name}</h3>
               <h4>${skill.description}</h4>
             </div>
             <div id="skillpic">
-              <img src="${skill.image}"/>
+              <img src="${skill.image}"></img>
             </div>
             <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
-          </div>
+          </li>
         </ul>
       </article>
       <h5>Milestones</h5>
