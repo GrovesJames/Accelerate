@@ -7,11 +7,14 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System.Text;
+using System.Threading;
 
 namespace FinalProject
 {
     public class Program
     {
+        
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
@@ -20,5 +23,6 @@ namespace FinalProject
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
+        
     }
 }

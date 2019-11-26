@@ -10,10 +10,16 @@ namespace FinalProject.Repositories
         where T : class
     {
         private DbContext db;
+        private ContextBoundObject context;
 
         public Repository(DbContext db)
         {
             this.db = db;
+        }
+
+        public Repository(ContextBoundObject context)
+        {
+            this.context = context;
         }
 
         public void Create(T entity)
@@ -42,7 +48,6 @@ namespace FinalProject.Repositories
         {
             return db.Set<T>().ToList();
         }
-
         public void Update(T entity)
         {
             db.Set<T>().Update(entity);

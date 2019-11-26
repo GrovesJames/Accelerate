@@ -2,44 +2,63 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FinalProject.Models;
+using FinalProject.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.Controllers
 {
-    [Route("api/[controller]")]
+
+    [Route("api/schedules")]
+
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class ScheduleController : ControllerBase
     {
-        // GET api/values
+
+        private IRepository<Schedule> ScheduleRepo;
+
+        public ScheduleController(IRepository<Schedule> ScheduleRepo)
+        {
+            this.ScheduleRepo = ScheduleRepo;
+        }
+
+        // GET api/Schedules
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<Schedule> Get()
         {
-            return new string[] { "value1", "value2" };
+            return ScheduleRepo.GetAll();
         }
 
-        // GET api/values/5
+        // GET api/Schedules/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public Schedule Get(int id)
         {
-            return "value";
+            return ScheduleRepo.GetById(id);
         }
 
-        // POST api/values
+        // POST api/Schedules
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IEnumerable<Schedule> Post([FromBody] Schedule Schedule)
         {
+            ScheduleRepo.Create(Schedule);
+            return ScheduleRepo.GetAll();
         }
 
-        // PUT api/values/5
+        // PUT api/Schedules/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IEnumerable<Schedule> Put([FromBody] Schedule Schedule)
         {
+            ScheduleRepo.Update(Schedule);
+            return ScheduleRepo.GetAll();
         }
 
-        // DELETE api/values/5
+        // DELETE api/Schedules/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Schedule> Delete(int id)
         {
+            var Schedule = ScheduleRepo.GetById(id);
+            ScheduleRepo.Delete(Schedule);
+            return ScheduleRepo.GetAll();
         }
     }
 }
