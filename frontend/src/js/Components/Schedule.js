@@ -46,7 +46,7 @@ export default function Schedule(schedule) {
         schedule.activities.map( activity => {
             let activityDate = new Date(activity.activityTime);
             let activityMonth = activityDate.getMonth();
-            let activityDay = activityDate.getDay();
+            let activityDay = activityDate.getDate();
             if(activityMonth == currentMonth){
                 let dayCell = document.getElementById(activityDay);
                 let calendarActivity = document.createElement("div");
