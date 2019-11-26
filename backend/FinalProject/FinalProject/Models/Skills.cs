@@ -16,8 +16,8 @@ namespace FinalProject.Models
         public virtual ICollection<Milestones> Milestones { get; set; }
         public virtual ICollection<ActivityPlan> ActivityPlans { get; set; }
 
-
         public Skills(int id, string name, string description, string ageRange, string image)
+
         {
             Id = id;
             Name = name;

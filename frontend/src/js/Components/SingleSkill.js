@@ -20,11 +20,14 @@ export default function SingleSkill(skill){
       </article>
       <h5>Milestones</h5>
         <ul id="skillmile"> 
+
         ${skill.activityPlans.map( activityPlan => {
-            return `
-              ${ActivityPlan(activityPlan)}
-            `
+          return `
+            ${ActivityPlan(activityPlan)}
+          `
         }).join("")}
+        </ul>
+        <ul> 
         ${skill.milestones.map(milestones => {
             return `
               <li>

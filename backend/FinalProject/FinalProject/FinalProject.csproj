@@ -13,6 +13,8 @@
     <Compile Remove="Migrations\20191122185216_ProfileModel.Designer.cs" />
     <Compile Remove="Migrations\20191122191927_ProfileUpdate.cs" />
     <Compile Remove="Migrations\20191122191927_ProfileUpdate.Designer.cs" />
+    <Compile Remove="Migrations\20191125212715_FirstMigration.cs" />
+    <Compile Remove="Migrations\20191125212715_FirstMigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
