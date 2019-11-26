@@ -72,6 +72,7 @@ function addSkillSelectButtons(){
             apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
                 app.innerHTML = SingleSkill(skill);
             })
+            document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/kids.jpg")';
         });
     }
 }
