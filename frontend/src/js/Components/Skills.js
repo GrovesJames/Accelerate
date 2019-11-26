@@ -13,6 +13,7 @@ export default function Skills() {
                 <h3>Speech</h3>
             </div>
             <div id="skill1act" class="skill1btns">
+                <button class="button-activities" value="1"></button>
                 <h6>Activities</h6>
             </div>
         </div>
@@ -22,6 +23,7 @@ export default function Skills() {
                 <h3>Cognitive Functionality</h3>
             </div>
             <div id="skill2act" class="skill2btns">
+                <button class="button-activities" value="2"></button>
                 <h6>Activities</h6>
             </div>
         </div>
@@ -31,6 +33,7 @@ export default function Skills() {
                 <h3>Fine/Gross Motor Skills</h3>
             </div>
             <div id="skill3act" class="skill3btns">
+                <button class="button-activities" value="1"></button>
                 <h6>Activities</h6>
             </div>
     </div>

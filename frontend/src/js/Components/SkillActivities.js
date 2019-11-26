@@ -1,3 +1,5 @@
+import ActivityPlan from './ActivityPlan'
+
 export default function SingleSkill(skill){
     return `
     <div id="skilldetail">
@@ -15,23 +17,14 @@ export default function SingleSkill(skill){
           </li>
         </ul>
       </article>
-      <h5>Milestones</h5>
-
+      <h5>Activites</h5>
         <ul id="skillactivities"> 
-
-        ${skill.milestones.map(milestones => {
-            return `
-              <li>
-                <div class="milestonesDetails" id="milestonesDetail">
-                    <input class="milestones_id" type="hidden" value="${milestones.id}">
-                    <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
-                    <h4>${milestones.milestone}</h4>
-                </div>    
-              </li>
-            `;
+        ${skill.activityPlans.map( activityPlan => {
+          return `
+            ${ActivityPlan(activityPlan)}
+          `
         }).join("")}
         </ul>
     </div>
   `;
 }
-
