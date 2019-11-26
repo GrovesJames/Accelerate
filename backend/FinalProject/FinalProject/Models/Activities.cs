@@ -9,6 +9,7 @@ namespace FinalProject.Models
     public class Activities
     {
         public int Id { get; set; }
+        public string Title { get; set; }
         public string AgeRange { get; set; }
         public string Description { get; set; }
         public int Duration { get; set; }
@@ -18,9 +19,10 @@ namespace FinalProject.Models
         public int ScheduleId { get; set; }
         public virtual Schedule Schedule { get; set; }
 
-        public Activities(int id, string ageRange, string description, int duration, int score, int scheduleId, DateTime activityTime)
+        public Activities(int id, string title, string ageRange, string description, int duration, int score, int scheduleId, DateTime activityTime)
         {
             Id = id;
+            Title = title;
             AgeRange = ageRange;
             Description = description;
             Duration = duration;

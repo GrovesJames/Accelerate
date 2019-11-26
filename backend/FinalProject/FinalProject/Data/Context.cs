@@ -29,7 +29,7 @@ namespace FinalProject.Data
         {
             modelBuilder.Entity<Activities>().HasData(
 
-                new Activities(1, "3-6", "do stuff", 20, 200, 1, DateTime.Now)
+                new Activities(1, "do stuff", "3-6", "do stuff", 20, 200, 1, DateTime.Now)
                 ////3 y/o Activities
                 //new Activities(1, "3", "Play Groups", "60", 150, 1),
                 //new Activities(2, "3", "Read to Your Child", "20", 100, 1),
@@ -129,7 +129,8 @@ namespace FinalProject.Data
 
                 
             modelBuilder.Entity<ActivityPlan>().HasData(
-                new ActivityPlan(1, "Test Activity", "do the stuff", 200, 20,1)
+                new ActivityPlan(1, "Test Activity", "3-5", "do the stuff", 200, 20,1)
+
             );
 
             modelBuilder.Entity<Profile>().HasData(
