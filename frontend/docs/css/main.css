@@ -249,6 +249,9 @@ body {
 #skillspage{
     margin-top: -10.5%;
 }
+#skilldetail{
+  margin-top: -10.5%;
+}
 #skill1grid, #skill2grid, #skill3grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -257,6 +260,13 @@ body {
   z-index: 0;
   margin: auto;
   width: 200px;
+  height: 75px;
+  opacity: 0;
+}
+.button-activities{
+  z-index: 0;
+  margin: auto;
+  width: 100px;
   height: 50px;
   opacity: 0;
 }
@@ -265,6 +275,8 @@ body {
     margin: auto;
     width: 100px;
     height: 50px;
+    max-height: 50px;
+    max-width: 100px;
     border: 2px solid white;
     cursor: pointer;
 }
@@ -289,14 +301,22 @@ body {
     text-align: center;
     margin: 15% auto auto auto;
 }
-#skill1name h3, #skill2name h3, #skill3name h3{
+#skill1name h3{
   z-index: 1;
-  margin-top: -15%;
+  margin-top: -27%;
+}
+#skill2name h3, #skill3name h3{
+  z-index: 1;
+  margin-top: -35%;
+}
+#skill1act h6, #skill2act h6, #skill3act h6{
+  z-index: 1;
+  margin-top: -35%;
 }
 #skill1name{
   text-align: center;
   width: 200px;
-  height: 75px;
+  max-height: 75px;
   margin: auto auto 4% auto;
   border: 3px solid blue;
 }
@@ -306,6 +326,7 @@ body {
   #skill2name{
   text-align: center;
   width: 200px;
+  max-height: 75px;
   margin: auto auto 4% auto;
   border: 3px solid rgb(0, 74, 0);
 }
@@ -315,6 +336,7 @@ body {
 #skill3name{
   text-align: center;
   width: 200px;
+  max-height: 75px;
   color: white;
   margin: auto auto auto auto;
   border: 3px solid rgb(83, 0, 128);

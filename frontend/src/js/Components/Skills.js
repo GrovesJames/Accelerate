@@ -33,7 +33,7 @@ export default function Skills() {
                 <h3>Fine/Gross Motor Skills</h3>
             </div>
             <div id="skill3act" class="skill3btns">
-                <button class="button-activities" value="1"></button>
+                <button class="button-activities" value="3"></button>
                 <h6>Activities</h6>
             </div>
     </div>

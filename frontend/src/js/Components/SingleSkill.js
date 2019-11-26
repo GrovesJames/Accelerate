@@ -17,7 +17,7 @@ export default function SingleSkill(skill){
       </article>
       <h5>Milestones</h5>
 
-        <ul id="skillactivities"> 
+        <ul id="skillmile"> 
 
         ${skill.milestones.map(milestones => {
             return `
