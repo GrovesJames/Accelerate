@@ -4,18 +4,20 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20191126005027_Added skill images")]
+    partial class Addedskillimages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -44,17 +46,7 @@ namespace FinalProject.Migrations
                     b.ToTable("Activities");
 
                     b.HasData(
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                        new { Id = 1, ActivityTime = new DateTime(2019, 11, 25, 7, 51, 38, 774, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
-=======
-                        new { Id = 1, ActivityTime = new DateTime(2019, 11, 26, 10, 27, 2, 582, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
->>>>>>> Stashed changes
-=======
-
                         new { Id = 1, ActivityTime = new DateTime(2019, 11, 25, 19, 50, 26, 777, DateTimeKind.Local), AgeRange = "3-6", Description = "do stuff", Duration = 20, ScheduleId = 1, Score = 200 }
-
->>>>>>> 6aa6ff099fe16c82e22773d6a2d086c55b53aa48
                     );
                 });
 
@@ -70,18 +62,18 @@ namespace FinalProject.Migrations
 
                     b.Property<int>("Score");
 
-                    b.Property<int>("SkillsId");
+                    b.Property<int?>("SkillId");
 
                     b.Property<string>("Title");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SkillsId");
+                    b.HasIndex("SkillId");
 
                     b.ToTable("ActivityPlans");
 
                     b.HasData(
-                        new { Id = 1, Description = "do the stuff", Duration = 20, Score = 200, SkillsId = 1, Title = "Test Activity" }
+                        new { Id = 1, Description = "do the stuff", Duration = 20, Score = 200, Title = "Test Activity" }
                     );
                 });
 
@@ -231,21 +223,9 @@ namespace FinalProject.Migrations
                     b.ToTable("Skills");
 
                     b.HasData(
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-                        new { Id = 1, AgeRange = "3-5", Description = "Children are born ready to learn a language, but they need to learn the language or languages that their family and environment use. Learning a language takes time, and children vary in how quickly they master milestones in language and speech development. Typically developing children may have trouble with some sounds, words, and sentences while they are learning. However, most children can use language easily around 5 years of age.", Name = "Speech" },
-                        new { Id = 2, AgeRange = "3-5", Description = "This is the ability to use small muscles (fine motor), particularly in the hands, and large muscles (gross motor) in the body. Babies use fine motor skills to grasp objects. Toddlers and preschoolers use them to do things like hold utensils, work with objects, and draw. Babies use gross motor skills to sit up, roll over, and begin to walk. Older kids use them to do things like jump, run, and climb stairs.", Name = "Fine/Gross Motor Skills" },
-                        new { Id = 3, AgeRange = "3-5", Description = "Children are born ready to learn, and have many skills to learn over many years. They depend on parents, family members, and other caregivers as their first teachers to develop the right skills to become independent and lead healthy and successful lives. How the brain grows is strongly affected by the child’s experiences with other people and the world. Nurturing care for the mind is critical for brain growth. Children grow and learn best in a safe environment where they are protected from neglect and from extreme or chronic stress. External with plenty of opportunities to play and explore.", Name = "Cognitive Functionality" }
-=======
-                        new { Id = 1, AgeRange = "3-5", Description = "Children are born ready to learn a language, but they need to learn the language or languages that their family and environment use. Learning a language takes time, and children vary in how quickly they master milestones in language and speech development. Typically developing children may have trouble with some sounds, words, and sentences while they are learning. However, most children can use language easily around 5 years of age.", Image = "/images/speech.jpg", Name = "Speech" },
-                        new { Id = 2, AgeRange = "3-5", Description = "Children are born ready to learn, and have many skills to learn over many years. They depend on parents, family members, and other caregivers as their first teachers to develop the right skills to become independent and lead healthy and successful lives. How the brain grows is strongly affected by the child’s experiences with other people and the world. Nurturing care for the mind is critical for brain growth. Children grow and learn best in a safe environment where they are protected from neglect and from extreme or chronic stress. External with plenty of opportunities to play and explore.", Image = "/images/cognitive.jpg", Name = "Cognitive Functionality" },
-                        new { Id = 3, AgeRange = "3-5", Description = "This is the ability to use small muscles (fine motor), particularly in the hands, and large muscles (gross motor) in the body. Babies use fine motor skills to grasp objects. Toddlers and preschoolers use them to do things like hold utensils, work with objects, and draw. Babies use gross motor skills to sit up, roll over, and begin to walk. Older kids use them to do things like jump, run, and climb stairs.", Image = "/images/motor.jpg", Name = "Fine/Gross Motor Skills" }
->>>>>>> Stashed changes
-=======
                         new { Id = 1, AgeRange = "3-5", Description = "Children are born ready to learn a language, but they need to learn the language or languages that their family and environment use. Learning a language takes time, and children vary in how quickly they master milestones in language and speech development. Typically developing children may have trouble with some sounds, words, and sentences while they are learning. However, most children can use language easily around 5 years of age.", Image = "/images/speech.jpg", Name = "Speech" },
                         new { Id = 2, AgeRange = "3-5", Description = "Children are born ready to learn, and have many skills to learn over many years. They depend on parents, family members, and other caregivers as their first teachers to develop the right skills to become independent and lead healthy and successful lives. How the brain grows is strongly affected by the child’s experiences with other people and the world. Nurturing care for the mind is critical for brain growth. Children grow and learn best in a safe environment where they are protected from neglect and from extreme or chronic stress. External with plenty of opportunities to play and explore.", Image = "/images/cognitive.png", Name = "Cognitive Functionality" },
                         new { Id = 3, AgeRange = "3-5", Description = "This is the ability to use small muscles (fine motor), particularly in the hands, and large muscles (gross motor) in the body. Babies use fine motor skills to grasp objects. Toddlers and preschoolers use them to do things like hold utensils, work with objects, and draw. Babies use gross motor skills to sit up, roll over, and begin to walk. Older kids use them to do things like jump, run, and climb stairs.", Image = "/images/motor.jpg", Name = "Fine/Gross Motor Skills" }
->>>>>>> 6aa6ff099fe16c82e22773d6a2d086c55b53aa48
                     );
                 });
 
@@ -259,10 +239,9 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.ActivityPlan", b =>
                 {
-                    b.HasOne("FinalProject.Models.Skills", "Skills")
+                    b.HasOne("FinalProject.Models.Skills", "Skill")
                         .WithMany("ActivityPlans")
-                        .HasForeignKey("SkillsId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("SkillId");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Milestones", b =>
