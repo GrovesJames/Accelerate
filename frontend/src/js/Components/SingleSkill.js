@@ -16,7 +16,9 @@ export default function SingleSkill(skill){
         </ul>
       </article>
       <h5>Milestones</h5>
-        <ul> 
+
+        <ul id="skillactivities"> 
+
         ${skill.milestones.map(milestones => {
             return `
               <li>
@@ -32,3 +34,4 @@ export default function SingleSkill(skill){
     </div>
   `;
 }
+
