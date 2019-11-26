@@ -133,7 +133,7 @@ namespace FinalProject.Data
             );
 
             modelBuilder.Entity<Profile>().HasData(
-                new Profile(1, "User1")
+                new Profile(1, "User1","Johnny",4)
 
             );
 
