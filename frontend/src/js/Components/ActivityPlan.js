@@ -10,7 +10,7 @@ export default function ActivityPlan(activityPlan) {
         <input class="activity-plan_score" type="hidden" value=${activityPlan.score}>
         <input class="activity-plan_duration" type="hidden" value=${activityPlan.duration}>
         <input class="add-activity_plan" type="datetime-local">  
-        <button class="activity-plan_submit" type="button">Submit</button> 
+        <button class="activity-plan_submit" type="button">Add to Calendar</button> 
     </form>
     `
 }

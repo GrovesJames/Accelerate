@@ -5,6 +5,7 @@ import Calendar from './Components/Calendar'
 import Header from './Components/Header'
 import Nav from './Components/Nav'
 import Activities from './Components/Activities'
+import EditActivity from './Components/EditActivity'
 import Schedules from './Components/Schedules'
 import Skills from './Components/Skills'
 import About from './Components/About'
@@ -172,8 +173,49 @@ app.addEventListener('click', function() {
     }
 })
 
+app.addEventListener('click', function() {
+    if(event.target.classList.contains("edit_activity_submit")) {
+        const activityId = event.target.parentElement.querySelector(".activity_id")
+        .value;
+        console.log("edit" + activityId);
+        apiActions.getRequest(`https://localhost:44355/api/activities/${activityId}`,
+        activityEdit =>{
+            document.querySelector("#app").innerHTML = EditActivity(activityEdit)
+        })
+    }
+})
 
-
+app.addEventListener('click', function() {
+    if(event.target.classList.contains("update_activity_submit")) {
+        const activityId = event.target.parentElement.querySelector(".update_activity_id")
+        .value;
+        const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
+        .value;
+        const activityDescription = event.target.parentElement.querySelector(".update_activity_description")
+        .value;
+        const activityDuration = event.target.parentElement.querySelector(".update_activity_duration")
+        .value;
+        const activityScore = event.target.parentElement.querySelector(".update_activity_score")
+        .value;
+        const activityScheduleId = event.target.parentElement.querySelector(".update_activity_scheduleId") 
+            .value; 
+        const activityData = {
+                
+          id: activityId,
+          ageRange: activityAgeRange,
+          description: activityDescription,
+          duration: activityDuration,
+          score: activityScore,
+          scheduleId: activityScheduleId
+        } 
+        apiActions.putRequest(`https://localhost:44355/api/activities/${activityId}`,
+            activityData,
+            activities => {
+                document.querySelector("#app").innerHTML = Activities(activities)
+            }
+        );
+    }
+})
 
 }
 function aboutNAV() {
@@ -230,8 +272,7 @@ function stampDate(){
                 scheduleId: scheduleId
             },
             activityPlan =>{
-            } 
-            )        
+            })        
         }
     });
 }
