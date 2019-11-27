@@ -34,9 +34,11 @@ function pageBuild(){
     skillsNAV()
     aboutNAV()
     loginNAV()
-    activitiesNAV()
+    updateMilestone()
+
     stampDate()
     profileNAV()
+
 }
 
 function nav(){
@@ -171,6 +173,37 @@ function stampDate(){
             )        
         }
     });
+}
+function updateMilestone(){
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("milestone_check")){   
+            const CheckBoxValue=event.target.value
+            let Completed=null;
+            if(CheckBoxValue == "on"){Completed=true}
+            else {Completed=false};
+
+            const Id= event.target.parentElement.querySelector(
+                ".milestones_id").value;
+            const Milestone=event.target.parentElement.querySelector(
+                ".milestones_milestone").value;
+            const AgeRange=event.target.parentElement.querySelector(
+                ".milestones_AgeRange" ).value;
+            const SkillsId=event.target.parentElement.querySelector(
+                ".skill_id").value;
+            apiActions.putRequest("https://localhost:44355/api/milestones/" + Id,
+            {
+                id: Id,
+                milestone: Milestone,
+                ageRange: AgeRange,
+                completed: Completed,
+                skillsId: SkillsId
+                
+            },
+            milestone =>{
+            } )
+        }
+
+    })
 }
         
    
