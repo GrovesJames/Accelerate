@@ -12,5 +12,7 @@ namespace FinalProject.Repositories
             void Create(T entity);
             void Delete(T entity);
             void Update(T entity);
+            IEnumerable<T> GetByCompleted();
+            IEnumerable<T> GetByNotCompleted();
     }
 }
