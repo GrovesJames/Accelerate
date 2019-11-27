@@ -34,7 +34,6 @@ function pageBuild(){
     skillsNAV()
     aboutNAV()
     loginNAV()
-    activitiesNAV()
     stampDate()
     profileNAV()
 }
