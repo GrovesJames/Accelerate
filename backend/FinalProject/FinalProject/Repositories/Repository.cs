@@ -53,5 +53,15 @@ namespace FinalProject.Repositories
             db.Set<T>().Update(entity);
             Save();
         }
+        public virtual IEnumerable<T> GetByCompleted()
+        {
+            throw new NotImplementedException();
+        }
+
+
+        public virtual IEnumerable<T> GetByNotCompleted()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
