@@ -418,7 +418,7 @@ body {
   height: 20px;
   text-align: center;
   line-height: 100%;
-  background: #25bcff;
+  /* background: #25bcff; */
   color: #fff;
   opacity: 1;
   display: inline-block;
@@ -427,10 +427,6 @@ body {
   font-size: 12px;
   font-weight: 600;
   transform: translateY(-2px);
-}
-.box2 ul li:hover span{
-  background: #fff;
-  color: #25bcff;
 }
 /* End of Individual skill page =============================================*/
   /* custom calendar stuff =============================================*/

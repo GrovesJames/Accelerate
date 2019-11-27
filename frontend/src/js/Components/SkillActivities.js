@@ -17,11 +17,15 @@ export default function SingleSkill(skill){
           </li>
         </ul>
       </article>
-      <h5>Activites</h5>
-        <ul id="skillactivities"> 
+      <div class="box">
+        <div class="box2">
+          <h5>Activites</h5>
+          <ul id="skillactivities"> 
         ${skill.activityPlans.map( activityPlan => {
           return `
+            <li>
             ${ActivityPlan(activityPlan)}
+            </li>
           `
         }).join("")}
         </ul>
