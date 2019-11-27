@@ -36,6 +36,7 @@ function pageBuild(){
     loginNAV()
     updateMilestone()
     stampDate()
+    DeleteActivity()
     profileNAV()
 }
 
@@ -140,7 +141,6 @@ function profileNAV(){
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
-
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
@@ -172,6 +172,18 @@ function stampDate(){
         }
     });
 }
+
+function DeleteActivity(){
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("activity-delete-btn")){
+            const activityId = event.target.value;
+            apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
+                alert("The Activity has been Deleted");
+            })
+        }
+    })
+};
+
 function updateMilestone(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("milestone_check")){   
@@ -203,6 +215,7 @@ function updateMilestone(){
 
     })
 }
+
         
    
 
