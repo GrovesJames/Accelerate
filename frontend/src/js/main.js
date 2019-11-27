@@ -113,65 +113,6 @@ function skillsNAV() {
     });
   
 }
-function activitiesNAV() {
-    const navActivities = document.querySelector('#activitiesnav');    
-    navActivities.addEventListener('click', function() {
-        apiActions.getRequest("https://localhost:44355/api/activities", activities => {
-            document.querySelector('#app').innerHTML = Activities(activities);
-            console.log(activities);
-            closeNAV()
-        });
-    });
-
-    const app = document.querySelector('#app');
-    app.addEventListener('click', function() {
-        if(event.target.classList.contains('add_activity_submit')) {
-           
-            const activityAgeRange = event.target.parentElement.querySelector(
-                ".add_activity_ageRange",
-            ).value;
-            const activityDescription = event.target.parentElement.querySelector(
-              ".add_activity_description",
-            ).value;
-              const activityDuration = event.target.parentElement.querySelector(
-                  ".add_activity_duration",
-            ).value;
-              const activityScore = event.target.parentElement.querySelector(
-                  ".add_activity_score",
-            ).value; 
-            const scheduleId = event.target.parentElement.querySelector(".schedule_id") 
-            .value; 
-            const activity = {
-                
-          ageRange: activityAgeRange,
-          description: activityDescription,
-          duration: activityDuration,
-          score: activityScore,
-          scheduleId: scheduleId
-            } 
-
-            console.log(activity);
-          apiActions.postRequest("https://localhost:44355/api/activities",
-            activity, 
-        activities => {
-          console.log(activities);
-          document.querySelector("#app").innerHTML = Activities(activities);
-        })       
-    }
-})
-
-app.addEventListener('click', function() {
-    if(event.target.classList.contains("delete_activity_submit")) {
-        const activityId = event.target.parentElement.querySelector(".activity_id")
-            .value;
-        console.log("delete " + activityId);
-        apiActions.deleteRequest(`https://localhost:44330/api/activities/${activityId}`,
-        activities =>{
-           document.querySelector("#app").innerHTML = Activities(activities)
-        })
-    }
-})
-}
 function aboutNAV() {
     const navAbout = document.querySelector('#btn1');
     navAbout.addEventListener('click', function() {

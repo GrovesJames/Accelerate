@@ -2111,6 +2111,11 @@ lcid@^2.0.0:
   dependencies:
     invert-kv "^2.0.0"
 
+lesshat@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/lesshat/-/lesshat-4.1.0.tgz#5a32dca36a5516569a486f8ed10dffff79d4c8e0"
+  integrity sha1-WjLco2pVFlaaSG+O0Q3//3nUyOA=
+
 loader-runner@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
