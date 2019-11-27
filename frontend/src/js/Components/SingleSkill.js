@@ -20,11 +20,15 @@ export default function SingleSkill(skill){
           <h5>Milestones</h5>
           <ul> 
           ${skill.milestones.map(milestones => {
+            let checkElement = null;
+            if(milestones.completed == true){checkElement = `<input class="milestone_check" type="checkbox" id="completed" checked>`}
+            else{ checkElement = `<input class="milestone_check" type="checkbox" id="completed">`}
+
             return `
               <li>
               ${milestones.milestone}
               <form>
-                <input class="milestone_check" type="checkbox" id="completed">
+                ${checkElement}
                 <input class="milestones_milestone" type="hidden" value="${milestones.milestone}">
                 <input class="milestones_AgeRange" type="hidden" value="${milestones.ageRange}">
                 <input class="milestones_id" type="hidden" value="${milestones.id}">
