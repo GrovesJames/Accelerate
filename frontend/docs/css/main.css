@@ -1,3 +1,4 @@
+
 /*CSS Variables*/
 :root {
   --accent: rgb(200, 170, 110);
@@ -7,6 +8,7 @@
   --overlay: rgba(27, 46, 61, 0.835);
   --menu-speed: 0.01s;
 }
+
 html{
     background-image: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)),
     url(/images/teacher.jpg);
@@ -28,19 +30,18 @@ body {
 #wrapper {
   margin: 5% auto;
   max-width: 1000px;
-  /* background-color: grey; */
 }
-/* start of nav */
+/* start of nav =============================================*/
 .menu-wrap {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 0%;
+  right: 0%;
   z-index: 1;
 }
 .menu-wrap .toggler {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0%;
+  right: 0%;
   z-index: 2;
   cursor: pointer;
   width: 50px;
@@ -50,18 +51,17 @@ body {
 
 .menu-wrap .hamburger {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0%;
+  right: 0%;
   z-index: 1;
   width: 60px;
   height: 60px;
   padding: 0.5rem;
-  /* background: var(--prim); */
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* Hamburger lines */
+/* Hamburger lines  */
 .menu-wrap .hamburger > div {
   position: relative;
   width: 100%;
@@ -99,7 +99,7 @@ body {
 /* turn lines into x */
 .menu-wrap .toggler:checked + .hamburger > div:before,
 .menu-wrap .toggler:checked + .hamburger > div:after {
-  top: 0;
+  top: 0%;
   transform: rotate(90deg);
 }
 /* rotate on hover when checked */
@@ -134,7 +134,6 @@ body {
   height: 200vw;
   transform: scale(0);
   transition: opacity 0.4s ease;
-  /* transition: all 0.4s ease; */
 }
 .menu-wrap .menu > div > div {
   text-align: center;
@@ -145,10 +144,10 @@ body {
 }
 .menu-wrap .menu > div > div > ul {
   display: grid;
-  position: absolute;
+  position: fixed;
   margin-top: 38px;
   margin-left: 650px;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   width: 175px;
 }
 .menu-wrap .menu > div > div > ul > li {
@@ -174,14 +173,11 @@ body {
 #skillsnav:hover{
     color: purple;
 }
-#activitiesnav:hover{
+#profilenav:hover{
   color: blue;
 }
-#profilenav:hover{
-  color: green;
-}
-/* end nav */
-/* Header */
+/* end nav =============================================*/
+/* Header =============================================*/
 #header span {
   display: block;
   margin-top: auto;
@@ -191,8 +187,8 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   position: absolute;
-  top: 10px;
-  left: 75px;
+  top: 1%;
+  left: 7.5%;
 }
 #header h1{
     font-size: 50px;
@@ -203,14 +199,14 @@ body {
   margin-top: auto;
   margin-bottom: auto;
 }
-/* End of Header */
-/* Home Page */
+/* End of Header =============================================*/
+/* Home Page =============================================*/
 #app {
   margin-top: 25%;
 }
 #MissionStatement {
   font-size: 35px;
-  margin-top: 0px;;
+  margin-top: 0%;
 }
 #home h3 {
   text-align: center;
@@ -244,8 +240,8 @@ body {
     margin-left: 5%;
 }
 /* End Button Grid */
-/* End of Home Page */
-/* Skills grid */
+/* End of Home Page =============================================*/
+/* Skills page =============================================*/
 #skillspage{
     margin-top: -10.5%;
 }
@@ -271,7 +267,6 @@ body {
   opacity: 0;
 }
 .skill1btns, .skill2btns, .skill3btns{
-    /* z-index: 1; */
     margin: auto;
     width: 100px;
     height: 50px;
@@ -348,13 +343,9 @@ body {
   transform: scale(1.15);
 }
 
-/* End of Skills grid */
-
-
-/* Individual skill page */
+/* End of Skills page ============================================= */
+/* Individual skill page =============================================*/
 #indskillgrid{
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr); */
   height: 700px;
 }
 #skill-detail-list li{
@@ -371,8 +362,6 @@ body {
 #skillpic{
   border: 11px inset blue;
   margin: 18% auto auto auto;
-  /* border: 14px dotted purple; */
-  /* transform: scale(.3); */
 }
 #skilldetail h3{
   font-size: 1.5rem;
@@ -381,35 +370,70 @@ body {
   text-align: center;
   font-size: 1.5rem;
 }
-#skillmile{
-  margin-top: 10%;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px;
-  text-align: center;
-  font-size: 1rem;
-}
-#skillmile li{
-  text-align: center;
-  vertical-align: middle;
-}
-/* #skillmile li{
+.box{
   margin: auto;
-} */
-#skillmile li:nth-child(1), #skillmile li:nth-child(4), #skillmile li:nth-child(7), #skillmile li:nth-child(10), #skillmile li:nth-child(13), #skillmile li:nth-child(16), #skillmile li:nth-child(19){
-  border: 2px solid blue;
+  padding: 0;
+  box-sizing: border-box;
+  align-items: center;
 }
-#skillmile li:nth-child(2), #skillmile li:nth-child(5), #skillmile li:nth-child(8), #skillmile li:nth-child(11), #skillmile li:nth-child(14), #skillmile li:nth-child(17), #skillmile li:nth-child(20){
-  border: 2px solid green;
+.box2{
+  margin: auto;
 }
-#skillmile li:nth-child(3), #skillmile li:nth-child(6), #skillmile li:nth-child(9), #skillmile li:nth-child(12), #skillmile li:nth-child(15), #skillmile li:nth-child(18), #skillmile li:nth-child(21){
-  border: 2px solid purple;
+.box2 h5{
+ color: #fff;
+ padding: 10px 20px;
+ font-size: 100%;
+ font-weight: 70;
 }
-/* End of Individual skill page */
+.box2 ul{
+  position: relative;
+  background: #fff;
+  padding: 0;
+  border: 3px solid purple;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 
+}
+.box2 ul li{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  color: black;
+  border: 1px solid rgba(0,0,0, .1);
+  background: #fff;
+  box-shadow: 0 5px 25px rgba(0,0,0,.1);
+  transition: transform 0.5s;
+}
 
-  /* custom calendar stuff */
+.box2 ul li:hover{
+  transform: scale(1.1);
+  z-index: 100;
+  background: grey;
+  box-shadow: 0 5px 25px rgba(0,0,0,.2);
+  color: #fff;
+}
+.box2 ul li span{
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 100%;
+  background: #25bcff;
+  color: #fff;
+  opacity: 1;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 1%;
+  font-size: 12px;
+  font-weight: 600;
+  transform: translateY(-2px);
+}
+.box2 ul li:hover span{
+  background: #fff;
+  color: #25bcff;
+}
+/* End of Individual skill page =============================================*/
+  /* custom calendar stuff =============================================*/
   td{
     background-color: white;
     border: 0.1rem;
@@ -432,8 +456,8 @@ body {
     background-color: rgba(0, 0, 0, 0.00);
     color: white;
   }
-/* End Calendar stuff */
-/* Activities stuff */
+/* End Calendar stuff =============================================*/
+/* Activities stuff============================================= */
 #activitieswrapper ul{
   display: grid;
   grid-gap: 20px;  
@@ -447,17 +471,16 @@ body {
   border: 2px solid white;
   padding: 0.5rem;
 }
-/* End of Activities stuff */
-/* About page */
+/* End of Activities stuff =============================================*/
+/* About page =============================================*/
 #aboutpage{
     text-align: left;
 }
 #aboutwrap{
   margin-top: -10%;
-    /* background-color: green; */
 }
-/* End of About page */
-/* Login Page */
+/* End of About page =============================================*/
+/* Login Page =============================================*/
 .loginpage{
     width: 360px;
     padding: 10% 0 0;
@@ -467,7 +490,6 @@ body {
 .form{
   position: relative;
   z-index: 1;
-  /* background: rgba(7, 40, 195, 0.0); */
   border: 21px groove #FFFFFF;
   max-width: 60%;
   margin: -30% auto auto auto;
@@ -478,25 +500,23 @@ body {
 .form input{
   font-family: "Quicksand", "Roboto", sans-serif;
   outline: 1;
-  /* background: #f2f2f2; */
   width: 100%;
   border: 0;
-  margin: 0 0 15px;
+  margin: 0% 0% 1.5%;
   padding: 15px;
   box-sizing: border-box;
-  font-size: 14px;
+  font-size: 70%;
 }
 
 .form button{
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  /* background: blue; */
   width: 100%;
   border: 2px solid rgb(255, 255, 255);
   padding: 15px;
   color: black;
-  font-size: 14px;
+  font-size: 70%;
   cursor: pointer;
 }
 
@@ -506,10 +526,10 @@ body {
 }
 
 .form .message{
-  margin: 15px 0 0;
+  margin: 1.5% 0% 0%;
   color: aliceblue;
-  font-size: 12px;
+  font-size: 60%;
 }
 
 
-/* End of Login Page */
+/* End of Login Page =============================================*/
