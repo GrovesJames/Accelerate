@@ -35,10 +35,8 @@ function pageBuild(){
     aboutNAV()
     loginNAV()
     updateMilestone()
-
     stampDate()
     profileNAV()
-
 }
 
 function nav(){
