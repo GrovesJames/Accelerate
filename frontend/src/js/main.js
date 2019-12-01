@@ -141,6 +141,12 @@ function profileNAV(){
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
+// function checkMilestone(){
+//     const mile = document.querySelector('.miles');
+//     mile.addEventListener('click', function{
+
+//     })
+// }
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
