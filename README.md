@@ -1,4 +1,4 @@
-# FinalProject
+# Final Project
 
 **Our Philosophy**
 
