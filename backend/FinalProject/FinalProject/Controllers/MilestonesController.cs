@@ -58,5 +58,16 @@ namespace FinalProject.Controllers
             milestonesRepo.Delete(milestones);
             return milestonesRepo.GetAll();
         }
+        [HttpGet("completed")]
+        public IEnumerable<Milestones> GetDone()
+        {
+            return milestonesRepo.GetByCompleted();
+        }
+        //Get api/activities/notdone
+        [HttpGet("notcompleted")]
+        public IEnumerable<Milestones> GetNotDone()
+        {
+            return milestonesRepo.GetByNotCompleted();
+        }
     }
 }

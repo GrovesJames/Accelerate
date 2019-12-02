@@ -14,5 +14,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --content-base docs/ --open --hot"
   },
-  "dependencies": {}
+  "dependencies": {
+    "lesshat": "^4.1.0"
+  }
 }

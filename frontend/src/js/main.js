@@ -36,9 +36,14 @@ function pageBuild(){
     skillsNAV()
     aboutNAV()
     loginNAV()
+
     addActivityPlan()
     activitiesNAV()
+
+    updateMilestone()
+
     stampDate()
+    DeleteActivity()
     profileNAV()
 }
 
@@ -117,6 +122,7 @@ function skillsNAV() {
     });
   
 }
+
 function activitiesNAV() {
     const navActivities = document.querySelector('#activitiesnav');    
     navActivities.addEventListener('click', function() {
@@ -220,6 +226,8 @@ app.addEventListener('click', function() {
 })
 
 }
+
+
 function aboutNAV() {
     const navAbout = document.querySelector('#btn1');
     navAbout.addEventListener('click', function() {
@@ -247,7 +255,6 @@ function profileNAV(){
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
-
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
@@ -278,6 +285,7 @@ function stampDate(){
         }
     });
 }
+
    function addActivityPlan(){
     app.addEventListener('click', function() {
         if(event.target.classList.contains('add_activity-plan_submit')) {
@@ -329,6 +337,51 @@ function stampDate(){
 
 
 }  
+
+function DeleteActivity(){
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("activity-delete-btn")){
+            const activityId = event.target.value;
+            apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
+                alert("The Activity has been Deleted");
+            })
+        }
+    })
+};
+
+function updateMilestone(){
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("milestone_check")){   
+            const CheckBoxValue=event.target.value
+            let Completed=null;
+            if(CheckBoxValue == "on"){Completed=true}
+            else {Completed=false};
+
+            const Id= event.target.parentElement.querySelector(
+                ".milestones_id").value;
+            const Milestone=event.target.parentElement.querySelector(
+                ".milestones_milestone").value;
+            const AgeRange=event.target.parentElement.querySelector(
+                ".milestones_AgeRange" ).value;
+            const SkillsId=event.target.parentElement.querySelector(
+                ".skill_id").value;
+            apiActions.putRequest("https://localhost:44355/api/milestones/" + Id,
+            {
+                id: Id,
+                milestone: Milestone,
+                ageRange: AgeRange,
+                completed: Completed,
+                skillsId: SkillsId
+                
+            },
+            milestone =>{
+            } )
+        }
+
+    })
+}
+
+        
 
    
 
