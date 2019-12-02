@@ -259,13 +259,13 @@ function updateMilestone(){
             if(CheckBoxValue == "on"){Completed=true}
             else {Completed=false};
 
-            const Id= event.target.parentElement.querySelector(
+            const Id= event.target.parentElement.parentElement.querySelector(
                 ".milestones_id").value;
-            const Milestone=event.target.parentElement.querySelector(
+            const Milestone=event.target.parentElement.parentElement.querySelector(
                 ".milestones_milestone").value;
-            const AgeRange=event.target.parentElement.querySelector(
+            const AgeRange=event.target.parentElement.parentElement.querySelector(
                 ".milestones_AgeRange" ).value;
-            const SkillsId=event.target.parentElement.querySelector(
+            const SkillsId=event.target.parentElement.parentElement.querySelector(
                 ".skill_id").value;
             apiActions.putRequest("https://localhost:44355/api/milestones/" + Id,
             {
