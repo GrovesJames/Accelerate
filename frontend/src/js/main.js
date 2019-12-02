@@ -7,7 +7,6 @@ import Nav from './Components/Nav'
 import Activities from './Components/Activities'
 import EditActivity from './Components/EditActivity'
 import ActivityPlan from './Components/ActivityPlan'
-import Schedules from './Components/Schedules'
 import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
@@ -40,6 +39,7 @@ function pageBuild(){
     updateMilestone()
     stampDate()
     DeleteActivity()
+    EditActivity()
     profileNAV()
 }
 
@@ -220,20 +220,7 @@ function stampDate(){
         })       
     }
 })
-    app.addEventListener('click', function() {
-         if(event.target.classList.contains("delete_activity_submit")) {
-            const activityPlanId = event.target.parentElement.querySelector(".activityPlan.id")
-            .value;
-            console.log("delete" + activityPlanId);
-         apiActions.deleteRequest(`https://localhost:44355/api/activityplans/${activityPlanId}`,
-         activityPlan, 
-         activityPlan => {
-         alert("You deleted an activity!")
-        })
-    }
-})
-
-
+    
 }  
 
 function DeleteActivity(){
@@ -241,11 +228,57 @@ function DeleteActivity(){
         if(event.target.classList.contains("activity-delete-btn")){
             const activityId = event.target.parentElement.querySelector(".activity-plan-id").value;
             apiActions.deleteRequest("https://localhost:44355/api/activityplans/" + activityId, function(){
-                alert("The Activity has been Deleted");
+                
             })
         }
     })
 };
+
+function EditActivity() {
+    app.addEventListener('click', function() {
+        if(event.target.classList.contains("activity-edit-btn")) {
+            const activityId = event.target.parentElement.querySelector(".activity_id")
+            .value;
+            console.log("edit" + activityId);
+            apiActions.getRequest(`https://localhost:44355/api/activityplans/` + activityId, function(){
+            EditActivity =>{
+            document.querySelector("#app").innerHTML = EditActivity(activityEdit)
+            }
+            })
+        }
+    })
+    app.addEventListener('click', function() {
+        if(event.target.classList.contains("update_activity_submit")) {
+            const activityId = event.target.parentElement.querySelector(".update_activity_id")
+            .value;
+            const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
+            .value;
+            const activityDescription = event.target.parentElement.querySelector(".update_activity_description")
+            .value;
+            const activityDuration = event.target.parentElement.querySelector(".update_activity_duration")
+            .value;
+            const activityScore = event.target.parentElement.querySelector(".update_activity_score")
+            .value;
+            
+            const activityData = {
+                    
+              id: activityId,
+              ageRange: activityAgeRange,
+              description: activityDescription,
+              duration: activityDuration,
+              score: activityScore,
+              scheduleId: 1
+            } 
+            apiActions.putRequest(`https://localhost:44355/api/activities/${activityId}`,
+                activityData,
+                activities => {
+                    document.querySelector("#app").innerHTML = Activities(activities)
+                }
+            );
+        }
+    })
+
+}
 
 function updateMilestone(){
     app.addEventListener("click", function(){
