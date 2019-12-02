@@ -7,7 +7,6 @@ export default function ActivityPlan(activityPlan) {
             <p>Description: ${activityPlan.description}</p>
             <p>Duration: ${activityPlan.duration}</p>
             <form>
-                <input class="activity-plan_id" type="hidden" value=${activityPlan.id}>
                 <input class="activity-plan_title" type="hidden" value="${activityPlan.title}">
                 <input class="activity-plan_description" type="hidden" value=${activityPlan.description}>
                 <input class="activity-plan_score" type="hidden" value=${activityPlan.score}>

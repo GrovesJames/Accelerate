@@ -119,11 +119,6 @@ function skillsNAV() {
   
 }
 
-
-
-
-
-
 function aboutNAV() {
     const navAbout = document.querySelector('#btn1');
     navAbout.addEventListener('click', function() {
@@ -160,7 +155,7 @@ function closeNAV(){
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
-            const addDate = new Date(document.querySelector('.add-activity_plan').value).toISOString()
+            const addDate = new Date(event.target.parentElement.querySelector('.add-activity_plan').value).toISOString()
 
             const addActivityPlanTitle = event.target.parentElement.querySelector(
                 ".activity-plan_title").value;
