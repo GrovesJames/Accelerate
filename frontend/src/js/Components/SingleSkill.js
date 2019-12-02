@@ -1,31 +1,47 @@
-export default function SingleSkill(skill){
-    return `
+export default function SingleSkill(skill) {
+  return `
     <div id="skilldetail">
       <article id="skillsheader">
         <ul id="skill-detail-list">
           <li>
           <div id="skilldesc">
-            <h3>${skill.name}</h3>
+            <h3><strong>${skill.name}</strong></h3>
               <h4>${skill.description}</h4>
             </div>
             <div id="skillpic">
               <img src="${skill.image}"></img>
             </div>
-            <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+            <input id="skill_id" class="skill_id" type="hidden" value="${
+              skill.id
+            }">
           </li>
         </ul>
       </article>
       <div class="box">
         <div class="box2">
-          <h5>Milestones</h5>
+          <h5><strong>Milestones</strong></h5>
           <ul> 
-          ${skill.milestones.map(milestones => {
-            let checkElement = null;
-            if(milestones.completed == true){checkElement = `<input class="milestone_check" type="checkbox" id="completed" checked>`}
-            else{ checkElement = `<input class="milestone_check" type="checkbox" id="completed">`}
+          ${skill.milestones
+            .map(milestones => {
+              let checkElement = null;
+              if (milestones.completed == true) {
+                checkElement = `<label class="toggle">
+                <input class="milestone_check" type="checkbox" id="completed" checked>
+                <span class="toggle__label">
+                  <span class="toggle__text"></span>
+                </span>
+                </label>`;
+              } else {
+                checkElement = `<label class="toggle">
+                <input class="milestone_check" type="checkbox" id="completed">
+                <span class="toggle__label">
+                <span class="toggle__text"></span>
+              </span>
+              </label>`;
+              }
 
-            return `
-              <li>
+              return `
+              <li class="miles">
               ${milestones.milestone}
               <form>
                 ${checkElement}
@@ -36,10 +52,10 @@ export default function SingleSkill(skill){
               </form>
               </li>
             `;
-        }).join("")}
+            })
+            .join('')}
           </ul>
         </div>
       </div>
   `;
 }
-

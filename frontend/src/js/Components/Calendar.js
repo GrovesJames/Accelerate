@@ -1,5 +1,6 @@
 export default function Activities() {
     return `
+        <h2 id="calheader">Activity Planner</h2>
         <div id="calwrap">
             <div id="year"></div>
             <div id="month"></div>
