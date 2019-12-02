@@ -249,10 +249,11 @@ function DeleteActivity(){
 function updateMilestone(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("milestone_check")){   
-            const CheckBoxValue=event.target.value
-            let Completed=null;
-            if(CheckBoxValue == "on"){Completed=true}
-            else {Completed=false};
+            let Completed = null;
+            const completed= event.target.parentElement.parentElement.querySelector(
+                ".milestones_checked").value;
+            if(completed == "true"){Completed=false}
+            else {Completed=true};
 
             const Id= event.target.parentElement.parentElement.querySelector(
                 ".milestones_id").value;
