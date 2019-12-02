@@ -165,7 +165,7 @@ function activitiesNAV() {
 })
 
 app.addEventListener('click', function() {
-    if(event.target.classList.contains("delete_activity_submit")) {
+    if(event.target.classList.contains("activity-plan_delete")) {
         const activityId = event.target.parentElement.querySelector(".activity_id")
             .value;
         console.log("delete" + activityId);
@@ -314,6 +314,20 @@ function stampDate(){
         })       
     }
 })
+    app.addEventListener('click', function() {
+         if(event.target.classList.contains("delete_activity_submit")) {
+            const activityPlanId = event.target.parentElement.querySelector(".activityPlan.id")
+            .value;
+            console.log("delete" + activityPlanId);
+         apiActions.deleteRequest(`https://localhost:44355/api/activityplans/${activityPlanId}`,
+         activityPlan, 
+         activityPlan => {
+         alert("You deleted an activity!")
+        })
+    }
+})
+
+
 }  
 
    
