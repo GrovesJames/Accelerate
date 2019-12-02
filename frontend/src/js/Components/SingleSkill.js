@@ -5,7 +5,7 @@ export default function SingleSkill(skill) {
         <ul id="skill-detail-list">
           <li>
           <div id="skilldesc">
-            <h3>${skill.name}</h3>
+            <h3><strong>${skill.name}</strong></h3>
               <h4>${skill.description}</h4>
             </div>
             <div id="skillpic">
@@ -19,7 +19,7 @@ export default function SingleSkill(skill) {
       </article>
       <div class="box">
         <div class="box2">
-          <h5>Milestones</h5>
+          <h5><strong>Milestones</strong></h5>
           <ul> 
           ${skill.milestones
             .map(milestones => {
