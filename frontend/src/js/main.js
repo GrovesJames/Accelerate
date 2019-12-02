@@ -178,6 +178,7 @@ function stampDate(){
                 scheduleId: scheduleId
             },
             activityPlan =>{
+                alert("you have added " + addActivityPlanTitle + " to your schedule");
             })        
         }
     });
@@ -238,8 +239,8 @@ function stampDate(){
 function DeleteActivity(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-delete-btn")){
-            const activityId = event.target.value;
-            apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
+            const activityId = event.target.parentElement.querySelector(".activity-plan-id").value;
+            apiActions.deleteRequest("https://localhost:44355/api/activityplans/" + activityId, function(){
                 alert("The Activity has been Deleted");
             })
         }
