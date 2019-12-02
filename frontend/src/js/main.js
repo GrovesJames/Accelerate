@@ -38,8 +38,6 @@ function pageBuild(){
     loginNAV()
 
     addActivityPlan()
-    activitiesNAV()
-
     updateMilestone()
 
     stampDate()
@@ -123,111 +121,6 @@ function skillsNAV() {
   
 }
 
-function activitiesNAV() {
-    const navActivities = document.querySelector('#activitiesnav');    
-    navActivities.addEventListener('click', function() {
-        apiActions.getRequest("https://localhost:44355/api/activities", activities => {
-            document.querySelector('#app').innerHTML = Activities(activities);
-            console.log(activities);
-            closeNAV()
-        });
-    });
-
-    const app = document.querySelector('#app');
-    app.addEventListener('click', function() {
-        if(event.target.classList.contains('add_activity_submit')) {
-           
-            const activityAgeRange = event.target.parentElement.querySelector(
-                ".add_activity_ageRange",
-            ).value;
-            const activityDescription = event.target.parentElement.querySelector(
-              ".add_activity_description",
-            ).value;
-              const activityDuration = event.target.parentElement.querySelector(
-                  ".add_activity_duration",
-            ).value;
-              const activityScore = event.target.parentElement.querySelector(
-                  ".add_activity_score",
-            ).value; 
-            const scheduleId = event.target.parentElement.querySelector(".schedule_id") 
-            .value; 
-            const activity = {
-                
-          ageRange: activityAgeRange,
-          description: activityDescription,
-          duration: activityDuration,
-          score: activityScore,
-          scheduleId: scheduleId
-            } 
-
-            console.log(activity);
-          apiActions.postRequest("https://localhost:44355/api/activities",
-            activity, 
-        activities => {
-          console.log(activities);
-          document.querySelector("#app").innerHTML = Activities(activities);
-        })       
-    }
-})
-
-app.addEventListener('click', function() {
-    if(event.target.classList.contains("activity-plan_delete")) {
-        const activityId = event.target.parentElement.querySelector(".activity_id")
-            .value;
-        console.log("delete" + activityId);
-        apiActions.deleteRequest(`https://localhost:44355/api/activities/${activityId}`,
-        activities =>{
-           document.querySelector("#app").innerHTML = Activities(activities)
-        })
-    }
-})
-
-app.addEventListener('click', function() {
-    if(event.target.classList.contains("edit_activity_submit")) {
-        const activityId = event.target.parentElement.querySelector(".activity_id")
-        .value;
-        console.log("edit" + activityId);
-        apiActions.getRequest(`https://localhost:44355/api/activities/${activityId}`,
-        activityEdit =>{
-            document.querySelector("#app").innerHTML = EditActivity(activityEdit)
-        })
-    }
-})
-
-app.addEventListener('click', function() {
-    if(event.target.classList.contains("update_activity_submit")) {
-        const activityId = event.target.parentElement.querySelector(".update_activity_id")
-        .value;
-        const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
-        .value;
-        const activityDescription = event.target.parentElement.querySelector(".update_activity_description")
-        .value;
-        const activityDuration = event.target.parentElement.querySelector(".update_activity_duration")
-        .value;
-        const activityScore = event.target.parentElement.querySelector(".update_activity_score")
-        .value;
-        
-        const activityData = {
-                
-          id: activityId,
-          ageRange: activityAgeRange,
-          description: activityDescription,
-          duration: activityDuration,
-          score: activityScore,
-          scheduleId: 1
-        } 
-        apiActions.putRequest(`https://localhost:44355/api/activities/${activityId}`,
-            activityData,
-            activities => {
-                document.querySelector("#app").innerHTML = Activities(activities)
-            }
-        );
-    }
-})
-
-}
-
-
 function aboutNAV() {
     const navAbout = document.querySelector('#btn1');
     navAbout.addEventListener('click', function() {
@@ -264,7 +157,7 @@ function closeNAV(){
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
-            const addDate = new Date(document.querySelector('.add-activity_plan').value).toISOString()
+            const addDate = new Date(event.target.parentElement.querySelector('.add-activity_plan').value).toISOString()
 
             const addActivityPlanTitle = event.target.parentElement.querySelector(
                 ".activity-plan_title").value;
