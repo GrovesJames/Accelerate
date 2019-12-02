@@ -21,12 +21,18 @@ export default function Day(activities) {
     let monthSelected = activityDate.getMonth()
 
     return `
-    <h1>Activities for ${months[monthSelected]} ${daySelected}</h1>
-    <div id="day-activity-list">
-        ${activities.map( activity => {
-            return DisplayActivity(activity);
-            })
-        }
+    <div class="box">
+        <div class="box2">
+            <h1 id="dayname">Activities for: ${months[monthSelected]} ${daySelected}</h1>
+            <div id="day-activity-list">
+                <ul>
+                ${activities.map( activity => {
+                    return DisplayActivity(activity);
+                    })
+                }
+                </ul>
+            </div>
+        </div>
     </div>
     `
 }

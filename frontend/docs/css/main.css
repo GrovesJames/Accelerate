@@ -384,14 +384,12 @@ body {
 }
 .box2 h5{
  color: #fff;
- /* padding: 10px 20px; */
  font-size: 300%;
- margin: 0;
+ margin: 0, 0, 5%, 0;
  font-weight: 70;
 }
 .box2 ul{
   position: relative;
-  /* background: #fff; */
   padding: 0;
   border: 3px solid green;
   display: grid;
@@ -405,7 +403,6 @@ body {
   width: 100%;
   color: white;
   border: 1px solid rgba(0,0,0, .1);
-  /* background: #fff; */
   box-shadow: 0 5px 25px rgba(0,0,0,.1);
   text-align: center;
   transition: transform 0.5s;
@@ -424,7 +421,6 @@ body {
   height: 20px;
   text-align: center;
   line-height: 100%;
-  /* background: #25bcff; */
   color: #fff;
   opacity: 1;
   display: inline-block;
@@ -433,6 +429,10 @@ body {
   font-size: 12px;
   font-weight: 600;
   transform: translateY(-2px);
+}
+#agetext{
+  margin-top: 0;
+  font-size: 75%;
 }
 
 /* Milestone checkbox stuff */
@@ -573,6 +573,13 @@ The animation of switching states
 }
 
 /* End of Individual skill page =============================================*/
+/* Individual day page =============================================*/
+#dayname{
+  text-align: center;
+}
+/* End ofIndividual day page =============================================*/
+
+
   /* custom calendar stuff =============================================*/
   #calheader{
     text-align: center;
@@ -604,6 +611,18 @@ The animation of switching states
   #calendar-prev, #calendar-next{
     background-color: rgba(0, 0, 0, 0.00);
     color: white;
+  }
+  .calendar-activity p{
+    background-color: blue;
+    max-width: 100px;
+    max-height: 25px;
+    text-overflow: ellipsis;
+    overflow-y: hidden;
+    border-radius: .5rem;
+    color:white;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 8%;
   }
 /* End Calendar stuff =============================================*/
 /* Activities stuff============================================= */
