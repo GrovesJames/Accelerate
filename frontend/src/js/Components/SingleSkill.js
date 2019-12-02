@@ -45,10 +45,10 @@ export default function SingleSkill(skill) {
               ${milestones.milestone}
               <form>
                 ${checkElement}
-                <input class="milestones_milestone" type="hidden" value="${milestones.milestone}">
-                <input class="milestones_AgeRange" type="hidden" value="${milestones.ageRange}">
-                <input class="milestones_id" type="hidden" value="${milestones.id}">
-                <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+                <input class="milestones_milestone" type="hidden" value="${milestones.milestone}"/>
+                <input class="milestones_AgeRange" type="hidden" value="${milestones.ageRange}"/>
+                <input class="milestones_id" type="hidden" value="${milestones.id}"/>
+                <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}"/>
               </form>
               </li>
             `;
