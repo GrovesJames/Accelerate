@@ -25,6 +25,16 @@ export default function SingleSkill(skill){
           `
         }).join("")}
         </ul>
+
+        <section class="add-activity-plan">
+        <h2>Add A New Activity</h2>
+        <input class="add-activity-plan_title" type="text" placeholder="Title">
+        <input class="add-activity-plan_description" type="text" placeholder="Description">
+        <input class="add-activty-plan_duration" type="int" placeholder="Duration">
+        <input class="add-activty-plan_score" type="int" placeholder="Score">
+        <input class="add-skills-id" type="hidden" value=${skill.id}>
+        <button class="add_activity-plan_submit">Submit</button>
+        </section>
     </div>
   `;
 }
