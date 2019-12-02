@@ -36,14 +36,10 @@ function pageBuild(){
     skillsNAV()
     aboutNAV()
     loginNAV()
-
-    addActivityPlan()
-    activitiesNAV()
-
+    addActivityPlan()    
     updateMilestone()
-
     stampDate()
-    DeleteActivity()
+    DeleteActivityPlan()
     profileNAV()
 }
 
@@ -123,111 +119,6 @@ function skillsNAV() {
   
 }
 
-function activitiesNAV() {
-    const navActivities = document.querySelector('#activitiesnav');    
-    navActivities.addEventListener('click', function() {
-        apiActions.getRequest("https://localhost:44355/api/activities", activities => {
-            document.querySelector('#app').innerHTML = Activities(activities);
-            console.log(activities);
-            closeNAV()
-        });
-    });
-
-    const app = document.querySelector('#app');
-    app.addEventListener('click', function() {
-        if(event.target.classList.contains('add_activity_submit')) {
-           
-            const activityAgeRange = event.target.parentElement.querySelector(
-                ".add_activity_ageRange",
-            ).value;
-            const activityDescription = event.target.parentElement.querySelector(
-              ".add_activity_description",
-            ).value;
-              const activityDuration = event.target.parentElement.querySelector(
-                  ".add_activity_duration",
-            ).value;
-              const activityScore = event.target.parentElement.querySelector(
-                  ".add_activity_score",
-            ).value; 
-            const scheduleId = event.target.parentElement.querySelector(".schedule_id") 
-            .value; 
-            const activity = {
-                
-          ageRange: activityAgeRange,
-          description: activityDescription,
-          duration: activityDuration,
-          score: activityScore,
-          scheduleId: scheduleId
-            } 
-
-            console.log(activity);
-          apiActions.postRequest("https://localhost:44355/api/activities",
-            activity, 
-        activities => {
-          console.log(activities);
-          document.querySelector("#app").innerHTML = Activities(activities);
-        })       
-    }
-})
-
-app.addEventListener('click', function() {
-    if(event.target.classList.contains("activity-plan_delete")) {
-        const activityId = event.target.parentElement.querySelector(".activity_id")
-            .value;
-        console.log("delete" + activityId);
-        apiActions.deleteRequest(`https://localhost:44355/api/activities/${activityId}`,
-        activities =>{
-           document.querySelector("#app").innerHTML = Activities(activities)
-        })
-    }
-})
-
-app.addEventListener('click', function() {
-    if(event.target.classList.contains("edit_activity_submit")) {
-        const activityId = event.target.parentElement.querySelector(".activity_id")
-        .value;
-        console.log("edit" + activityId);
-        apiActions.getRequest(`https://localhost:44355/api/activities/${activityId}`,
-        activityEdit =>{
-            document.querySelector("#app").innerHTML = EditActivity(activityEdit)
-        })
-    }
-})
-
-app.addEventListener('click', function() {
-    if(event.target.classList.contains("update_activity_submit")) {
-        const activityId = event.target.parentElement.querySelector(".update_activity_id")
-        .value;
-        const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
-        .value;
-        const activityDescription = event.target.parentElement.querySelector(".update_activity_description")
-        .value;
-        const activityDuration = event.target.parentElement.querySelector(".update_activity_duration")
-        .value;
-        const activityScore = event.target.parentElement.querySelector(".update_activity_score")
-        .value;
-        
-        const activityData = {
-                
-          id: activityId,
-          ageRange: activityAgeRange,
-          description: activityDescription,
-          duration: activityDuration,
-          score: activityScore,
-          scheduleId: 1
-        } 
-        apiActions.putRequest(`https://localhost:44355/api/activities/${activityId}`,
-            activityData,
-            activities => {
-                document.querySelector("#app").innerHTML = Activities(activities)
-            }
-        );
-    }
-})
-
-}
-
-
 function aboutNAV() {
     const navAbout = document.querySelector('#btn1');
     navAbout.addEventListener('click', function() {
@@ -255,6 +146,8 @@ function profileNAV(){
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
+
+//DateTime Function
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
@@ -286,6 +179,7 @@ function stampDate(){
     });
 }
 
+//ActivityPlan CRUD
    function addActivityPlan(){
     app.addEventListener('click', function() {
         if(event.target.classList.contains('add_activity-plan_submit')) {
@@ -322,33 +216,23 @@ function stampDate(){
         })       
     }
 })
-    app.addEventListener('click', function() {
-         if(event.target.classList.contains("delete_activity_submit")) {
-            const activityPlanId = event.target.parentElement.querySelector(".activityPlan.id")
-            .value;
-            console.log("delete" + activityPlanId);
-         apiActions.deleteRequest(`https://localhost:44355/api/activityplans/${activityPlanId}`,
-         activityPlan, 
-         activityPlan => {
-         alert("You deleted an activity!")
-        })
-    }
-})
-
-
+    
 }  
 
-function DeleteActivity(){
-    app.addEventListener("click", function(){
-        if(event.target.classList.contains("activity-delete-btn")){
-            const activityId = event.target.value;
-            apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
-                alert("The Activity has been Deleted");
+function DeleteActivityPlan(){
+    app.addEventListener("click", function() {
+        if(event.target.classList.contains("delete_activity_submit")){
+            const activityPlanId = event.target.parentElement.querySelector(".activityPlan.id")
+            .value;
+            apiActions.deleteRequest(`https://localhost:44355/api/activityplans/${activityPlanId}`, 
+            activityPlan, 
+            activityPlan => {
+            alert("The Activity has been deleted!")
             })
         }
     })
 };
-
+//Milestone Functions
 function updateMilestone(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("milestone_check")){   
