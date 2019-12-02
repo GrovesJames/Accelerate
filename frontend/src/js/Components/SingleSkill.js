@@ -43,7 +43,8 @@ export default function SingleSkill(skill) {
               return `
               <li class="miles">
               ${milestones.milestone}
-              <form>
+             <p id="agetext"><em>Age: ${milestones.ageRange}</em></p>
+              <form id="checkbox">
                 ${checkElement}
                 <input class="milestones_checked" type="hidden" value="${milestones.completed}">
                 <input class="milestones_milestone" type="hidden" value="${milestones.milestone}"/>
