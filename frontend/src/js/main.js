@@ -4,10 +4,9 @@ import Schedule from './Components/Schedule'
 import Calendar from './Components/Calendar'
 import Header from './Components/Header'
 import Nav from './Components/Nav'
-import Activities from './Components/Activities'
 import EditActivity from './Components/EditActivity'
-import ActivityPlan from './Components/ActivityPlan'
 import Skills from './Components/Skills'
+import ActivityPlan from './Components/ActivityPlan'
 import About from './Components/About'
 import Login from './Components/Login'
 import Profile from './Components/Profile'
@@ -39,7 +38,7 @@ function pageBuild(){
     updateMilestone()
     stampDate()
     DeleteActivity()
-    EditActivity()
+    editActivity()
     profileNAV()
 }
 
@@ -228,57 +227,62 @@ function DeleteActivity(){
         if(event.target.classList.contains("activity-delete-btn")){
             const activityId = event.target.parentElement.querySelector(".activity-plan-id").value;
             apiActions.deleteRequest("https://localhost:44355/api/activityplans/" + activityId, function(){
-                
+                alert("You have deleted an activity!!")
             })
         }
     })
 };
 
-function EditActivity() {
-    app.addEventListener('click', function() {
+function editActivity(){
+    app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-edit-btn")) {
-            const activityId = event.target.parentElement.querySelector(".activity_id")
-            .value;
-            console.log("edit" + activityId);
-            apiActions.getRequest(`https://localhost:44355/api/activityplans/` + activityId, function(){
-            EditActivity =>{
-            document.querySelector("#app").innerHTML = EditActivity(activityEdit)
-            }
+            const activityId = event.target.parentElement.querySelector(".activity-plan-id")
+                .value;
+            console.log("edit " + activityId);
+            apiActions.getRequest(`https://localhost:44355/api/activityplans/${activityId}`, 
+            activity => {
+            document.querySelector("#app").innerHTML = EditActivity(activity);
             })
         }
     })
-    app.addEventListener('click', function() {
+
+    app.addEventListener("click", function(){
         if(event.target.classList.contains("update_activity_submit")) {
             const activityId = event.target.parentElement.querySelector(".update_activity_id")
-            .value;
-            const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
-            .value;
+                .value;
             const activityDescription = event.target.parentElement.querySelector(".update_activity_description")
-            .value;
+                .value;
             const activityDuration = event.target.parentElement.querySelector(".update_activity_duration")
-            .value;
+                .value;
             const activityScore = event.target.parentElement.querySelector(".update_activity_score")
-            .value;
+                .value;
+            const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
+                .value;
+            const activityTitle = event.target.parentElement.querySelector(".update_activity_title")
+                .value;
+            const activitySkillId = event.target.parentElement.querySelector(".update_activity_skillid")
+                .value;
             
             const activityData = {
-                    
-              id: activityId,
-              ageRange: activityAgeRange,
-              description: activityDescription,
-              duration: activityDuration,
-              score: activityScore,
-              scheduleId: 1
-            } 
-            apiActions.putRequest(`https://localhost:44355/api/activities/${activityId}`,
-                activityData,
-                activities => {
-                    document.querySelector("#app").innerHTML = Activities(activities)
-                }
+                id: activityId,
+                skillsId: activitySkillId,
+                title: activityTitle,
+                ageRange: activityAgeRange,
+                description: activityDescription,
+                duration: activityDuration,
+                score: activityScore
+            }
+            apiActions.putRequest(`https://localhost:44355/api/activityplans/${activityId}`,
+            activityData,
+            activity => {
+                document.querySelector("#app").innerHTML = SkillActivities(activity)
+            }
             );
         }
     })
-
 }
+
+
 
 function updateMilestone(){
     app.addEventListener("click", function(){

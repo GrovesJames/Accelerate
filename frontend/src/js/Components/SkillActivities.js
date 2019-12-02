@@ -37,6 +37,7 @@ export default function SingleSkill(skill){
         <input class="add-activty-plan_duration" type="int" placeholder="Duration">
         <input class="add-activty-plan_score" type="int" placeholder="Score">
         <input class="add-skills-id" type="hidden" value=${skill.id}>
+        <input class="add-activity_ageRange" typoe="text" placeholder="Age Range">
         <button class="add_activity-plan_submit">Submit</button>
         </section>
     </div>
