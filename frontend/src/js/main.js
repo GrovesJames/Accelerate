@@ -61,7 +61,9 @@ function calendar(divPopulate){
     })
 }
 function skills(){
-    app.innerHTML = Skills();
+    apiActions.getRequest("https://localhost:44355/api/skills", skills => {
+        app.innerHTML = Skills(skills);
+    })
 }
 function about(){
     app.innerHTML = About();

@@ -44,7 +44,7 @@ namespace FinalProject.Repositories
             db.SaveChanges();
         }
 
-        public IEnumerable<T> GetAll()
+        public virtual IEnumerable<T> GetAll()
         {
             return db.Set<T>().ToList();
         }

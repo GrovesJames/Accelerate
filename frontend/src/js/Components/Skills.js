@@ -1,5 +1,22 @@
 
-export default function Skills() {
+export default function Skills(skills) {
+    function GetProgress(skill){
+        let numMilestonesComplete = 0;
+        let numMilestonesTotal = skill.milestones.length;
+        for (var i = 0; i < skill.milestones.length; i++) {
+            let skillMilestone = skill.milestones[i];
+            if(skillMilestone.Completed == true) numMilestonesComplete++;
+        }
+        let PercentProgress = (numMilestonesComplete/numMilestonesTotal)*100;
+        return PercentProgress;
+    }
+    function ProgressBar(skill){
+        let percentProgress = GetProgress(skill);
+        return `
+            <div class="progress-bar" style="width:${percentProgress}%"></div>
+        `
+    }
+
     return `
     <div id="skillspage">
         <div id="skillsopener">
@@ -36,5 +53,10 @@ export default function Skills() {
                 <button class="button-activities" value="3"></button>
                 <h6>Activities</h6>
             </div>
+    </div>
+    <div>
+        ${ProgressBar(skills[0])}
+        ${ProgressBar(skills[1])}
+        ${ProgressBar(skills[2])}
     </div>
 `}
