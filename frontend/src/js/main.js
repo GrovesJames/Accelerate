@@ -4,15 +4,12 @@ import Schedule from './Components/Schedule'
 import Calendar from './Components/Calendar'
 import Header from './Components/Header'
 import Nav from './Components/Nav'
-import Activities from './Components/Activities'
-import Schedules from './Components/Schedules'
+import EditActivity from './Components/EditActivity'
 import Skills from './Components/Skills'
 import About from './Components/About'
 import Login from './Components/Login'
-import Profile from './Components/Profile'
-import SingleActivityPlan from './Components/SingleActivityPlan'
+import SkillActivities from './Components/SkillActivities'
 import SingleSkill from './Components/SingleSkill'
-import SingleSkillActivityPlans from './Components/SingleSkillActivityPlans'
 
 const app = document.getElementById('app');
 const Testprofile = {
@@ -35,9 +32,11 @@ function pageBuild(){
     skillsNAV()
     aboutNAV()
     loginNAV()
-    activitiesNAV()
+    addActivityPlan()
+    updateMilestone()
     stampDate()
-    profileNAV()
+    DeleteActivity()
+    editActivity()
 }
 
 function nav(){
@@ -67,14 +66,27 @@ function login(){
     app.innerHTML = Login();
 }
 function addSkillSelectButtons(){
-    const skillButtons = document.getElementsByClassName("button-profile-skill");
+    const skillButtons = document.getElementsByClassName("button-skill");
     for (var i = 0; i < skillButtons.length; i++) {
         skillButtons[i].addEventListener('click', function(){
             const skillId = event.target.value;
             apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
                 app.innerHTML = SingleSkill(skill);
             })
+            document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/kids.jpg")';
         });
+    }
+}
+function addActivitySelectButtons(){
+    const skillButtons = document.getElementsByClassName("button-activities");
+    for (var i = 0; i < skillButtons.length; i++) {
+        skillButtons[i].addEventListener('click', function(){
+            const skillId = event.target.value;
+            apiActions.getRequest("https://localhost:44355/api/skills/" + skillId, skill => {
+                app.innerHTML = SkillActivities(skill);
+            })
+        });
+        
     }
 }
 // Navigation functions
@@ -95,83 +107,14 @@ function skillsNAV() {
     const navSkills = document.querySelector('#skillsnav');
     navSkills.addEventListener('click', function() {
         skills()
+        addSkillSelectButtons()
+        addActivitySelectButtons()
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
     });
-    app.addEventListener('click', function(){
-        if(event.target.classList.contains("acitvityDetails")){
-            const activityPlanID = event.target.parentElement.querySelector(".activities_id")
-            .value;
-            apiActions.getRequest(`https://localhost:44355/api/activityplans/${activityPlanID}`,
-            activityPlanID => {
-                console.log(activites.name)
-                
-               document.querySelector("#app").innerHTML = SingleActivityPlan(activityPlan);
-
-               
-             })
-        }
-    });
+  
 }
-function activitiesNAV() {
-    const navActivities = document.querySelector('#activitiesnav');    
-    navActivities.addEventListener('click', function() {
-        apiActions.getRequest("https://localhost:44355/api/activities", activities => {
-            document.querySelector('#app').innerHTML = Activities(activities);
-            console.log(activities);
-            closeNAV()
-        });
-    });
 
-    const app = document.querySelector('#app');
-    app.addEventListener('click', function() {
-        if(event.target.classList.contains('add_activity_submit')) {
-           
-            const activityAgeRange = event.target.parentElement.querySelector(
-                ".add_activity_ageRange",
-            ).value;
-            const activityDescription = event.target.parentElement.querySelector(
-              ".add_activity_description",
-            ).value;
-              const activityDuration = event.target.parentElement.querySelector(
-                  ".add_activity_duration",
-            ).value;
-              const activityScore = event.target.parentElement.querySelector(
-                  ".add_activity_score",
-            ).value; 
-            const scheduleId = event.target.parentElement.querySelector(".schedule_id") 
-            .value; 
-            const activity = {
-                
-          ageRange: activityAgeRange,
-          description: activityDescription,
-          duration: activityDuration,
-          score: activityScore,
-          scheduleId: scheduleId
-            } 
-
-            console.log(activity);
-          apiActions.postRequest("https://localhost:44355/api/activities",
-            activity, 
-        activities => {
-          console.log(activities);
-          document.querySelector("#app").innerHTML = Activities(activities);
-        })       
-    }
-})
-
-app.addEventListener('click', function() {
-    if(event.target.classList.contains("delete_activity_submit")) {
-        const activityId = event.target.parentElement.querySelector(".activity_id")
-            .value;
-        console.log("delete " + activityId);
-        apiActions.deleteRequest(`https://localhost:44330/api/activities/${activityId}`,
-        activities =>{
-           document.querySelector("#app").innerHTML = Activities(activities)
-        })
-    }
-})
-}
 function aboutNAV() {
     const navAbout = document.querySelector('#btn1');
     navAbout.addEventListener('click', function() {
@@ -187,48 +130,187 @@ function loginNAV() {
         closeNAV()
     });
 }
-function profileNAV(){
-    const navProfile = document.querySelector('#profilenav');
-    navProfile.addEventListener('click', function() {
-        apiActions.getRequest("https://localhost:44355/api/profile/1", profile => {
-            app.innerHTML = Profile(profile);
-            addSkillSelectButtons();
-            calendar(document.getElementById("profile-calendar"));
-        });
-        closeNAV()
-    });
-}
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
-
 function stampDate(){
-    const addActionPlan = new Date(document.querySelector('.add-activity_plan').value).toISOString()
     app.addEventListener("click", function(){
-        if(event.target.classList.contains("activity-plan_submit")){      
+        if(event.target.classList.contains("activity-plan_submit")){   
+            const addDate = new Date(event.target.parentElement.querySelector('.add-activity_plan').value).toISOString()
+
+            const addActivityPlanTitle = event.target.parentElement.querySelector(
+                ".activity-plan_title").value;
             const addActivityPlanDescription = event.target.parentElement.querySelector(
-                "activity-plan_description").value;
+                ".activity-plan_description").value;
             const addActivityPlanScore = event.target.parentElement.querySelector(
-                "activity-plan_score").value;
+                ".activity-plan_score").value;
             const addActitvityPlanDuration = event.target.parentElement.querySelector(
-                "activity-plan_duration").value;
+                ".activity-plan_duration").value;
+            const scheduleId = 1;
                 
-            console.log(addActivityPlan);
+            console.log(addDate);
             apiActions.postRequest("https://localhost:44355/api/activities",
              {                
+                title: addActivityPlanTitle,
                 description: addActivityPlanDescription,
                 score: addActivityPlanScore,
                 duration: addActitvityPlanDuration,
-                activityTime: addActionPlan
+                activityTime: addDate,
+                scheduleId: scheduleId
             },
             activityPlan =>{
-                console.log(activityPlan);
-                document.querySelector("#app").innerHTML = ActivityPlan(activityPlan);
-            } 
-            )        
+                alert("you have added " + addActivityPlanTitle + " to your schedule");
+            })        
         }
     });
 }
+
+   function addActivityPlan(){
+    app.addEventListener('click', function() {
+        if(event.target.classList.contains('add_activity-plan_submit')) {
+            const activityplanTitle = event.target.parentElement.querySelector(
+                ".add-activity-plan_title",
+            ).value;
+            const activityplanDescription = event.target.parentElement.querySelector(
+                ".add-activity-plan_description",
+            ).value;
+            const activityplanScore = event.target.parentElement.querySelector(
+                ".add-activty-plan_score",
+            ).value;
+            const activityplanDuration = event.target.parentElement.querySelector(
+                ".add-activty-plan_duration",
+            ).value;
+            const skillsId = event.target.parentElement.querySelector(
+                ".add-skills-id",
+            ).value;
+            const activityPlan = {
+                
+                title: activityplanTitle,
+                ageRange: "3-5",
+                description: activityplanDescription,
+                duration: activityplanDuration,
+                score: activityplanScore,   
+                skillsId: skillsId           
+                  } 
+
+            console.log(activityPlan);
+            apiActions.postRequest("https://localhost:44355/api/activityplans",
+            activityPlan, 
+            activityPlan => {
+            alert("You added a new activity!")
+        })       
+    }
+})
+    
+}  
+
+function DeleteActivity(){
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("activity-delete-btn")){
+            const activityId = event.target.parentElement.querySelector(".activity-plan-id").value;
+            apiActions.deleteRequest("https://localhost:44355/api/activityplans/" + activityId, function(){
+                alert("You have deleted an activity!!")
+            })
+        }
+    })
+
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("activityday-delete-btn")){
+            const activityId = event.target.value;
+            apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
+                alert("The Activity has been Deleted");
+            })
+        }
+    })
+};
+
+
+
+function editActivity(){
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("activity-edit-btn")) {
+            const activityId = event.target.parentElement.querySelector(".activity-plan-id")
+                .value;
+            console.log("edit " + activityId);
+            apiActions.getRequest(`https://localhost:44355/api/activityplans/${activityId}`, 
+            activity => {
+            document.querySelector("#app").innerHTML = EditActivity(activity);
+            })
+        }
+    })
+
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("update_activity_submit")) {
+            const activityId = event.target.parentElement.querySelector(".update_activity_id")
+                .value;
+            const activitySkillId = event.target.parentElement.querySelector(".update_activity_skillid")
+                .value;
+            const activityDescription = event.target.parentElement.querySelector(".update_activity_description")
+                .value;
+            const activityDuration = event.target.parentElement.querySelector(".update_activity_duration")
+                .value;
+            const activityScore = event.target.parentElement.querySelector(".update_activity_score")
+                .value;
+            const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
+                .value;
+            const activityTitle = event.target.parentElement.querySelector(".update_activity_title")
+                .value;
+            
+            const activityData = {
+                id: activityId,
+                skillsId: activitySkillId,
+                title: activityTitle,
+                ageRange: activityAgeRange,
+                description: activityDescription,
+                duration: activityDuration,
+                score: activityScore
+            }
+            apiActions.putRequest(`https://localhost:44355/api/activityplans/${activityId}`,
+            activityData,
+            activity => {
+               alert("You have updated the activity")
+            }
+            );
+        }
+    })
+}
+
+
+
+function updateMilestone(){
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("milestone_check")){   
+            let Completed = null;
+            const completed= event.target.parentElement.parentElement.querySelector(
+                ".milestones_checked").value;
+            if(completed == "true"){Completed=false}
+            else {Completed=true};
+
+            const Id= event.target.parentElement.parentElement.querySelector(
+                ".milestones_id").value;
+            const Milestone=event.target.parentElement.parentElement.querySelector(
+                ".milestones_milestone").value;
+            const AgeRange=event.target.parentElement.parentElement.querySelector(
+                ".milestones_AgeRange" ).value;
+            const SkillsId=event.target.parentElement.parentElement.querySelector(
+                ".skill_id").value;
+            apiActions.putRequest("https://localhost:44355/api/milestones/" + Id,
+            {
+                id: Id,
+                milestone: Milestone,
+                ageRange: AgeRange,
+                completed: Completed,
+                skillsId: SkillsId
+                
+            },
+            milestone =>{
+            } )
+        }
+
+    })
+}
+
         
+
    
 
