@@ -5,7 +5,7 @@ export default function Skills(skills) {
         let numMilestonesTotal = skill.milestones.length;
         for (var i = 0; i < skill.milestones.length; i++) {
             let skillMilestone = skill.milestones[i];
-            if(skillMilestone.Completed == true) numMilestonesComplete++;
+            if(skillMilestone.completed == true) numMilestonesComplete++;
         }
         let PercentProgress = (numMilestonesComplete/numMilestonesTotal)*100;
         return PercentProgress;
