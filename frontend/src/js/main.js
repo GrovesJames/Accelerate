@@ -10,6 +10,7 @@ import About from './Components/About'
 import Login from './Components/Login'
 import SkillActivities from './Components/SkillActivities'
 import SingleSkill from './Components/SingleSkill'
+import Activities from './Components/Calendar'
 
 const app = document.getElementById('app');
 const Testprofile = {
@@ -136,7 +137,7 @@ function closeNAV(){
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
-            const addDate = new Date(event.target.parentElement.querySelector('.add-activity_plan').value).toISOString()
+            const addDate = new Date(event.target.parentElement.querySelector('.add-activity_plan').value).toLocaleString("en-US", {timeZone: "America/New_York"})
 
             const addActivityPlanTitle = event.target.parentElement.querySelector(
                 ".activity-plan_title").value;
