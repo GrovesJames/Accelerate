@@ -146,7 +146,7 @@ body {
   display: grid;
   position: fixed;
   margin-top: 38px;
-  margin-left: 650px;
+  margin-left: 700px;
   grid-template-columns: repeat(3, 1fr);
   width: 175px;
 }
@@ -640,7 +640,34 @@ The animation of switching states
   padding: 0.5rem;
   list-style: none;
 }
-/* End of Activities stuff =============================================*/
+.add-activity-plan{
+  border: 2px solid purple;
+  width: 30%;
+  margin: auto;
+}
+.add-activity-plan h2, .main_content_activity h3{
+  margin-top: 0;
+  text-align:center;
+}
+#actInputs input, #actInputs button, .inputs input, .inputs button{
+  display: block;
+  margin: auto;
+}
+/* Activity edit */
+#actInputs button{
+  margin-bottom: 2%;
+}
+.update_activity{
+  border: 2px solid purple;
+  width: 20%;
+  padding: 1rem;
+  margin: auto;
+}
+#editwrap{
+  margin-top: -8%;
+  transform: scale(1.5)
+}
+  /* End of Activities stuff =============================================*/
 /* About page =============================================*/
 #aboutpage{
     text-align: left;
