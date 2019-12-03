@@ -224,6 +224,7 @@ body {
     border: 2px solid white;
     width: 100px;
     height: 50px;
+    transform: scale(1.25);
     text-align: center;
 }
 #btngrid h6{
@@ -231,7 +232,7 @@ body {
 }
 #btn1:hover, #btn2:hover{
     cursor: pointer;
-    transform: scale(1.25);
+    transform: scale(1.5);
 }
 #btn1{
     margin-left: 75%;
@@ -274,21 +275,28 @@ body {
     max-width: 100px;
     border: 2px solid white;
     cursor: pointer;
+    transform: scale(1.25)
+}
+.skill1btns{
+  border: 2px solid blue;
+}
+.skill2btns{
+  border: 2px solid rgb(0, 74, 0);
+}
+.skill3btns{
+  border: 2px solid rgb(83, 0, 128);
 }
 
 .skill1btns:hover{
   background: rgb(29,38,147);
-  border: 2px solid blue;
   background: linear-gradient(90deg, rgba(29,38,147,0.7906443909828708) 0%, rgba(50,65,245,0.48319097483380236) 100%);
 }
 .skill2btns:hover{
   background: rgb(29,147,36);
-  border: 2px solid rgb(0, 74, 0);
   background: linear-gradient(90deg, rgba(29,147,36,0.880706502784113) 0%, rgba(45,191,45,0.7657996704859763) 100%);
 }
 .skill3btns:hover{
   background: rgb(84,29,147);
-  border: 2px solid rgb(83, 0, 128);
   background: linear-gradient(90deg, rgba(84,29,147,0.7906443909828708) 0%, rgba(162,50,245,0.48319097483380236) 100%);
 
 }
@@ -684,7 +692,7 @@ The animation of switching states
 .loginpage{
     width: 360px;
     padding: 10% 0 0;
-    margin: auto;
+    margin: -5% auto auto auto;
 }
 
 .form{
