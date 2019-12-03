@@ -250,6 +250,8 @@ function editActivity(){
         if(event.target.classList.contains("update_activity_submit")) {
             const activityId = event.target.parentElement.querySelector(".update_activity_id")
                 .value;
+            const activitySkillId = event.target.parentElement.querySelector(".update_activity_skillid")
+                .value;
             const activityDescription = event.target.parentElement.querySelector(".update_activity_description")
                 .value;
             const activityDuration = event.target.parentElement.querySelector(".update_activity_duration")
@@ -259,8 +261,6 @@ function editActivity(){
             const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
                 .value;
             const activityTitle = event.target.parentElement.querySelector(".update_activity_title")
-                .value;
-            const activitySkillId = event.target.parentElement.querySelector(".update_activity_skillid")
                 .value;
             
             const activityData = {
@@ -275,7 +275,7 @@ function editActivity(){
             apiActions.putRequest(`https://localhost:44355/api/activityplans/${activityId}`,
             activityData,
             activity => {
-                document.querySelector("#app").innerHTML = SkillActivities(activity)
+               alert("You have updated the activity")
             }
             );
         }

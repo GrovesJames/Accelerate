@@ -13,50 +13,50 @@ namespace FinalProject.Controllers
     public class ActivityPlanController : ControllerBase
     {
 
-        private IRepository<ActivityPlan> ActivityPlanRepo;
+        private IRepository<ActivityPlan> activityPlanRepo;
 
-        public ActivityPlanController(IRepository<ActivityPlan> ActivityPlanRepo)
+        public ActivityPlanController(IRepository<ActivityPlan> activityPlanRepo)
         {
-            this.ActivityPlanRepo = ActivityPlanRepo;
+            this.activityPlanRepo = activityPlanRepo;
         }
 
         // GET api/ActivityPlans
         [HttpGet]
         public IEnumerable<ActivityPlan> Get()
         {
-            return ActivityPlanRepo.GetAll();
+            return activityPlanRepo.GetAll();
         }
 
         // GET api/ActivityPlans/5
         [HttpGet("{id}")]
         public ActivityPlan Get(int id)
         {
-            return ActivityPlanRepo.GetById(id);
+            return activityPlanRepo.GetById(id);
         }
 
         // POST api/ActivityPlans
         [HttpPost]
-        public IEnumerable<ActivityPlan> Post([FromBody] ActivityPlan ActivityPlan)
+        public IEnumerable<ActivityPlan> Post([FromBody] ActivityPlan activityPlan)
         {
-            ActivityPlanRepo.Create(ActivityPlan);
-            return ActivityPlanRepo.GetAll();
+            activityPlanRepo.Create(activityPlan);
+            return activityPlanRepo.GetAll();
         }
 
         // PUT api/ActivityPlans/5
         [HttpPut("{id}")]
-        public IEnumerable<ActivityPlan> Put([FromBody] ActivityPlan ActivityPlan)
+        public IEnumerable<ActivityPlan> Put([FromBody] ActivityPlan activityPlan)
         {
-            ActivityPlanRepo.Update(ActivityPlan);
-            return ActivityPlanRepo.GetAll();
+            activityPlanRepo.Update(activityPlan);
+            return activityPlanRepo.GetAll();
         }
 
         // DELETE api/ActivityPlans/5
         [HttpDelete("{id}")]
         public IEnumerable<ActivityPlan> Delete(int id)
         {
-            var ActivityPlan = ActivityPlanRepo.GetById(id);
-            ActivityPlanRepo.Delete(ActivityPlan);
-            return ActivityPlanRepo.GetAll();
+            var activityPlan = activityPlanRepo.GetById(id);
+            activityPlanRepo.Delete(activityPlan);
+            return activityPlanRepo.GetAll();
         }
     }
 }
