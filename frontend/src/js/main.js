@@ -159,7 +159,7 @@ function stampDate(){
                 scheduleId: scheduleId
             },
             activityPlan =>{
-                alert("you have added " + addActivityPlanTitle + " to your schedule");
+                alert("You have added: " + addActivityPlanTitle + " to your schedule");
             })        
         }
     });
@@ -218,7 +218,7 @@ function DeleteActivity(){
         if(event.target.classList.contains("activityday-delete-btn")){
             const activityId = event.target.value;
             apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
-                alert("The Activity has been Deleted");
+                alert("The activity has been deleted!");
             })
         }
     })
