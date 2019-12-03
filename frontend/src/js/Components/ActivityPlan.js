@@ -5,7 +5,7 @@ export default function ActivityPlan(activityPlan) {
             <section class="activity-plan_form">
             <h2>${activityPlan.title}</h2>
             <p>Description: ${activityPlan.description}</p>
-            <p>Duration: ${activityPlan.duration}</p>
+            <p>Duration: ${activityPlan.duration} minutes</p>
             <form>
                 <input class="activity-plan_title" type="hidden" value="${activityPlan.title}">
                 <input class="activity-plan_description" type="hidden" value=${activityPlan.description}>
