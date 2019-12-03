@@ -147,7 +147,7 @@ body {
   position: fixed;
   margin-top: 38px;
   margin-left: 650px;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   width: 175px;
 }
 .menu-wrap .menu > div > div > ul > li {
@@ -638,6 +638,7 @@ The animation of switching states
 #activitieswrapper li{
   border: 2px solid white;
   padding: 0.5rem;
+  list-style: none;
 }
 /* End of Activities stuff =============================================*/
 /* About page =============================================*/

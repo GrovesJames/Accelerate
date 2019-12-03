@@ -6,10 +6,8 @@ import Header from './Components/Header'
 import Nav from './Components/Nav'
 import EditActivity from './Components/EditActivity'
 import Skills from './Components/Skills'
-import ActivityPlan from './Components/ActivityPlan'
 import About from './Components/About'
 import Login from './Components/Login'
-import Profile from './Components/Profile'
 import SkillActivities from './Components/SkillActivities'
 import SingleSkill from './Components/SingleSkill'
 
@@ -39,7 +37,6 @@ function pageBuild(){
     stampDate()
     DeleteActivity()
     editActivity()
-    profileNAV()
 }
 
 function nav(){
@@ -130,15 +127,6 @@ function loginNAV() {
     const navLogin = document.querySelector('#btn2');
     navLogin.addEventListener('click', function() {
         login()
-        closeNAV()
-    });
-}
-function profileNAV(){
-    const navProfile = document.querySelector('#profilenav');
-    navProfile.addEventListener('click', function() {
-        apiActions.getRequest("https://localhost:44355/api/profile/1", profile => {
-            app.innerHTML = Profile(profile);
-        });
         closeNAV()
     });
 }
