@@ -225,7 +225,18 @@ function DeleteActivity(){
             })
         }
     })
+
+    app.addEventListener("click", function(){
+        if(event.target.classList.contains("activityday-delete-btn")){
+            const activityId = event.target.value;
+            apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
+                alert("The Activity has been Deleted");
+            })
+        }
+    })
 };
+
+
 
 function editActivity(){
     app.addEventListener("click", function(){
