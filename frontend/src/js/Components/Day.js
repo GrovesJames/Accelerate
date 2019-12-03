@@ -28,7 +28,7 @@ export default function Day(activities) {
                 <ul>
                 ${activities.map( activity => {
                     return DisplayActivity(activity);
-                    })
+                    }).join("")
                 }
                 </ul>
             </div>
