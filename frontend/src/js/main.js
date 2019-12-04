@@ -176,7 +176,7 @@ function stampDate(){
             },
             activityPlan =>{
 
-                alert("You have added: " + addActivityPlanTitle + " to your schedule");
+                alert("You have added: " + addActivityPlanTitle + " to your planner!");
 
             })        
         }

@@ -168,10 +168,10 @@ body {
     color: blue;
 }
 #calendarnav:hover{
-    color:green;
+    color:purple;
 }
 #skillsnav:hover{
-    color: purple;
+    color: green;
 }
 #profilenav:hover{
   color: blue;
@@ -243,6 +243,11 @@ body {
 /* End Button Grid */
 /* End of Home Page =============================================*/
 /* Skills page =============================================*/
+#skillsNgraph{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: -15%;
+}
 #skillspage{
     margin-top: -8.5%;
 }
@@ -256,7 +261,7 @@ body {
 #skill1grid, #skill2grid, #skill3grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 .button-skill{
   z-index: 0;
@@ -326,7 +331,7 @@ body {
   font-size: 70%;
 }
 #skill1act, #skill2act, #skill3act{
-  margin-left: 5%;
+  margin-left: 15%;
 }
 #skill1act h6, #skill2act h6, #skill3act h6{
   z-index: 1;
@@ -336,7 +341,7 @@ body {
   text-align: center;
   width: 100px;
   height: 50px;
-  margin: auto 5% auto auto;
+  margin: auto 15% auto auto;
   border: 2px solid blue;
   transform: scale(1.25);
 }
@@ -347,7 +352,7 @@ body {
   text-align: center;
   width: 100px;
   height: 50px;
-  margin: auto 5% auto auto;
+  margin: auto 15% auto auto;
   border: 2px solid rgb(0, 74, 0);
   transform: scale(1.25);
 }
@@ -359,13 +364,46 @@ body {
   width: 100px;
   height: 50px;
   color: white;
-  margin: auto 5% auto auto;
+  margin: auto 15% auto auto;
   border: 2px solid rgb(83, 0, 128);
   transform: scale(1.25);
 }
 #skill3name:hover{
   cursor: pointer;
 }
+.progress-bar1{
+  background-color: blue;
+  height: 3.5rem;
+  margin-bottom: 15%;
+}
+.progress-bar2{
+  background-color: green;
+  height: 3.5rem;
+  margin-bottom: 15%;
+}
+.progress-bar3{
+  background-color: purple;
+  height: 3.75rem;
+}
+.graphskill{
+  position: absolute;
+}
+#graphskill1, #graphskill2, #graphskill3{
+  margin-top: 2.5%;
+}
+
+#graph{
+  margin-top: 12%;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+  max-width: 50%;
+  max-height: 100%;
+}
+#gridwrap{
+  height: 300px;
+  margin: auto;
+}
+
 /* End of Skills page ============================================= */
 /* Individual skill page =============================================*/
 #indskillgrid{
@@ -753,11 +791,4 @@ The animation of switching states
   color: aliceblue;
   font-size: 60%;
 }
-
-.progress-bar{
-  background-color: yellowgreen;
-  height: 3rem;
-}
-
-
 /* End of Login Page =============================================*/
