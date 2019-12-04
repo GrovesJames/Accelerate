@@ -175,8 +175,6 @@ function stampDate(){
             activityPlan =>{
 
                 alert("You have added: " + addActivityPlanTitle + " to your schedule");
-                calendar(app)
-        
 
             })        
         }
