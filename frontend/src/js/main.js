@@ -43,28 +43,35 @@ function nav(){
     const nav = document.getElementById('nav')
     nav.innerHTML = Nav();
 }
+
 function header(){
     const header = document.getElementById('header')
     header.innerHTML = Header();
 }
+
 function home(){
     app.innerHTML = Home();
 }
+
 function calendar(divPopulate){
     divPopulate.innerHTML = Calendar();
     apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
         Schedule(schedule);
     })
 }
+
 function skills(){
     app.innerHTML = Skills();
 }
+
 function about(){
     app.innerHTML = About();
 }
+
 function login(){
     app.innerHTML = Login();
 }
+
 function addSkillSelectButtons(){
     const skillButtons = document.getElementsByClassName("button-skill");
     for (var i = 0; i < skillButtons.length; i++) {
@@ -77,6 +84,7 @@ function addSkillSelectButtons(){
         });
     }
 }
+
 function addActivitySelectButtons(){
     const skillButtons = document.getElementsByClassName("button-activities");
     for (var i = 0; i < skillButtons.length; i++) {
@@ -95,7 +103,8 @@ function homeNAV() {
     navHome.addEventListener('click', function() {
         window.location.reload()
     });
-  }
+}
+
 function calendarNAV() {
     const navSchedule = document.querySelector('#calendarnav');
     navSchedule.addEventListener('click', function() {
@@ -103,6 +112,7 @@ function calendarNAV() {
         closeNAV()
     });
 }
+
 function skillsNAV() {
     const navSkills = document.querySelector('#skillsnav');
     navSkills.addEventListener('click', function() {
@@ -123,6 +133,7 @@ function aboutNAV() {
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher2.jpg")';
     });
 }
+
 function loginNAV() {
     const navLogin = document.querySelector('#btn2');
     navLogin.addEventListener('click', function() {
@@ -130,9 +141,11 @@ function loginNAV() {
         closeNAV()
     });
 }
+
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
+
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
@@ -160,12 +173,14 @@ function stampDate(){
             },
             activityPlan =>{
                 alert("you have added " + addActivityPlanTitle + " to your schedule");
+                calendar(app)
+        
             })        
         }
     });
 }
 
-   function addActivityPlan(){
+function addActivityPlan(){
     app.addEventListener('click', function() {
         if(event.target.classList.contains('add_activity-plan_submit')) {
             const activityplanTitle = event.target.parentElement.querySelector(
@@ -198,10 +213,12 @@ function stampDate(){
             activityPlan, 
             activityPlan => {
             alert("You added a new activity!")
+            skills()
+            addSkillSelectButtons()
+            addActivitySelectButtons()
         })       
     }
 })
-    
 }  
 
 function DeleteActivity(){
@@ -209,7 +226,10 @@ function DeleteActivity(){
         if(event.target.classList.contains("activity-delete-btn")){
             const activityId = event.target.parentElement.querySelector(".activity-plan-id").value;
             apiActions.deleteRequest("https://localhost:44355/api/activityplans/" + activityId, function(){
-                alert("You have deleted an activity!!")
+                alert("The Activity has been Deleted")
+                skills()
+                addSkillSelectButtons()
+                addActivitySelectButtons()
             })
         }
     })
@@ -219,12 +239,12 @@ function DeleteActivity(){
             const activityId = event.target.value;
             apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
                 alert("The Activity has been Deleted");
+                calendar(app)
+
             })
         }
     })
 };
-
-
 
 function editActivity(){
     app.addEventListener("click", function(){
@@ -269,13 +289,14 @@ function editActivity(){
             activityData,
             activity => {
                alert("You have updated the activity")
+               skills()
+                addSkillSelectButtons()
+                addActivitySelectButtons()
             }
             );
         }
     })
 }
-
-
 
 function updateMilestone(){
     app.addEventListener("click", function(){
@@ -306,11 +327,5 @@ function updateMilestone(){
             milestone =>{
             } )
         }
-
     })
 }
-
-        
-
-   
-
