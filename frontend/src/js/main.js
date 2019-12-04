@@ -293,9 +293,9 @@ function editActivity(){
             activityData,
             activity => {
                alert("You have updated the activity")
-               skills()
-                addSkillSelectButtons()
-                addActivitySelectButtons()
+               apiActions.getRequest("https://localhost:44355/api/skills/" + activitySkillId, skill => {
+                    app.innerHTML = SkillActivities(skill);
+                })
             }
             );
         }
