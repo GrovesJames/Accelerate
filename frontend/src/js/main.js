@@ -215,10 +215,10 @@ function addActivityPlan(){
             apiActions.postRequest("https://localhost:44355/api/activityplans",
             activityPlan, 
             activityPlan => {
-            alert("You added a new activity!")
-            skills()
-            addSkillSelectButtons()
-            addActivitySelectButtons()
+                alert("You added a new activity!")
+                apiActions.getRequest("https://localhost:44355/api/skills/" + skillsId, skill => {
+                    app.innerHTML = SkillActivities(skill);
+                })
         })       
     }
 })
