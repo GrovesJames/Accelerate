@@ -39,7 +39,6 @@ export default function SingleSkill(skill) {
               </span>
               </label>`;
               }
-
               return `
               <li class="miles">
               ${milestones.milestone}

@@ -1,11 +1,9 @@
 export default function Home() {
     return `
     <div id="home">
-
         <div id="MissionStatement">
-        <h3>"Provide professionally developed tools and resources in an easily accessible web environment, assisting families facing early childhood developmental challenges"</h3>
+            <h3>"Provide professionally developed tools and resources in an easily accessible web environment, assisting families facing early childhood developmental challenges"</h3>
         </div>
-
         <div id="btngrid">
             <div id="btn1">
                 <h6>Learn More</h6>
@@ -15,6 +13,5 @@ export default function Home() {
             </div>
         </div>
     </div>
-
 `
 }

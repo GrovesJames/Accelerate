@@ -16,34 +16,28 @@ namespace FinalProject.Repositories
         {
             this.db = db;
         }
-
         public Repository(ContextBoundObject context)
         {
             this.context = context;
         }
-
         public void Create(T entity)
         {
             db.Set<T>().Add(entity);
             db.SaveChanges();
         }
-
         public virtual T GetById(int id)
         {
             return db.Set<T>().Find(id);
         }
-
         public void Delete(T entity)
         {
             db.Set<T>().Remove(entity);
             db.SaveChanges();
         }
-
         public void Save()
         {
             db.SaveChanges();
         }
-
         public virtual IEnumerable<T> GetAll()
         {
             return db.Set<T>().ToList();
@@ -52,16 +46,6 @@ namespace FinalProject.Repositories
         {
             db.Set<T>().Update(entity);
             Save();
-        }
-        public virtual IEnumerable<T> GetByCompleted()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        public virtual IEnumerable<T> GetByNotCompleted()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -29,7 +29,6 @@ export default function SingleSkill(skill){
           `
         }).join("")}
         </ul>
-
         <section class="add-activity-plan">
           <h2>Add A New Activity</h2>
           <div id="actInputs">

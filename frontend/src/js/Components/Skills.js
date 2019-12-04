@@ -16,7 +16,6 @@ export default function Skills(skills) {
             <div class="progress-bar${skill.id}" style="width:${percentProgress}%"></div>
         `
     }
-
     return `
     <div id="skillspage">
         <div id="skillsopener">

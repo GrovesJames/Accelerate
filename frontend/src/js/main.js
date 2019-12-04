@@ -10,20 +10,10 @@ import About from './Components/About'
 import Login from './Components/Login'
 import SkillActivities from './Components/SkillActivities'
 import SingleSkill from './Components/SingleSkill'
-import Activities from './Components/Calendar'
-
-const app = document.getElementById('app');
-const Testprofile = {
-    userName : "TestUser"
-};
-apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
-    Testprofile.schedule = schedule;
-})
 
 export default () => {
     pageBuild()
 }
-
 function pageBuild(){
     nav()
     header()
@@ -39,12 +29,14 @@ function pageBuild(){
     DeleteActivity()
     editActivity()
 }
-
+const app = document.getElementById('app');
+apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
+    Testprofile.schedule = schedule;
+})
 function nav(){
     const nav = document.getElementById('nav')
     nav.innerHTML = Nav();
 }
-
 function header(){
     const header = document.getElementById('header')
     header.innerHTML = Header();
@@ -68,15 +60,12 @@ function skills(){
         addActivitySelectButtons()
     })
 }
-
 function about(){
     app.innerHTML = About();
 }
-
 function login(){
     app.innerHTML = Login();
 }
-
 function addSkillSelectButtons(){
     const skillButtons = document.getElementsByClassName("button-skill");
     for (var i = 0; i < skillButtons.length; i++) {
@@ -89,7 +78,6 @@ function addSkillSelectButtons(){
         });
     }
 }
-
 function addActivitySelectButtons(){
     const skillButtons = document.getElementsByClassName("button-activities");
     for (var i = 0; i < skillButtons.length; i++) {
@@ -109,7 +97,6 @@ function homeNAV() {
         window.location.reload()
     });
 }
-
 function calendarNAV() {
     const navSchedule = document.querySelector('#calendarnav');
     navSchedule.addEventListener('click', function() {
@@ -117,7 +104,6 @@ function calendarNAV() {
         closeNAV()
     });
 }
-
 function skillsNAV() {
     const navSkills = document.querySelector('#skillsnav');
     navSkills.addEventListener('click', function() {
@@ -125,9 +111,7 @@ function skillsNAV() {
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
     });
-  
 }
-
 function aboutNAV() {
     const navAbout = document.querySelector('#btn1');
     navAbout.addEventListener('click', function() {
@@ -136,7 +120,6 @@ function aboutNAV() {
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher2.jpg")';
     });
 }
-
 function loginNAV() {
     const navLogin = document.querySelector('#btn2');
     navLogin.addEventListener('click', function() {
@@ -144,11 +127,9 @@ function loginNAV() {
         closeNAV()
     });
 }
-
 function closeNAV(){
     document.getElementById('closeNAV').checked = false;
 }
-
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
@@ -163,7 +144,6 @@ function stampDate(){
             const addActitvityPlanDuration = event.target.parentElement.querySelector(
                 ".activity-plan_duration").value;
             const scheduleId = 1;
-                
             console.log(addDate);
             apiActions.postRequest("https://localhost:44355/api/activities",
              {                
@@ -175,14 +155,11 @@ function stampDate(){
                 scheduleId: scheduleId
             },
             activityPlan =>{
-
                 alert("You have added: " + addActivityPlanTitle + " to your planner!");
-
             })        
         }
     });
 }
-
 function addActivityPlan(){
     app.addEventListener('click', function() {
         if(event.target.classList.contains('add_activity-plan_submit')) {
@@ -202,7 +179,6 @@ function addActivityPlan(){
                 ".add-skills-id",
             ).value;
             const activityPlan = {
-                
                 title: activityplanTitle,
                 ageRange: "3-5",
                 description: activityplanDescription,
@@ -210,7 +186,6 @@ function addActivityPlan(){
                 score: activityplanScore,   
                 skillsId: skillsId           
                   } 
-
             console.log(activityPlan);
             apiActions.postRequest("https://localhost:44355/api/activityplans",
             activityPlan, 
@@ -223,7 +198,6 @@ function addActivityPlan(){
     }
 })
 }  
-
 function DeleteActivity(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-delete-btn")){
@@ -237,19 +211,16 @@ function DeleteActivity(){
             })
         }
     })
-
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activityday-delete-btn")){
             const activityId = event.target.value;
             apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
                 alert("The activity has been deleted!");
                 calendar(app)
-
             })
         }
     })
 };
-
 function editActivity(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-edit-btn")) {
@@ -262,7 +233,6 @@ function editActivity(){
             })
         }
     })
-
     app.addEventListener("click", function(){
         if(event.target.classList.contains("update_activity_submit")) {
             const activityId = event.target.parentElement.querySelector(".update_activity_id")
@@ -278,8 +248,7 @@ function editActivity(){
             const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
                 .value;
             const activityTitle = event.target.parentElement.querySelector(".update_activity_title")
-                .value;
-            
+                .value;      
             const activityData = {
                 id: activityId,
                 skillsId: activitySkillId,
@@ -301,7 +270,6 @@ function editActivity(){
         }
     })
 }
-
 function updateMilestone(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("milestone_check")){   
@@ -310,7 +278,6 @@ function updateMilestone(){
                 ".milestones_checked").value;
             if(completed == "true"){Completed=false}
             else {Completed=true};
-
             const Id= event.target.parentElement.parentElement.querySelector(
                 ".milestones_id").value;
             const Milestone=event.target.parentElement.parentElement.querySelector(
@@ -326,7 +293,6 @@ function updateMilestone(){
                 ageRange: AgeRange,
                 completed: Completed,
                 skillsId: SkillsId
-                
             },
             milestone =>{
             } )

@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Repositories
 {
-
         public class SkillsRepository : Repository<Skills>, IRepository<Skills>
         {
             private DbContext db;
@@ -26,5 +25,4 @@ namespace FinalProject.Repositories
                 return db.Set<Skills>().Where(i => i.Id == id).Include("ActivityPlans").Include("Milestones").FirstOrDefault();
             }
         }
-    
 }
