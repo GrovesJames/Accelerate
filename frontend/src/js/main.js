@@ -178,9 +178,12 @@ function addActivityPlan(){
             const skillsId = event.target.parentElement.querySelector(
                 ".add-skills-id",
             ).value;
+            const ageRange = event.target.parentElement.querySelector(
+                ".add-activity_ageRange"
+            ).value;
             const activityPlan = {
                 title: activityplanTitle,
-                ageRange: "3-5",
+                ageRange: ageRange,
                 description: activityplanDescription,
                 duration: activityplanDuration,
                 score: activityplanScore,   
@@ -204,7 +207,7 @@ function DeleteActivity(){
             const skillsId = event.target.parentElement.querySelector(".activity-plan-skillid").value;
             const activityId = event.target.parentElement.querySelector(".activity-plan-id").value;
             apiActions.deleteRequest("https://localhost:44355/api/activityplans/" + activityId, function(){
-                alert("The Activity has been Deleted")
+                alert("The Activity has been deleted")
                 apiActions.getRequest("https://localhost:44355/api/skills/" + skillsId, skill => {
                     app.innerHTML = SkillActivities(skill);
                 })
