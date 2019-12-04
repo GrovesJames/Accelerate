@@ -227,12 +227,13 @@ function addActivityPlan(){
 function DeleteActivity(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-delete-btn")){
+            const skillsId = event.target.parentElement.querySelector(".activity-plan-skillid").value;
             const activityId = event.target.parentElement.querySelector(".activity-plan-id").value;
             apiActions.deleteRequest("https://localhost:44355/api/activityplans/" + activityId, function(){
                 alert("The Activity has been Deleted")
-                skills()
-                addSkillSelectButtons()
-                addActivitySelectButtons()
+                apiActions.getRequest("https://localhost:44355/api/skills/" + skillsId, skill => {
+                    app.innerHTML = SkillActivities(skill);
+                })
             })
         }
     })
