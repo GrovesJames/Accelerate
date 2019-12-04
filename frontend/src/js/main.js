@@ -62,7 +62,11 @@ function calendar(divPopulate){
 }
 
 function skills(){
-    app.innerHTML = Skills();
+    apiActions.getRequest("https://localhost:44355/api/skills", skills => {
+        app.innerHTML = Skills(skills);
+        addSkillSelectButtons()
+        addActivitySelectButtons()
+    })
 }
 
 function about(){
@@ -118,8 +122,6 @@ function skillsNAV() {
     const navSkills = document.querySelector('#skillsnav');
     navSkills.addEventListener('click', function() {
         skills()
-        addSkillSelectButtons()
-        addActivitySelectButtons()
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
     });
@@ -174,7 +176,7 @@ function stampDate(){
             },
             activityPlan =>{
 
-                alert("You have added: " + addActivityPlanTitle + " to your schedule");
+                alert("You have added: " + addActivityPlanTitle + " to your planner!");
 
             })        
         }
