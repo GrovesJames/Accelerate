@@ -23,7 +23,7 @@ export default function Skills(skills) {
             <h2>Skills (Ages 3-5)</h2>
             <p>Each 'skill' is broken down by its particular set of milestones, from which parents or caregivers can be educated on what areas of improvement are necessary for their child. Activities are then suggested that assist in the development and improvement of these skills. Afterwards, you may create a personalized profile for your child, where you can develop a schedule based on activities chosen.</p>
         </div>
-
+        <h6 id="graphtitle">Progress Tracker</h6>
         <div id="skillsNgraph">
             <div id="gridwrap">
                 <h3>Speech</h3>
@@ -74,5 +74,6 @@ export default function Skills(skills) {
                 ${ProgressBar(skills[2])}
             </div>
         </div>
+        <h6></h6>
     </div>
 `}

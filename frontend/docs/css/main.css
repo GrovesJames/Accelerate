@@ -391,7 +391,14 @@ body {
 #graphskill1, #graphskill2, #graphskill3{
   margin-top: 2.5%;
 }
+#graphtitle{
+  position: absolute;
 
+  font-size: 115%;
+  max-width: 200px;
+  margin: 2.5% 0 0 47%;
+  padding: 0;
+}
 #graph{
   margin-top: 12%;
   border-bottom: 2px solid white;
