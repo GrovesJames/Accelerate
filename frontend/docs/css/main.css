@@ -246,18 +246,23 @@ body {
 #skillspage{
     margin-top: -8.5%;
 }
+#skillspage h3{
+  text-align: center;
+  margin: 0 0 3% auto;
+}
 #skilldetail{
   margin-top: -10.5%;
 }
 #skill1grid, #skill2grid, #skill3grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 5%;
 }
 .button-skill{
   z-index: 0;
   margin: auto;
-  width: 200px;
-  height: 75px;
+  width: 100px;
+  height: 50px;
   opacity: 0;
 }
 .button-activities{
@@ -286,31 +291,42 @@ body {
 .skill3btns{
   border: 2px solid rgb(83, 0, 128);
 }
-
+#skill1name:hover{
+  background: rgb(29,38,147);
+  background: linear-gradient(90deg, rgba(29,38,147,0.7906443909828708) 0%, rgba(50,65,245,0.48319097483380236) 100%);
+}
 .skill1btns:hover{
   background: rgb(29,38,147);
   background: linear-gradient(90deg, rgba(29,38,147,0.7906443909828708) 0%, rgba(50,65,245,0.48319097483380236) 100%);
+}
+#skill2name:hover{
+  background: rgb(29,147,36);
+  background: linear-gradient(90deg, rgba(29,147,36,0.880706502784113) 0%, rgba(45,191,45,0.7657996704859763) 100%);
 }
 .skill2btns:hover{
   background: rgb(29,147,36);
   background: linear-gradient(90deg, rgba(29,147,36,0.880706502784113) 0%, rgba(45,191,45,0.7657996704859763) 100%);
 }
+#skill3name:hover{
+  background: rgb(84,29,147);
+  background: linear-gradient(90deg, rgba(84,29,147,0.7906443909828708) 0%, rgba(162,50,245,0.48319097483380236) 100%);
+}
 .skill3btns:hover{
   background: rgb(84,29,147);
   background: linear-gradient(90deg, rgba(84,29,147,0.7906443909828708) 0%, rgba(162,50,245,0.48319097483380236) 100%);
-
 }
 .skill1btns h6, .skill2btns h6, .skill3btns h6{
     text-align: center;
     margin: 15% auto auto auto;
 }
-#skill1name h3{
-  z-index: 1;
-  margin-top: -27%;
-}
-#skill2name h3, #skill3name h3{
+
+#skill2name h3, #skill3name h3, #skill1name h3{
   z-index: 1;
   margin-top: -35%;
+  font-size: 70%;
+}
+#skill1act, #skill2act, #skill3act{
+  margin-left: 5%;
 }
 #skill1act h6, #skill2act h6, #skill3act h6{
   z-index: 1;
@@ -318,39 +334,38 @@ body {
 }
 #skill1name{
   text-align: center;
-  width: 200px;
-  max-height: 75px;
-  margin: auto auto 4% auto;
-  border: 3px solid blue;
+  width: 100px;
+  height: 50px;
+  margin: auto 5% auto auto;
+  border: 2px solid blue;
+  transform: scale(1.25);
 }
 #skill1name:hover{
   cursor: pointer;
 }
   #skill2name{
   text-align: center;
-  width: 200px;
-  max-height: 75px;
-  margin: auto auto 4% auto;
-  border: 3px solid rgb(0, 74, 0);
+  width: 100px;
+  height: 50px;
+  margin: auto 5% auto auto;
+  border: 2px solid rgb(0, 74, 0);
+  transform: scale(1.25);
 }
 #skill2name:hover{
   cursor: pointer;
 }
 #skill3name{
   text-align: center;
-  width: 200px;
-  max-height: 75px;
+  width: 100px;
+  height: 50px;
   color: white;
-  margin: auto auto auto auto;
-  border: 3px solid rgb(83, 0, 128);
+  margin: auto 5% auto auto;
+  border: 2px solid rgb(83, 0, 128);
+  transform: scale(1.25);
 }
 #skill3name:hover{
   cursor: pointer;
 }
-#skill1name:hover, #skill2name:hover, #skill3name:hover{
-  transform: scale(1.15);
-}
-
 /* End of Skills page ============================================= */
 /* Individual skill page =============================================*/
 #indskillgrid{
