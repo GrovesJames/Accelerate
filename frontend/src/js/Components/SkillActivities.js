@@ -13,7 +13,7 @@ export default function SingleSkill(skill){
             <div id="skillpic">
               <img src="${skill.image}"></img>
             </div>
-            <input id="skill_id" class="skill_id" type="hidden" value="${skill.id}">
+            <input id="skill_id" class="skill_id" type="hidden" type="int" value="${skill.id}">
           </li>
         </ul>
       </article>
@@ -31,13 +31,16 @@ export default function SingleSkill(skill){
         </ul>
 
         <section class="add-activity-plan">
-        <h2>Add A New Activity</h2>
-        <input class="add-activity-plan_title" type="text" placeholder="Title">
-        <input class="add-activity-plan_description" type="text" placeholder="Description">
-        <input class="add-activty-plan_duration" type="int" placeholder="Duration">
-        <input class="add-activty-plan_score" type="int" placeholder="Score">
-        <input class="add-skills-id" type="hidden" value=${skill.id}>
-        <button class="add_activity-plan_submit">Submit</button>
+          <h2>Add A New Activity</h2>
+          <div id="actInputs">
+            <input class="add-activity-plan_title" type="text" placeholder="Title">
+            <input class="add-activity-plan_description" type="text" placeholder="Description">
+            <input class="add-activty-plan_duration" type="int" placeholder="Duration">
+            <input class="add-activty-plan_score" type="int" placeholder="Score">
+            <input class="add-skills-id" type="hidden" type="int" value=${skill.id}>
+            <input class="add-activity_ageRange" typoe="text" placeholder="Age Range">
+            <button class="add_activity-plan_submit">Submit</button>
+          </div>
         </section>
     </div>
   `;

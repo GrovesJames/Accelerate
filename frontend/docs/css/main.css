@@ -146,8 +146,8 @@ body {
   display: grid;
   position: fixed;
   margin-top: 38px;
-  margin-left: 650px;
-  grid-template-columns: repeat(4, 1fr);
+  margin-left: 700px;
+  grid-template-columns: repeat(3, 1fr);
   width: 175px;
 }
 .menu-wrap .menu > div > div > ul > li {
@@ -202,7 +202,7 @@ body {
 /* End of Header =============================================*/
 /* Home Page =============================================*/
 #app {
-  margin-top: 25%;
+  margin-top: 20%;
 }
 #MissionStatement {
   font-size: 35px;
@@ -224,6 +224,7 @@ body {
     border: 2px solid white;
     width: 100px;
     height: 50px;
+    transform: scale(1.25);
     text-align: center;
 }
 #btngrid h6{
@@ -231,7 +232,7 @@ body {
 }
 #btn1:hover, #btn2:hover{
     cursor: pointer;
-    transform: scale(1.25);
+    transform: scale(1.5);
 }
 #btn1{
     margin-left: 75%;
@@ -243,7 +244,11 @@ body {
 /* End of Home Page =============================================*/
 /* Skills page =============================================*/
 #skillspage{
-    margin-top: -10.5%;
+    margin-top: -8.5%;
+}
+#skillspage h3{
+  text-align: center;
+  margin: 0 0 3% auto;
 }
 #skilldetail{
   margin-top: -10.5%;
@@ -251,12 +256,13 @@ body {
 #skill1grid, #skill2grid, #skill3grid{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 5%;
 }
 .button-skill{
   z-index: 0;
   margin: auto;
-  width: 200px;
-  height: 75px;
+  width: 100px;
+  height: 50px;
   opacity: 0;
 }
 .button-activities{
@@ -274,35 +280,53 @@ body {
     max-width: 100px;
     border: 2px solid white;
     cursor: pointer;
+    transform: scale(1.25)
 }
-
+.skill1btns{
+  border: 2px solid blue;
+}
+.skill2btns{
+  border: 2px solid rgb(0, 74, 0);
+}
+.skill3btns{
+  border: 2px solid rgb(83, 0, 128);
+}
+#skill1name:hover{
+  background: rgb(29,38,147);
+  background: linear-gradient(90deg, rgba(29,38,147,0.7906443909828708) 0%, rgba(50,65,245,0.48319097483380236) 100%);
+}
 .skill1btns:hover{
   background: rgb(29,38,147);
-  border: 2px solid blue;
   background: linear-gradient(90deg, rgba(29,38,147,0.7906443909828708) 0%, rgba(50,65,245,0.48319097483380236) 100%);
+}
+#skill2name:hover{
+  background: rgb(29,147,36);
+  background: linear-gradient(90deg, rgba(29,147,36,0.880706502784113) 0%, rgba(45,191,45,0.7657996704859763) 100%);
 }
 .skill2btns:hover{
   background: rgb(29,147,36);
-  border: 2px solid rgb(0, 74, 0);
   background: linear-gradient(90deg, rgba(29,147,36,0.880706502784113) 0%, rgba(45,191,45,0.7657996704859763) 100%);
+}
+#skill3name:hover{
+  background: rgb(84,29,147);
+  background: linear-gradient(90deg, rgba(84,29,147,0.7906443909828708) 0%, rgba(162,50,245,0.48319097483380236) 100%);
 }
 .skill3btns:hover{
   background: rgb(84,29,147);
-  border: 2px solid rgb(83, 0, 128);
   background: linear-gradient(90deg, rgba(84,29,147,0.7906443909828708) 0%, rgba(162,50,245,0.48319097483380236) 100%);
-
 }
 .skill1btns h6, .skill2btns h6, .skill3btns h6{
     text-align: center;
     margin: 15% auto auto auto;
 }
-#skill1name h3{
-  z-index: 1;
-  margin-top: -27%;
-}
-#skill2name h3, #skill3name h3{
+
+#skill2name h3, #skill3name h3, #skill1name h3{
   z-index: 1;
   margin-top: -35%;
+  font-size: 70%;
+}
+#skill1act, #skill2act, #skill3act{
+  margin-left: 5%;
 }
 #skill1act h6, #skill2act h6, #skill3act h6{
   z-index: 1;
@@ -310,39 +334,38 @@ body {
 }
 #skill1name{
   text-align: center;
-  width: 200px;
-  max-height: 75px;
-  margin: auto auto 4% auto;
-  border: 3px solid blue;
+  width: 100px;
+  height: 50px;
+  margin: auto 5% auto auto;
+  border: 2px solid blue;
+  transform: scale(1.25);
 }
 #skill1name:hover{
   cursor: pointer;
 }
   #skill2name{
   text-align: center;
-  width: 200px;
-  max-height: 75px;
-  margin: auto auto 4% auto;
-  border: 3px solid rgb(0, 74, 0);
+  width: 100px;
+  height: 50px;
+  margin: auto 5% auto auto;
+  border: 2px solid rgb(0, 74, 0);
+  transform: scale(1.25);
 }
 #skill2name:hover{
   cursor: pointer;
 }
 #skill3name{
   text-align: center;
-  width: 200px;
-  max-height: 75px;
+  width: 100px;
+  height: 50px;
   color: white;
-  margin: auto auto auto auto;
-  border: 3px solid rgb(83, 0, 128);
+  margin: auto 5% auto auto;
+  border: 2px solid rgb(83, 0, 128);
+  transform: scale(1.25);
 }
 #skill3name:hover{
   cursor: pointer;
 }
-#skill1name:hover, #skill2name:hover, #skill3name:hover{
-  transform: scale(1.15);
-}
-
 /* End of Skills page ============================================= */
 /* Individual skill page =============================================*/
 #indskillgrid{
@@ -410,7 +433,7 @@ body {
 .box2 ul li:hover{
   transform: scale(1.1);
   z-index: 100;
-  background: #0be881;
+  background: #0f9154;
   box-shadow: 0 5px 25px rgba(0,0,0,.2);
   transition: .75s ease;
   color: #fff;
@@ -592,10 +615,14 @@ The animation of switching states
     width: 6rem;
     height: 6rem;
   }
+  #monthAndYear, #calbtns{
+    margin: auto;
+    text-align: center;
+  }
   #calendar-body{
       color: black;
       width: 915px;
-      margin: 0;
+      margin-left: 3%;
   }
   .indday:hover{
       color: blue;
@@ -638,8 +665,36 @@ The animation of switching states
 #activitieswrapper li{
   border: 2px solid white;
   padding: 0.5rem;
+  list-style: none;
 }
-/* End of Activities stuff =============================================*/
+.add-activity-plan{
+  border: 2px solid purple;
+  width: 30%;
+  margin: auto;
+}
+.add-activity-plan h2, .main_content_activity h3{
+  margin-top: 0;
+  text-align:center;
+}
+#actInputs input, #actInputs button, .inputs input, .inputs button{
+  display: block;
+  margin: auto;
+}
+/* Activity edit */
+#actInputs button{
+  margin-bottom: 2%;
+}
+.update_activity{
+  border: 2px solid purple;
+  width: 20%;
+  padding: 1rem;
+  margin: auto;
+}
+#editwrap{
+  margin-top: -8%;
+  transform: scale(1.5)
+}
+  /* End of Activities stuff =============================================*/
 /* About page =============================================*/
 #aboutpage{
     text-align: left;
@@ -652,7 +707,7 @@ The animation of switching states
 .loginpage{
     width: 360px;
     padding: 10% 0 0;
-    margin: auto;
+    margin: -5% auto auto auto;
 }
 
 .form{
