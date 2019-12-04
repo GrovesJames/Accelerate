@@ -8,34 +8,27 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.Controllers
 {
-
     [Route("api/schedules")]
-
     [ApiController]
     public class ScheduleController : ControllerBase
     {
-
         private IRepository<Schedule> ScheduleRepo;
-
         public ScheduleController(IRepository<Schedule> ScheduleRepo)
         {
             this.ScheduleRepo = ScheduleRepo;
         }
-
         // GET api/Schedules
         [HttpGet]
         public IEnumerable<Schedule> Get()
         {
             return ScheduleRepo.GetAll();
         }
-
         // GET api/Schedules/5
         [HttpGet("{id}")]
         public Schedule Get(int id)
         {
             return ScheduleRepo.GetById(id);
         }
-
         // POST api/Schedules
         [HttpPost]
         public IEnumerable<Schedule> Post([FromBody] Schedule Schedule)
@@ -43,7 +36,6 @@ namespace FinalProject.Controllers
             ScheduleRepo.Create(Schedule);
             return ScheduleRepo.GetAll();
         }
-
         // PUT api/Schedules/5
         [HttpPut("{id}")]
         public IEnumerable<Schedule> Put([FromBody] Schedule Schedule)
@@ -51,7 +43,6 @@ namespace FinalProject.Controllers
             ScheduleRepo.Update(Schedule);
             return ScheduleRepo.GetAll();
         }
-
         // DELETE api/Schedules/5
         [HttpDelete("{id}")]
         public IEnumerable<Schedule> Delete(int id)

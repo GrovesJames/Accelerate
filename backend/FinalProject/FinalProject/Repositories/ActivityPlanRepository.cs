@@ -11,7 +11,6 @@ namespace FinalProject.Repositories
     public class ActivityPlanRepository : Repository<ActivityPlan>, IRepository<ActivityPlan>
     {
         private DbContext db; 
-
         public ActivityPlanRepository(Context context) : base(context)
         {
             this.db = context;

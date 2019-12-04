@@ -10,6 +10,5 @@ export default function Login() {
             <button>Register</button>
         </div>
     </div>
-
     `
 }

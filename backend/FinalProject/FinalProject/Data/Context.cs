@@ -15,8 +15,6 @@ namespace FinalProject.Data
         public DbSet<Skills> Skills { get; set; }
         public DbSet<ActivityPlan> ActivityPlans { get; set; }
         public DbSet<Milestones> Milestones { get; set; }
-        public DbSet<Profile> Profile { get; set; }
-        public DbSet<Login> Login { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -28,22 +26,16 @@ namespace FinalProject.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Activities>().HasData(
-
-                //new Activities(1, "do stuff", "3-6", "do stuff", 20, 200, 1, DateTime.Now)
-
                 );
             modelBuilder.Entity<Schedule>().HasData(
-                  new Schedule(1,1)
+                  new Schedule(1)
                 );
             modelBuilder.Entity<Skills>().HasData(
                 new Skills(1, "Speech", "Children are born ready to learn a language, but they need to learn the language or languages that their family and environment use. Learning a language takes time, and children vary in how quickly they master milestones in language and speech development. Typically developing children may have trouble with some sounds, words, and sentences while they are learning. However, most children can use language easily around 5 years of age.", "3-5", "/images/speech.jpg"),
-                new Skills(2, "Cognitive Functionality", "Children are born ready to learn, and have many skills to learn over many years. They depend on parents, family members, and other caregivers as their first teachers to develop the right skills to become independent and lead healthy and successful lives. How the brain grows is strongly affected by the child’s experiences with other people and the world.", "3-5", "/images/cognitive.jpg"),
+                new Skills(2, "Cognitive Functionality", "Children are born ready to learn, and have many skills to learn over many years. They depend on parents, family members, and other caregivers as their first teachers to develop the right skills to become independent and lead healthy and successful lives. How the brain grows is strongly affected by the child’s experiences with other people and the world. Nurturing care for the mind is critical for brain growth.", "3-5", "/images/cognitive.jpg"),
                 new Skills(3, "Fine/Gross Motor Skills", "This is the ability to use small muscles (fine motor), particularly in the hands, and large muscles (gross motor) in the body. Babies use fine motor skills to grasp objects. Toddlers and preschoolers use them to do things like hold utensils, work with objects, and draw. Babies use gross motor skills to sit up, roll over, and begin to walk. Older kids use them to do things like jump, run, and climb stairs.", "3-5", "/images/motor.jpg")
-
                 );
-
             modelBuilder.Entity<Milestones>().HasData(
-
                 //Speech Milestones Age 3
                 new Milestones(1, "Follows Instructions with 2 or 3 steps", "3", false, 1),
                 new Milestones(2, "Can name most familiar things", "3", false, 1),
@@ -102,8 +94,6 @@ namespace FinalProject.Data
                 new Milestones(48, "Uses a fork or spoon and sometimes a table knife", "5", false, 3),
                 new Milestones(49, "Can use the toilet on his or her own", "5", false, 3)
             );
-
-                
             modelBuilder.Entity<ActivityPlan>().HasData(
                  //3 y/o Activities
                 new ActivityPlan(1, "Play Groups", "3", "Play Groups", 60, 45, 3),
@@ -127,22 +117,8 @@ namespace FinalProject.Data
                 new ActivityPlan(17, "Ride A Bicycle", "5", "Bike Ride", 35, 75, 3),
                 new ActivityPlan(18, "Visit the Library", "5", "Library", 60, 100, 1),
                 new ActivityPlan(19, "Educate: Days of the Week", "5", "Educate", 20, 60, 2)
-     
             );
-
-            modelBuilder.Entity<Profile>().HasData(
-                new Profile(1, "User1","Johnny",4)
-
-            );
-
-            modelBuilder.Entity<Login>().HasData(
-                new Login(1, "Username", "Password")
-            );
-
             base.OnModelCreating(modelBuilder);
         }
-
     }
-
 }
-

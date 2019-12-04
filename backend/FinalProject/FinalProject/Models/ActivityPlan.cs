@@ -13,7 +13,6 @@ namespace FinalProject.Models
         public string Description { get; set; }
         public int Duration { get; set; }
         public int Score { get; set; }
-
         public int SkillsId { get; set; }
         public virtual Skills Skills { get; set; }
 
@@ -29,7 +28,6 @@ namespace FinalProject.Models
         }
         public ActivityPlan()
         {
-
         }
     }
 }

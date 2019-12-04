@@ -22,34 +22,27 @@ namespace FinalProject
         {
             Configuration = configuration;
         }
-
         public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
             .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); ;
-
             services.AddDbContext<Context>();
             services.AddScoped<IRepository<Milestones>, MilestoneRepository>();
             services.AddScoped<IRepository<Activities>, ActivitiesRepository>();
             services.AddScoped<IRepository<Schedule>, ScheduleRepository>();
             services.AddScoped<IRepository<ActivityPlan>, ActivityPlanRepository>();
             services.AddScoped<IRepository<Skills>, SkillsRepository>();
-            services.AddScoped<IRepository<Profile>, ProfileRepository>();
-
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             }));
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
             .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -61,7 +54,6 @@ namespace FinalProject
             {
                 app.UseHsts();
             }
-
             app.UseCors("MyPolicy");
             app.UseHttpsRedirection();
             app.UseMvc();

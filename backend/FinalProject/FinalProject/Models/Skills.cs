@@ -12,12 +12,10 @@ namespace FinalProject.Models
         public string Description { get; set; }
         public string AgeRange { get; set; }
         public string Image { get; set; }
-
         public virtual ICollection<Milestones> Milestones { get; set; }
         public virtual ICollection<ActivityPlan> ActivityPlans { get; set; }
 
         public Skills(int id, string name, string description, string ageRange, string image)
-
         {
             Id = id;
             Name = name;
@@ -27,7 +25,6 @@ namespace FinalProject.Models
         }
         public Skills()
         {
-
         }
     }
 }

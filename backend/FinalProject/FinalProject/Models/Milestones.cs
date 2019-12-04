@@ -13,7 +13,6 @@ namespace FinalProject.Models
         public bool Completed { get; set; }
         public int SkillsId { get; set; }
         public virtual Skills Skills { get; set; }
-        
 
         public Milestones(int id, string milestone, string ageRange, bool completed, int skillsId)
         {
@@ -22,13 +21,9 @@ namespace FinalProject.Models
             AgeRange = ageRange;
             Completed = completed;
             SkillsId = skillsId;
-
-
-
         }
         public Milestones()
         {
-
         }
     }
 }

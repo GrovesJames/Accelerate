@@ -4,7 +4,6 @@ function getRequest(location, callback){
     .then(data => callback(data))
     .catch(err => console.log(err));
 }
-
 function postRequest(location, requestBody, callback){
     fetch(location, {
         method:"POST",
@@ -17,7 +16,6 @@ function postRequest(location, requestBody, callback){
     .then(data => callback(data))
     .catch(err => console.log(err));
 }
-
 function deleteRequest(location, callback) {
     fetch(location, {
         method: "DELETE",
@@ -25,12 +23,10 @@ function deleteRequest(location, callback) {
             "Content-Type": "application/json"
         }
     })
-
     .then(response => response.json())
     .then(data => callback(data))
     .catch(err => console.log(err));
 }
-
 function putRequest(location, requestBody, callback) {
     fetch(location, {
         method:"PUT",
@@ -39,12 +35,10 @@ function putRequest(location, requestBody, callback) {
             "Content-Type": "application/json"
         }
     })
-
     .then(response => response.json())
     .then(data => callback(data))
     .catch(err => console.log(err));
 }
-
 export default{
     getRequest,
     postRequest,

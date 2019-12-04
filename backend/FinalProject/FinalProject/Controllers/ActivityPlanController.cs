@@ -12,28 +12,23 @@ namespace FinalProject.Controllers
     [ApiController]
     public class ActivityPlanController : ControllerBase
     {
-
         private IRepository<ActivityPlan> activityPlanRepo;
-
         public ActivityPlanController(IRepository<ActivityPlan> activityPlanRepo)
         {
             this.activityPlanRepo = activityPlanRepo;
         }
-
         // GET api/ActivityPlans
         [HttpGet]
         public IEnumerable<ActivityPlan> Get()
         {
             return activityPlanRepo.GetAll();
         }
-
         // GET api/ActivityPlans/5
         [HttpGet("{id}")]
         public ActivityPlan Get(int id)
         {
             return activityPlanRepo.GetById(id);
         }
-
         // POST api/ActivityPlans
         [HttpPost]
         public IEnumerable<ActivityPlan> Post([FromBody] ActivityPlan activityPlan)
@@ -41,7 +36,6 @@ namespace FinalProject.Controllers
             activityPlanRepo.Create(activityPlan);
             return activityPlanRepo.GetAll();
         }
-
         // PUT api/ActivityPlans/5
         [HttpPut("{id}")]
         public IEnumerable<ActivityPlan> Put([FromBody] ActivityPlan activityPlan)
@@ -49,7 +43,6 @@ namespace FinalProject.Controllers
             activityPlanRepo.Update(activityPlan);
             return activityPlanRepo.GetAll();
         }
-
         // DELETE api/ActivityPlans/5
         [HttpDelete("{id}")]
         public IEnumerable<ActivityPlan> Delete(int id)

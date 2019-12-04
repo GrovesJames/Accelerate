@@ -15,7 +15,6 @@ namespace FinalProject.Models
         public int Duration { get; set; }
         public int Score { get; set; }
         public DateTime ActivityTime { get; set; }
-
         public int ScheduleId { get; set; }
         public virtual Schedule Schedule { get; set; }
 
@@ -32,7 +31,6 @@ namespace FinalProject.Models
         }
         public Activities()
         {
-
         }
     }
 }

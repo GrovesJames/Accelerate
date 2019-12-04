@@ -1,12 +1,8 @@
 import CalendarActivity from "./CalendarActivity";
 import Day from './Day';
-
 export default function Schedule(schedule) {
-    
     let nextButton = document.getElementById("calendar-next");
     let prevButton = document.getElementById("calendar-prev");
-    let daySchedule = document.getElementById("calendar-daySchedule");
-
     let today = new Date();
     let currentMonth = today.getMonth();
     let currentYear = today.getFullYear();
@@ -26,22 +22,12 @@ export default function Schedule(schedule) {
         "Nov",
         "Dec"
         ];
-        
-    const navDay = document.getElementById('calendar-day');
-    function dayNAV() {
-        navDay.addEventListener('click', function() {
-            app.innerHTML = "Day();";
-        });
-    }
-
     nextButton.addEventListener("click", function(){
         next();
     });
-
     prevButton.addEventListener("click", function(){
         previous();
     });
-
     function showSchedule(schedule){
         schedule.activities.map( activity => {
             let activityDate = new Date(activity.activityTime);
@@ -55,24 +41,17 @@ export default function Schedule(schedule) {
             }
         })
     }
-
     let monthAndYear = document.getElementById("monthAndYear");
     showCalendar(currentMonth, currentYear);
-
     function next() {
-    currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
-    currentMonth = (currentMonth + 1) % 12;
-    showCalendar(currentMonth, currentYear);
+        currentYear = currentMonth === 11 ? currentYear + 1 : currentYear;
+        currentMonth = (currentMonth + 1) % 12;
+        showCalendar(currentMonth, currentYear);
     }
     function previous() {
-    currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
-    currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
-    showCalendar(currentMonth, currentYear);
-    }
-    function jump() {
-    currentYear = parseInt(selectYear.value);
-    currentMonth = parseInt(selectMonth.value);
-    showCalendar(currentMonth, currentYear);
+        currentYear = currentMonth === 0 ? currentYear - 1 : currentYear;
+        currentMonth = currentMonth === 0 ? 11 : currentMonth - 1;
+        showCalendar(currentMonth, currentYear);
     }
     function showCalendar(month, year) {
     let firstDay = new Date(year, month).getDay();
@@ -123,7 +102,6 @@ export default function Schedule(schedule) {
     function daysInMonth(iMonth, iYear) {
     return 32 - new Date(iYear, iMonth, 32).getDate();
     }
-
     function addDayButtons(){
         const dayCells = document.getElementsByClassName("indday");
         for (var i = 0; i < dayCells.length; i++) {

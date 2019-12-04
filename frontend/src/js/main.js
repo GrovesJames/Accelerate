@@ -11,18 +11,9 @@ import Login from './Components/Login'
 import SkillActivities from './Components/SkillActivities'
 import SingleSkill from './Components/SingleSkill'
 
-const app = document.getElementById('app');
-const Testprofile = {
-    userName : "TestUser"
-};
-apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
-    Testprofile.schedule = schedule;
-})
-
 export default () => {
     pageBuild()
 }
-
 function pageBuild(){
     nav()
     header()
@@ -38,7 +29,10 @@ function pageBuild(){
     DeleteActivity()
     editActivity()
 }
-
+const app = document.getElementById('app');
+apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
+    Testprofile.schedule = schedule;
+})
 function nav(){
     const nav = document.getElementById('nav')
     nav.innerHTML = Nav();
@@ -47,17 +41,24 @@ function header(){
     const header = document.getElementById('header')
     header.innerHTML = Header();
 }
+
 function home(){
     app.innerHTML = Home();
 }
+
 function calendar(divPopulate){
     divPopulate.innerHTML = Calendar();
     apiActions.getRequest("https://localhost:44355/api/schedules/1", schedule => {
         Schedule(schedule);
     })
 }
+
 function skills(){
-    app.innerHTML = Skills();
+    apiActions.getRequest("https://localhost:44355/api/skills", skills => {
+        app.innerHTML = Skills(skills);
+        addSkillSelectButtons()
+        addActivitySelectButtons()
+    })
 }
 function about(){
     app.innerHTML = About();
@@ -95,7 +96,7 @@ function homeNAV() {
     navHome.addEventListener('click', function() {
         window.location.reload()
     });
-  }
+}
 function calendarNAV() {
     const navSchedule = document.querySelector('#calendarnav');
     navSchedule.addEventListener('click', function() {
@@ -107,14 +108,10 @@ function skillsNAV() {
     const navSkills = document.querySelector('#skillsnav');
     navSkills.addEventListener('click', function() {
         skills()
-        addSkillSelectButtons()
-        addActivitySelectButtons()
         closeNAV()
         document.querySelector('html').style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)), url("/images/teacher3.jpg")';
     });
-  
 }
-
 function aboutNAV() {
     const navAbout = document.querySelector('#btn1');
     navAbout.addEventListener('click', function() {
@@ -136,7 +133,7 @@ function closeNAV(){
 function stampDate(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-plan_submit")){   
-            const addDate = new Date(event.target.parentElement.querySelector('.add-activity_plan').value).toISOString()
+            const addDate = new Date(event.target.parentElement.querySelector('.add-activity_plan').value).toLocaleString("en-US", {timeZone: "America/New_York"})
 
             const addActivityPlanTitle = event.target.parentElement.querySelector(
                 ".activity-plan_title").value;
@@ -147,7 +144,6 @@ function stampDate(){
             const addActitvityPlanDuration = event.target.parentElement.querySelector(
                 ".activity-plan_duration").value;
             const scheduleId = 1;
-                
             console.log(addDate);
             apiActions.postRequest("https://localhost:44355/api/activities",
              {                
@@ -159,13 +155,12 @@ function stampDate(){
                 scheduleId: scheduleId
             },
             activityPlan =>{
-                alert("You have added: " + addActivityPlanTitle + " to your schedule");
+                alert("You have added: " + addActivityPlanTitle + " to your planner!");
             })        
         }
     });
 }
-
-   function addActivityPlan(){
+function addActivityPlan(){
     app.addEventListener('click', function() {
         if(event.target.classList.contains('add_activity-plan_submit')) {
             const activityplanTitle = event.target.parentElement.querySelector(
@@ -183,49 +178,52 @@ function stampDate(){
             const skillsId = event.target.parentElement.querySelector(
                 ".add-skills-id",
             ).value;
+            const ageRange = event.target.parentElement.querySelector(
+                ".add-activity_ageRange"
+            ).value;
             const activityPlan = {
-                
                 title: activityplanTitle,
-                ageRange: "3-5",
+                ageRange: ageRange,
                 description: activityplanDescription,
                 duration: activityplanDuration,
                 score: activityplanScore,   
                 skillsId: skillsId           
                   } 
-
             console.log(activityPlan);
             apiActions.postRequest("https://localhost:44355/api/activityplans",
             activityPlan, 
             activityPlan => {
-            alert("You added a new activity!")
+                alert("You added a new activity!")
+                apiActions.getRequest("https://localhost:44355/api/skills/" + skillsId, skill => {
+                    app.innerHTML = SkillActivities(skill);
+                })
         })       
     }
 })
-    
 }  
-
 function DeleteActivity(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-delete-btn")){
+            const skillsId = event.target.parentElement.querySelector(".activity-plan-skillid").value;
             const activityId = event.target.parentElement.querySelector(".activity-plan-id").value;
             apiActions.deleteRequest("https://localhost:44355/api/activityplans/" + activityId, function(){
-                alert("You have deleted an activity!!")
+                alert("The Activity has been deleted")
+                apiActions.getRequest("https://localhost:44355/api/skills/" + skillsId, skill => {
+                    app.innerHTML = SkillActivities(skill);
+                })
             })
         }
     })
-
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activityday-delete-btn")){
             const activityId = event.target.value;
             apiActions.deleteRequest("https://localhost:44355/api/activities/" + activityId, function(){
                 alert("The activity has been deleted!");
+                calendar(app)
             })
         }
     })
 };
-
-
-
 function editActivity(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("activity-edit-btn")) {
@@ -238,7 +236,6 @@ function editActivity(){
             })
         }
     })
-
     app.addEventListener("click", function(){
         if(event.target.classList.contains("update_activity_submit")) {
             const activityId = event.target.parentElement.querySelector(".update_activity_id")
@@ -254,8 +251,7 @@ function editActivity(){
             const activityAgeRange = event.target.parentElement.querySelector(".update_activity_ageRange")
                 .value;
             const activityTitle = event.target.parentElement.querySelector(".update_activity_title")
-                .value;
-            
+                .value;      
             const activityData = {
                 id: activityId,
                 skillsId: activitySkillId,
@@ -269,14 +265,14 @@ function editActivity(){
             activityData,
             activity => {
                alert("You have updated the activity")
+               apiActions.getRequest("https://localhost:44355/api/skills/" + activitySkillId, skill => {
+                    app.innerHTML = SkillActivities(skill);
+                })
             }
             );
         }
     })
 }
-
-
-
 function updateMilestone(){
     app.addEventListener("click", function(){
         if(event.target.classList.contains("milestone_check")){   
@@ -285,7 +281,6 @@ function updateMilestone(){
                 ".milestones_checked").value;
             if(completed == "true"){Completed=false}
             else {Completed=true};
-
             const Id= event.target.parentElement.parentElement.querySelector(
                 ".milestones_id").value;
             const Milestone=event.target.parentElement.parentElement.querySelector(
@@ -301,16 +296,9 @@ function updateMilestone(){
                 ageRange: AgeRange,
                 completed: Completed,
                 skillsId: SkillsId
-                
             },
             milestone =>{
             } )
         }
-
     })
 }
-
-        
-
-   
-

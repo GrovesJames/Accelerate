@@ -4,18 +4,20 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20191203183436_updatecognitive")]
+    partial class updatecognitive
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.11-servicing-32099")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -93,6 +95,25 @@ namespace FinalProject.Migrations
                     );
                 });
 
+            modelBuilder.Entity("FinalProject.Models.Login", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Password");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Login");
+
+                    b.HasData(
+                        new { Id = 1, Password = "Password", UserName = "Username" }
+                    );
+                });
+
             modelBuilder.Entity("FinalProject.Models.Milestones", b =>
                 {
                     b.Property<int>("Id")
@@ -165,18 +186,44 @@ namespace FinalProject.Migrations
                     );
                 });
 
+            modelBuilder.Entity("FinalProject.Models.Profile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ChildAge");
+
+                    b.Property<string>("ChildName");
+
+                    b.Property<string>("UserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Profile");
+
+                    b.HasData(
+                        new { Id = 1, ChildAge = 4, ChildName = "Johnny", UserName = "User1" }
+                    );
+                });
+
             modelBuilder.Entity("FinalProject.Models.Schedule", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("ProfileId");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("ProfileId")
+                        .IsUnique();
 
                     b.ToTable("Schedule");
 
                     b.HasData(
-                        new { Id = 1 }
+                        new { Id = 1, ProfileId = 1 }
                     );
                 });
 
@@ -226,6 +273,14 @@ namespace FinalProject.Migrations
                     b.HasOne("FinalProject.Models.Skills", "Skills")
                         .WithMany("Milestones")
                         .HasForeignKey("SkillsId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("FinalProject.Models.Schedule", b =>
+                {
+                    b.HasOne("FinalProject.Models.Profile", "profile")
+                        .WithOne("schedule")
+                        .HasForeignKey("FinalProject.Models.Schedule", "ProfileId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
