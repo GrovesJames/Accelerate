@@ -19,7 +19,7 @@ export default function SingleSkill(skill){
       </article>
       <div class="box">
         <div class="box2">
-          <h5>Activites</h5>
+          <h5>Activities</h5>
           <ul id="skillactivities"> 
         ${skill.activityPlans.map( activityPlan => {
           return `
